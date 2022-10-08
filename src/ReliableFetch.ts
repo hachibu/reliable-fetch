@@ -1,43 +1,51 @@
-import { time } from "console";
-import fetchCircuitBreaker from "./fetchCircuitBreaker";
-import fetchHedged from "./fetchHedged";
-import fetchTimeout from "./fetchTimeout";
-import {
-  ReliableFallbackFunction,
-  ReliableFetchFunction,
-  ReliableRequestInit,
-} from "./types";
+import fetchCircuitBreaker from './fetchCircuitBreaker'
+import fetchHedge from './fetchHedge'
+import fetchRetry from './fetchRetry'
+import fetchTimeout from './fetchTimeout'
+import { Backoff, ReliableFetchFunction, ReliableRequestInit } from './types'
 
 export default class ReliableFetch {
-  fetch: ReliableFetchFunction = fetch;
+    fetch: ReliableFetchFunction = fetch
 
-  constructor(
-    public url: RequestInfo | URL,
-    public init: ReliableRequestInit = {}
-  ) {}
+    constructor(
+        public url: RequestInfo | URL,
+        public init: ReliableRequestInit = {}
+    ) {}
 
-  timeout(timeout: number): ReliableFetch {
-    this.init.timeout = timeout;
-    this.fetch = fetchTimeout;
-    return this;
-  }
-
-  hedge(timeout: number): ReliableFetch {
-    this.init.timeout = timeout;
-    this.fetch = fetchHedged;
-    return this;
-  }
-
-  circuitBreaker(init?: ReliableRequestInit): ReliableFetch {
-    this.init.fetch = this.fetch;
-    if (init?.fallback) {
-      this.init.fallback = init.fallback;
+    timeout(timeout: number): ReliableFetch {
+        this.init.timeout = timeout
+        this.fetch = fetchTimeout
+        return this
     }
-    this.fetch = fetchCircuitBreaker;
-    return this;
-  }
 
-  async run(): Promise<Response> {
-    return this.fetch(this.url, this.init);
-  }
+    hedge(timeout: number): ReliableFetch {
+        this.init.timeout = timeout
+        this.fetch = fetchHedge
+        return this
+    }
+
+    retry(
+        retries?: number,
+        timeout?: number,
+        backoff?: Backoff
+    ): ReliableFetch {
+        this.init.retries = retries
+        this.init.timeout = timeout
+        this.init.backoff = backoff
+        this.fetch = fetchRetry
+        return this
+    }
+
+    circuitBreaker(init?: ReliableRequestInit): ReliableFetch {
+        this.init.fetch = this.fetch
+        if (init?.fallback) {
+            this.init.fallback = init.fallback
+        }
+        this.fetch = fetchCircuitBreaker
+        return this
+    }
+
+    async run(): Promise<Response> {
+        return this.fetch(this.url, this.init)
+    }
 }
