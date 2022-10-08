@@ -6,10 +6,6 @@ esbuild
         bundle: true,
         outdir: 'dist',
         platform: 'node',
-
-
-
-
         // minify: true,
     })
     .catch(() => process.exit(1))
