@@ -1,6 +1,6 @@
 # Reliable Fetch ![version](https://img.shields.io/github/package-json/v/hachibu/reliable-fetch) ![license](https://img.shields.io/github/license/hachibu/reliable-fetch)
 
-An easy-to-use library for Node.js to make the fetch function more reliable.
+An easy-to-use library for Node.js to make the fetch function more reliable. This library is currently under development and should be considered incomplete and a work in progress.
 
 **[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
 
