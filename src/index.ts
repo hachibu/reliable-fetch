@@ -1,12 +1,12 @@
 import ReliableFetch from './ReliableFetch'
-import { ReliableRequestInfo, ReliableRequestInit } from './types'
+import { ReliableRequestInit } from './types'
 import fetchTimeout from './fetchTimeout'
 import fetchCircuitBreaker from './fetchCircuitBreaker'
 import fetchHedge from './fetchHedge'
 import fetchRetry from './fetchRetry'
 
 const reliableFetch = (
-    url: ReliableRequestInfo,
+    url: RequestInfo | URL,
     init?: ReliableRequestInit
 ): ReliableFetch => new ReliableFetch(url, init)
 

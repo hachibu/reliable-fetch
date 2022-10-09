@@ -1,11 +1,9 @@
 import { Options } from 'opossum'
 
 export type ReliableFetchFunction = (
-    input: ReliableRequestInfo,
+    input: RequestInfo | URL,
     init?: ReliableRequestInit
 ) => Promise<Response>
-
-export type ReliableRequestInfo = RequestInfo | URL
 
 export type ReliableRequestInit = RequestInit &
     Options & {
