@@ -1,5 +1,9 @@
 import ReliableFetch from './ReliableFetch'
 import { ReliableRequestInfo, ReliableRequestInit } from './types'
+import fetchTimeout from './fetchTimeout'
+import fetchCircuitBreaker from './fetchCircuitBreaker'
+import fetchHedge from './fetchHedge'
+import fetchRetry from './fetchRetry'
 
 const reliableFetch = (
     url: ReliableRequestInfo,
@@ -9,4 +13,11 @@ const reliableFetch = (
 }
 
 export default reliableFetch
-export { ReliableFetch }
+export * from './types'
+export {
+    ReliableFetch,
+    fetchTimeout,
+    fetchCircuitBreaker,
+    fetchHedge,
+    fetchRetry,
+}

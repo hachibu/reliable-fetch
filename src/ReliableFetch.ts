@@ -2,7 +2,11 @@ import fetchCircuitBreaker from './fetchCircuitBreaker'
 import fetchHedge from './fetchHedge'
 import fetchRetry from './fetchRetry'
 import fetchTimeout from './fetchTimeout'
-import { Backoff, ReliableFetchFunction, ReliableRequestInit } from './types'
+import {
+    BackoffStrategy,
+    ReliableFetchFunction,
+    ReliableRequestInit,
+} from './types'
 
 export default class ReliableFetch {
     fetch: ReliableFetchFunction = fetch
@@ -24,14 +28,22 @@ export default class ReliableFetch {
         return this
     }
 
-    retry(
-        retries?: number,
-        timeout?: number,
-        backoff?: Backoff
-    ): ReliableFetch {
+    retryTimes(retries: number): ReliableFetch {
         this.init.retries = retries
-        this.init.timeout = timeout
-        this.init.backoff = backoff
+        this.fetch = fetchRetry
+        return this
+    }
+
+    retry(init?: ReliableRequestInit): ReliableFetch {
+        if (init?.retries) {
+            this.init.retries = init.retries
+        }
+        if (init?.timeout) {
+            this.init.timeout = init.timeout
+        }
+        if (init?.backoff) {
+            this.init.backoff = init.backoff
+        }
         this.fetch = fetchRetry
         return this
     }

@@ -3,8 +3,8 @@ import { sleep } from './utils'
 
 const fetchRetry: ReliableFetchFunction = async (input, init) => {
     let backoff = init?.backoff ?? 'linear'
+    let delay = init?.delay ?? 100
     let retries = init?.retries ?? 1
-    let timeout = (init?.timeout as number) ?? 500
 
     for (let i = 0; i < retries; i++) {
         try {
@@ -12,10 +12,10 @@ const fetchRetry: ReliableFetchFunction = async (input, init) => {
             return response
         } catch {}
 
-        await sleep(timeout)
+        await sleep(delay)
 
         if (backoff === 'exponential') {
-            timeout **= 2
+            delay **= 2
         }
     }
 

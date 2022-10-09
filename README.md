@@ -1,43 +1,33 @@
-# Reliable Fetch ![reliable-fetch version](https://img.shields.io/badge/version-v0.0.0-yellow.svg)
+# Reliable Fetch ![version](https://img.shields.io/github/package-json/v/hachibu/reliable-fetch) ![license](https://img.shields.io/github/license/hachibu/reliable-fetch)
 
 An easy-to-use library for Node.js to make the fetch function more reliable.
 
-## Features
+**[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
+
+**Goals**
+
+-   Unify reliability functions from multiple libraries into a single library.
+-   Design a [fluent API](https://en.wikipedia.org/wiki/Fluent_interface) that allows users to easily discover and compose reliability functions.
+
+**Features**
 
 -   Timeout
 -   Circuit breaker
--   Request hedging
 -   Retry with linear and exponential backoff
+-   Request hedging
 
-## What Problems Are We Solving?
+## Quick Start
 
-| Problem                                                       | Solution                                                                             |
-| :------------------------------------------------------------ | :----------------------------------------------------------------------------------- |
-| Reliability functions are isolated across multiple libraries. | Unify under a single library.                                                        |
-| Composition of reliability functions is not easy.             | Provide an easy-to-use [fluent API](https://en.wikipedia.org/wiki/Fluent_interface). |
+### Installation
 
-## Fluent API Examples
-
-Fetch with default fetch.
-
-```ts
-await reliableFetch(url).run()
+```
+npm install ...
 ```
 
-Fetch with timeout.
+### Usage
 
 ```ts
-await reliableFetch(url).timeout(2000).run()
-```
+import reliableFetch from 'reliable-fetch'
 
-Fetch with circuit breaker.
-
-```ts
-await reliableFetch(url).circuitBreaker().run()
-```
-
-Fetch with timeout and circuit breaker.
-
-```ts
-await reliableFetch(url).timeout(2000).circuitBreaker().run()
+const res = await reliableFetch('https://google.com').timeout(200).run()
 ```
