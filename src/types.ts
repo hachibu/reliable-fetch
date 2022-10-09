@@ -5,7 +5,7 @@ export type ReliableFetchFunction = (
     init?: ReliableRequestInit
 ) => Promise<Response>
 
-export type ReliableFallbackFunction = () => Promise<any>
+export type ReliableFallbackFunction = () => Promise<Response>
 
 export type ReliableRequestInfo = RequestInfo | URL
 
