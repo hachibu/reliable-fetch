@@ -4,12 +4,12 @@ An easy-to-use library for Node.js to make the fetch function more reliable.
 
 **[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
 
-**Goals**
+**💡 Goals**
 
 -   Unify reliability functions from multiple libraries into a single library.
 -   Design a [fluent API](https://en.wikipedia.org/wiki/Fluent_interface) that allows users to easily discover and compose reliability functions.
 
-**Features**
+**✨ Features**
 
 -   Timeout
 -   Circuit breaker
