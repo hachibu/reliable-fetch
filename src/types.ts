@@ -11,11 +11,11 @@ export type ReliableRequestInfo = RequestInfo | URL
 
 export type ReliableRequestInit = RequestInit &
     Options & {
-        backoff?: BackoffStrategy
+        backoff?: RetryBackoffStrategy
         fallback?: ReliableFallbackFunction
         fetch?: ReliableFetchFunction
         retries?: number
         delay?: number
     }
 
-export type BackoffStrategy = 'linear' | 'exponential'
+export type RetryBackoffStrategy = 'linear' | 'exponential'

@@ -2,11 +2,7 @@ import fetchCircuitBreaker from './fetchCircuitBreaker'
 import fetchHedge from './fetchHedge'
 import fetchRetry from './fetchRetry'
 import fetchTimeout from './fetchTimeout'
-import {
-    BackoffStrategy,
-    ReliableFetchFunction,
-    ReliableRequestInit,
-} from './types'
+import { ReliableFetchFunction, ReliableRequestInit } from './types'
 
 export default class ReliableFetch {
     fetch: ReliableFetchFunction = fetch
