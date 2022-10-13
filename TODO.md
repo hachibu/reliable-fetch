@@ -1,6 +1,6 @@
 # TODO
 
--   [ ] How does timeout compose with retry? And how fluent is the API (e.g. retryTimes)?
+How will timeout compose with retry? How granular should the fluent API be? For example, retryTimes?
 
 ```ts
 const res = await reliableFetch('https://google.com')
