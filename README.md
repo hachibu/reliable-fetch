@@ -29,8 +29,9 @@ yarn add @hachibu/reliable-fetch
 ### Usage
 
 ```ts
+// examples/timeout.ts
 import reliableFetch from '@hachibu/reliable-fetch'
 ;(async () => {
-    const res = await reliableFetch('https://google.com').timeout(100).run()
+    await reliableFetch('https://google.com').timeout(100).run()
 })()
 ```
