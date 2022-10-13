@@ -2,6 +2,8 @@
 
 An easy-to-use library for Node.js to make the fetch function more reliable. This library is currently under development and should be considered incomplete and a work in progress.
 
+**[NPM Package](https://www.npmjs.com/package/@hachibu/reliable-fetch)**
+
 **[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
 
 **💡 Goals**
