@@ -1,8 +1,8 @@
-# Reliable Fetch ![version](https://img.shields.io/github/package-json/v/hachibu/reliable-fetch) ![license](https://img.shields.io/github/license/hachibu/reliable-fetch)
+# Reliable Fetch ![NPM version](https://img.shields.io/npm/v/@hachibu/reliable-fetch) ![license](https://img.shields.io/github/license/hachibu/reliable-fetch)
 
 An easy-to-use library for Node.js to make the fetch function more reliable. This library is currently under development and should be considered incomplete and a work in progress.
 
-**[NPM Package](https://www.npmjs.com/package/@hachibu/reliable-fetch)**
+**[📦 NPM Package](https://www.npmjs.com/package/@hachibu/reliable-fetch)**
 
 **[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
 
@@ -29,7 +29,8 @@ yarn add @hachibu/reliable-fetch
 ### Usage
 
 ```ts
-import reliableFetch from 'reliable-fetch'
-
-const res = await reliableFetch('https://google.com').timeout(200).run()
+import reliableFetch from '@hachibu/reliable-fetch'
+;(async () => {
+    const res = await reliableFetch('https://google.com').timeout(100).run()
+})()
 ```
