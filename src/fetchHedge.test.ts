@@ -1,6 +1,7 @@
 import { describe, expect, it } from '@jest/globals'
 import fetchHedge from './fetchHedge'
 import { fetchMockResponseWithWait, DEFAULT_WAIT } from '../jest.helpers'
+import fetchMock from 'jest-fetch-mock'
 
 describe('fetchHedge', () => {
     beforeEach(() => {

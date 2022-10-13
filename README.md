@@ -21,7 +21,7 @@ An easy-to-use library for Node.js to make the fetch function more reliable. Thi
 ### Installation
 
 ```
-npm install ...
+yarn add @hachibu/reliable-fetch
 ```
 
 ### Usage

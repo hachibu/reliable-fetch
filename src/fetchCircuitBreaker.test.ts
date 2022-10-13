@@ -1,6 +1,7 @@
 import { describe, expect, it } from '@jest/globals'
 import fetchCircuitBreaker from './fetchCircuitBreaker'
 import { fetchMockResponseWithWait, DEFAULT_WAIT } from '../jest.helpers'
+import fetchMock from 'jest-fetch-mock'
 
 describe('fetchCircuitBreaker', () => {
     beforeEach(() => {
