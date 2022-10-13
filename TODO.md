@@ -1,6 +1,7 @@
 # TODO
 
-How will timeout compose with retry? How granular should the fluent API be? For example, retryTimes?
+-   Add keywords to package.json
+-   How will timeout compose with retry? How granular should the fluent API be? For example, retryTimes?
 
 ```ts
 const res = await reliableFetch('https://google.com')
