@@ -12,6 +12,7 @@ export type ReliableRequestInit = RequestInit &
         fetch?: ReliableFetchFunction
         retries?: number
         delay?: number
+        failureRate?: number
     }
 
 export type RetryBackoffStrategy = 'linear' | 'exponential'

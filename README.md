@@ -17,6 +17,7 @@ An easy-to-use library for Node.js to make the fetch function more reliable. Thi
 -   Circuit breaker
 -   Retry with linear and exponential backoff
 -   Request hedging
+-   Random chaos
 
 ## Quick Start
 

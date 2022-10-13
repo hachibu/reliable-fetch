@@ -1,4 +1,5 @@
 import fetchCircuitBreaker from './fetchCircuitBreaker'
+import fetchChaos from './fetchChaos'
 import fetchHedge from './fetchHedge'
 import fetchRetry from './fetchRetry'
 import fetchTimeout from './fetchTimeout'
@@ -21,6 +22,12 @@ export default class ReliableFetch {
     hedge(timeout: number): ReliableFetch {
         this.init.timeout = timeout
         this.fetch = fetchHedge
+        return this
+    }
+
+    chaos(failureRate: number): ReliableFetch {
+        this.init.failureRate = failureRate
+        this.fetch = fetchChaos
         return this
     }
 

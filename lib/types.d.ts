@@ -10,5 +10,6 @@ export declare type ReliableRequestInit = RequestInit &
         fetch?: ReliableFetchFunction
         retries?: number
         delay?: number
+        failureRate?: number
     }
 export declare type RetryBackoffStrategy = 'linear' | 'exponential'
