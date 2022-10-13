@@ -1,4 +1,4 @@
-# Reliable Fetch ![NPM version](https://img.shields.io/npm/v/@hachibu/reliable-fetch) ![license](https://img.shields.io/github/license/hachibu/reliable-fetch)
+# Reliable Fetch
 
 An easy-to-use library for Node.js to make the fetch function more reliable. This library is currently under development and should be considered incomplete and a work in progress.
 
