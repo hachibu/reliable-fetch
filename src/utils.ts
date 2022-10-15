@@ -1,2 +1,2 @@
-export const sleep = (delay: number): Promise<void> =>
-    new Promise((resolve) => setTimeout(() => resolve(), delay))
+export const sleep = <T>(ms: number): Promise<T> =>
+    new Promise((resolve) => setTimeout(() => resolve(<T>''), ms))
