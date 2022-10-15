@@ -4,15 +4,7 @@ import { fetchMockResponseWithWait, DEFAULT_WAIT } from '../jest.helpers'
 import fetchMock from 'jest-fetch-mock'
 
 describe('fetchHedge', () => {
-    beforeEach(() => {
-        fetchMock.resetMocks()
-        fetchMock.doMock()
-        fetchMockResponseWithWait(DEFAULT_WAIT)
-    })
-
-    afterEach(() => {
-        jest.useRealTimers()
-    })
+    beforeEach(() => fetchMockResponseWithWait())
 
     it('calls fetch once if first call resolves within timeout ', async () => {
         await expect(

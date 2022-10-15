@@ -1,1 +1,1 @@
-export declare const sleep: (delay: number) => Promise<void>
+export declare const sleep: (delay: number) => Promise<void>;

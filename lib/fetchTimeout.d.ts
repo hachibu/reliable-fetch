@@ -1,3 +1,3 @@
-import { ReliableFetchFunction } from './types'
-declare const fetchTimeout: ReliableFetchFunction
-export default fetchTimeout
+import { ReliableFetchFunction } from './types';
+declare const fetchTimeout: ReliableFetchFunction;
+export default fetchTimeout;

@@ -37,7 +37,7 @@
         "typescript": "^4.8.4"
     },
     "scripts": {
-        "build": "jest && yarn run build:tsc && yarn build:doc",
+        "build": "jest && yarn run build:tsc && sleep 2 && yarn build:doc",
         "build:tsc": "tsc",
         "build:doc": "typedoc src",
         "prepare": "husky install",

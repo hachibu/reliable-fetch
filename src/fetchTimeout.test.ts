@@ -4,15 +4,7 @@ import { fetchMockResponseWithWait, DEFAULT_WAIT } from '../jest.helpers'
 import fetchMock from 'jest-fetch-mock'
 
 describe('fetchTimeout', () => {
-    beforeEach(() => {
-        fetchMock.resetMocks()
-        fetchMock.doMock()
-        fetchMockResponseWithWait()
-    })
-
-    afterEach(() => {
-        jest.useRealTimers()
-    })
+    beforeEach(() => fetchMockResponseWithWait())
 
     it('rejects within timeout', async () => {
         fetchMock.mockAbort()

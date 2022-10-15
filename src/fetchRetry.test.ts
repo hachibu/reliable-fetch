@@ -4,18 +4,9 @@ import { fetchMockResponseWithWait, DEFAULT_WAIT } from '../jest.helpers'
 import fetchMock from 'jest-fetch-mock'
 
 describe('fetchRetry', () => {
-    beforeEach(() => {
-        fetchMock.resetMocks()
-        fetchMock.doMock()
-    })
-
-    afterEach(() => {
-        jest.useRealTimers()
-    })
-
     it('resolves without retry', async () => {
         const retries = 3
-        fetchMockResponseWithWait(DEFAULT_WAIT)
+        fetchMockResponseWithWait()
         await expect(
             fetchRetry('', {
                 delay: DEFAULT_WAIT / 2,
@@ -27,7 +18,7 @@ describe('fetchRetry', () => {
 
     it('retries fetch with linear delay', async () => {
         const retries = 3
-        fetchMockResponseWithWait(DEFAULT_WAIT)
+        fetchMockResponseWithWait()
         fetchMock.mockAbort()
         await expect(
             fetchRetry('', {
