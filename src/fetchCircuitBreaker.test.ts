@@ -1,9 +1,9 @@
 import { describe, expect, it } from '@jest/globals'
 import fetchCircuitBreaker from './fetchCircuitBreaker'
-import { fetchMockResponseWithWait, DEFAULT_WAIT } from '../jest.helpers'
+import { fetchMockResponseWithDelay, DEFAULT_WAIT } from '../jest.helpers'
 
 describe('fetchCircuitBreaker', () => {
-    beforeEach(() => fetchMockResponseWithWait())
+    beforeEach(() => fetchMockResponseWithDelay())
 
     it('calls fetch once if first call resolves within timeout ', async () => {
         await expect(

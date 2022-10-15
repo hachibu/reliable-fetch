@@ -1,10 +1,10 @@
 import { describe, expect, it } from '@jest/globals'
-import { fetchMockResponseWithWait } from '../jest.helpers'
+import { fetchMockResponseWithDelay } from '../jest.helpers'
 import fetchChaos from './fetchChaos'
 import { ChaosError } from './errors'
 
 describe('fetchChaos', () => {
-    beforeEach(() => fetchMockResponseWithWait(10))
+    beforeEach(() => fetchMockResponseWithDelay(10))
 
     const table = [[0.1], [0.5], [0.9]]
 

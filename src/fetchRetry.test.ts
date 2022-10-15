@@ -1,12 +1,12 @@
 import { describe, expect, it } from '@jest/globals'
 import fetchRetry from './fetchRetry'
-import { fetchMockResponseWithWait, DEFAULT_WAIT } from '../jest.helpers'
+import { fetchMockResponseWithDelay, DEFAULT_WAIT } from '../jest.helpers'
 import fetchMock from 'jest-fetch-mock'
 
 describe('fetchRetry', () => {
     it('resolves without retry', async () => {
         const retries = 3
-        fetchMockResponseWithWait()
+        fetchMockResponseWithDelay()
         await expect(
             fetchRetry('', {
                 delay: DEFAULT_WAIT / 2,
@@ -18,7 +18,7 @@ describe('fetchRetry', () => {
 
     it('retries fetch with linear delay', async () => {
         const retries = 3
-        fetchMockResponseWithWait()
+        fetchMockResponseWithDelay()
         fetchMock.mockAbort()
         await expect(
             fetchRetry('', {
@@ -31,7 +31,7 @@ describe('fetchRetry', () => {
 
     it('retries fetch with exponential delay', async () => {
         const retries = 3
-        fetchMockResponseWithWait(1)
+        fetchMockResponseWithDelay(1)
         fetchMock.mockAbort()
         await expect(
             fetchRetry('', {
