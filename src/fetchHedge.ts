@@ -5,10 +5,11 @@ const fetchHedge: ReliableFetchFunction = async (input, init) => {
     let response: Response
     try {
         response = await fetchTimeout(input, { ...init })
-    } catch (error: unknown) {
-        const e = error as DOMException
-        if (e?.name !== 'AbortError') {
-            throw error
+    } catch (error) {
+        if (error instanceof Error) {
+            if (error.name !== 'AbortError') {
+                throw error
+            }
         }
         response = await fetch(input, init)
     }
