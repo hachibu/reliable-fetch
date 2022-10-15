@@ -8,6 +8,8 @@ This library is currently under development and should be considered incomplete 
 
 **[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
 
+**[💻 Examples](examples)**
+
 **💡 Goals**
 
 -   Unify reliability functions from multiple libraries into a single library.
@@ -21,20 +23,29 @@ This library is currently under development and should be considered incomplete 
 -   Request hedging
 -   Random chaos
 
-## Quick Start
+## Installation
 
-### Installation
+### NPM
+
+```
+npm i @hachibu/reliable-fetch
+```
+
+### Yarn
 
 ```
 yarn add @hachibu/reliable-fetch
 ```
 
-### Usage
+## Usage
 
 ```ts
 // examples/timeout.ts
 import reliableFetch from '@hachibu/reliable-fetch'
-;(async () => {
-    await reliableFetch('https://google.com').timeout(100).run()
-})()
+
+async function main() {
+    await reliableFetch('https://google.com').timeout(10).run()
+}
+
+main()
 ```

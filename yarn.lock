@@ -961,28 +961,12 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@hachibu/reliable-fetch@^0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@hachibu/reliable-fetch/-/reliable-fetch-0.0.0.tgz#26fa08bfaf609d62c190ed84cebcabbf48632afe"
-  integrity sha512-mfSJdR5+pdewXfoIged62xqivtqMvd/trAi9s0hEKDSa6EX488Zi3ekyYSMW6aP0JxrfrzVVDqSmWHKgFtwG7g==
+"@hachibu/reliable-fetch@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@hachibu/reliable-fetch/-/reliable-fetch-0.0.7.tgz#fa64ba094bf8b2bef47039bd380823995572a93f"
+  integrity sha512-ICWroXvyvleR5EjpIHiHnQ20XmYB7vyhVZbxFo/QeTHxsfzR+NnUmy4d8UJsWyNXIElSPlmLqvGVrQW2wNKkvw==
   dependencies:
-    "@babel/core" "^7.19.3"
-    "@babel/preset-env" "^7.19.3"
-    "@babel/preset-typescript" "^7.18.6"
-    "@types/jest" "^29.1.2"
-    "@types/node" "^18.8.3"
-    "@types/opossum" "^6.2.2"
-    babel-jest "^29.1.2"
-    husky "^8.0.1"
-    jest "^29.1.2"
-    jest-fetch-mock "^3.0.3"
     opossum "^6.4.0"
-    prettier "^2.7.1"
-    pretty-quick "^3.1.3"
-    ts-jest "^29.0.3"
-    ts-node "^10.9.1"
-    typedoc "^0.23.15"
-    typescript "^4.8.4"
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
