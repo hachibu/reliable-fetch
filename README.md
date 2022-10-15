@@ -8,12 +8,12 @@ This library is currently under development and should be considered incomplete 
 
 **[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
 
-**[💻 Examples](examples)**
+**[💻 Examples](https://github.com/hachibu/reliable-fetch/tree/main/examples)**
 
 **💡 Goals**
 
 -   Unify reliability functions from multiple libraries into a single library.
--   Design a [fluent API](https://en.wikipedia.org/wiki/Fluent_interface) that allows users to easily discover and compose reliability functions.
+-   Design and document a [fluent API](https://en.wikipedia.org/wiki/Fluent_interface) where users can easily discover and compose reliability functions.
 
 **✨ Features**
 
