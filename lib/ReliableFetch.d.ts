@@ -4,6 +4,10 @@ export default class ReliableFetch {
     init: ReliableRequestInit;
     fetch: ReliableFetchFunction;
     constructor(url: RequestInfo | URL, init?: ReliableRequestInit);
+    /**
+     * Abort the request if it exceeds the timeout.
+     * @param {number} timeout milliseconds
+     */
     timeout(timeout: number): ReliableFetch;
     hedge(timeout: number): ReliableFetch;
     chaos(failureRate: number): ReliableFetch;

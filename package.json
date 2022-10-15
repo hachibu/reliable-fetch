@@ -21,7 +21,6 @@
         "@babel/core": "^7.19.3",
         "@babel/preset-env": "^7.19.3",
         "@babel/preset-typescript": "^7.18.6",
-        "@hachibu/reliable-fetch": "^0.0.7",
         "@types/jest": "^29.1.2",
         "@types/node": "^18.8.3",
         "@types/opossum": "^6.2.2",
@@ -42,6 +41,7 @@
         "build:doc": "typedoc src",
         "prepare": "husky install",
         "test": "jest",
-        "publish": "npm publish --access public"
+        "publish": "npm publish --access public",
+        "link": "yarn link @hachibu/reliable-fetch"
     }
 }

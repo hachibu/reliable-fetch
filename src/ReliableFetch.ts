@@ -13,6 +13,10 @@ export default class ReliableFetch {
         public init: ReliableRequestInit = {}
     ) {}
 
+    /**
+     * Abort the request if it exceeds the timeout.
+     * @param {number} timeout milliseconds
+     */
     timeout(timeout: number): ReliableFetch {
         this.init.timeout = timeout
         this.fetch = fetchTimeout
