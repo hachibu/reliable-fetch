@@ -15,13 +15,13 @@ This library is currently under development and should be considered incomplete 
 -   Unify reliability functions from multiple libraries into a single library.
 -   Design and document a [fluent API](https://en.wikipedia.org/wiki/Fluent_interface) where users can easily discover and compose reliability functions.
 
-**✨ Features**
+**🗺️ Roadmap**
 
--   Timeout
--   Circuit breaker
--   Retry with linear and exponential backoff
--   Request hedging
--   Random chaos
+-   [ ] Timeout
+-   [ ] Circuit breaker
+-   [ ] Retry with linear and exponential backoff
+-   [ ] Request hedging
+-   [ ] Random chaos
 
 ## Installation
 
