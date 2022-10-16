@@ -11,6 +11,5 @@
 ## NPM Publish Checklist
 
 -   [ ] Bump package version in `package.json`.
--   [ ] Check NPM package size: `npm pack --dry-run`
 -   [ ] `npm login`
 -   [ ] `npm publish --access public`

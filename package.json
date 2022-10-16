@@ -44,6 +44,7 @@
         "build:docs": "rm -rf docs/* && typedoc src",
         "build:src": "rm -rf dist/* && tsc",
         "prepare": "husky install",
-        "test": "jest"
+        "test": "jest",
+        "lint:npm-package": "ts-node scripts/lintNPMPackage.ts"
     }
 }
