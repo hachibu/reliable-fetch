@@ -1,12 +1,10 @@
 import { Options } from 'opossum';
-import ReliableFetchFunction from './ReliableFetchFunction';
 import RetryStrategy from './RetryStrategy';
 export interface ChaosConfig {
     failureRate: number;
 }
 export interface CircuitBreakerConfig {
-    fallback: () => Promise<Response>;
-    fetch: ReliableFetchFunction;
+    fallback?: () => Promise<Response>;
 }
 export interface HedgeConfig {
     timeout: number;

@@ -11,19 +11,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const utils_1 = require("../utils");
 const fetchRetry = (input, init) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a, _b, _c;
-    let strategy = (_a = init === null || init === void 0 ? void 0 : init.strategy) !== null && _a !== void 0 ? _a : 'linear';
-    let delayBetweenRetries = (_b = init === null || init === void 0 ? void 0 : init.delayBetweenRetries) !== null && _b !== void 0 ? _b : 100;
-    let maxRetries = (_c = init === null || init === void 0 ? void 0 : init.maxRetries) !== null && _c !== void 0 ? _c : 1;
-    for (let i = 0; i < maxRetries; i++) {
+    var _a;
+    var _b, _c, _d;
+    const config = {
+        strategy: (_b = init === null || init === void 0 ? void 0 : init.strategy) !== null && _b !== void 0 ? _b : 'linear',
+        delayBetweenRetries: (_c = init === null || init === void 0 ? void 0 : init.delayBetweenRetries) !== null && _c !== void 0 ? _c : 100,
+        maxRetries: (_d = init === null || init === void 0 ? void 0 : init.maxRetries) !== null && _d !== void 0 ? _d : 1,
+    };
+    for (let i = 0; i < config.maxRetries; i++) {
         try {
-            let response = yield fetch(input, init);
-            return response;
+            return yield fetch(input, init);
         }
-        catch (_d) { }
-        yield (0, utils_1.sleep)(delayBetweenRetries);
-        if (strategy === 'exponential') {
-            delayBetweenRetries = Math.pow(delayBetweenRetries, 2);
+        catch (_e) { }
+        yield (0, utils_1.sleep)(config.delayBetweenRetries);
+        if (config.strategy === 'exponential') {
+            (_a = config).delayBetweenRetries = Math.pow(_a.delayBetweenRetries, 2);
         }
     }
     return fetch(input, init);

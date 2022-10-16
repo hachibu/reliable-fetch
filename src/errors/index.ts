@@ -1,4 +1,4 @@
 import ArgumentError from './ArgumentError'
-import ChaosError from './ChaosError'
+import RandomChaosError from './RandomChaosError'
 
-export { ArgumentError, ChaosError }
+export { ArgumentError, RandomChaosError }

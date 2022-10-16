@@ -1,9 +1,14 @@
-import { ReliableFetchFunction } from '../types'
+import { ReliableFetchFunction, TimeoutConfig } from '../types'
 
 const fetchTimeout: ReliableFetchFunction = async (input, init) => {
-    if (init?.timeout) {
-        init.signal = (<any>AbortSignal).timeout(init?.timeout)
+    const config: TimeoutConfig = {
+        timeout: init?.timeout ?? 0,
     }
+
+    if (init && config.timeout) {
+        init.signal = (<any>AbortSignal).timeout(config.timeout)
+    }
+
     return fetch(input, init)
 }
 

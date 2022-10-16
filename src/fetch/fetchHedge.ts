@@ -1,8 +1,12 @@
-import { ReliableFetchFunction } from '../types'
+import { HedgeConfig, ReliableFetchFunction } from '../types'
 import fetchTimeout from './fetchTimeout'
 
 const fetchHedge: ReliableFetchFunction = async (input, init) => {
+    const config: HedgeConfig = {
+        timeout: init?.timeout ?? 0,
+    }
     let response: Response
+
     try {
         response = await fetchTimeout(input, { ...init })
     } catch (error) {
@@ -11,8 +15,9 @@ const fetchHedge: ReliableFetchFunction = async (input, init) => {
                 throw error
             }
         }
-        response = await fetch(input, init)
+        response = await fetch(input, { ...init })
     }
+
     return response
 }
 

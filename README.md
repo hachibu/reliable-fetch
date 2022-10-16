@@ -5,14 +5,14 @@ An easy-to-use [Node.js](https://nodejs.org/en/) library to make the [fetch func
 **💡 Goals**
 
 -   Unify reliability functions from multiple libraries into a single library.
--   Design and document a [fluent API](https://en.wikipedia.org/wiki/Fluent_interface) where users can easily discover and compose reliability functions.
+-   Design and document a [fluent API](https://en.wikipedia.org/wiki/Fluent_interface) where users can easily discover reliability functions.
 
 ```ts
 // examples/timeout.ts
 import reliableFetch from '@hachibu/reliable-fetch'
 
 async function main() {
-    await reliableFetch('https://google.com').timeout({ timeout: 10 }).run()
+    await reliableFetch('https://google.com').timeout({ timeout: 10 })
 }
 
 main()
@@ -39,10 +39,13 @@ yarn add @hachibu/reliable-fetch
 ## ✨️ Features
 
 -   Timeout
--   **[🗺️ Roadmap](https://github.com/hachibu/reliable-fetch/blob/main/ROADMAP.md)**
+-   Retry
+-   Hedging
+-   Random chaos
 
 ## 🔗 Links
 
 -   **[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
 -   **[💻 Examples](https://github.com/hachibu/reliable-fetch/tree/main/examples)**
+-   **[🗺️ Roadmap](https://github.com/hachibu/reliable-fetch/blob/main/ROADMAP.md)**
 -   **[🤝 Contributing](https://github.com/hachibu/reliable-fetch/blob/main/CONTRIBUTING.md)**

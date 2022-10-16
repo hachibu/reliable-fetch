@@ -1,11 +1,12 @@
+import fetchChaos from './fetchChaos'
+import { RandomChaosError } from '../errors'
 import { describe, expect, it } from '@jest/globals'
 import { fetchMockResponseWithDelay } from '../../jest.helpers'
-import fetchChaos from './fetchChaos'
-import { ChaosError } from '../errors'
 
 describe('fetchChaos', () => {
     beforeEach(() => fetchMockResponseWithDelay(10))
 
+    const input = 'https://localhost'
     const table = [[0.1], [0.5], [0.9]]
 
     it.concurrent.each(table)('aborts %s of requests', async (failureRate) => {
@@ -14,9 +15,9 @@ describe('fetchChaos', () => {
 
         for (let i = 0; i < requestCount; i++) {
             try {
-                await fetchChaos('', { failureRate })
+                await fetchChaos(input, { failureRate })
             } catch (error) {
-                if (error instanceof ChaosError) {
+                if (error instanceof RandomChaosError) {
                     failedRequestCount++
                 } else {
                     throw error

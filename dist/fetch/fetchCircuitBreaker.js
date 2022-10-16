@@ -15,9 +15,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const opossum_1 = __importDefault(require("opossum"));
 const fetchCircuitBreaker = (input, init) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
-    const breaker = new opossum_1.default((_a = init === null || init === void 0 ? void 0 : init.fetch) !== null && _a !== void 0 ? _a : fetch, init);
-    if (init === null || init === void 0 ? void 0 : init.fallback) {
-        breaker.fallback(init.fallback);
+    const config = {
+        fallback: (_a = init === null || init === void 0 ? void 0 : init.fallback) !== null && _a !== void 0 ? _a : undefined,
+    };
+    const breaker = new opossum_1.default(fetch, init);
+    if (config.fallback) {
+        breaker.fallback(config.fallback);
     }
     return breaker.fire(input, init);
 });

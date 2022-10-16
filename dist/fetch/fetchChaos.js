@@ -12,13 +12,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const errors_1 = require("../errors");
 const fetchChaos = (input, init) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
-    let n = Math.random();
-    let failureRate = 1 - ((_a = init === null || init === void 0 ? void 0 : init.failureRate) !== null && _a !== void 0 ? _a : 0);
-    if (failureRate < 0 || failureRate > 1) {
-        throw new errors_1.ArgumentError('failureRate: should be between 0 and 1');
+    const config = {
+        failureRate: 1 - ((_a = init === null || init === void 0 ? void 0 : init.failureRate) !== null && _a !== void 0 ? _a : 0),
+    };
+    const randomNum = Math.random();
+    if (config.failureRate < 0 || config.failureRate > 1) {
+        throw new RangeError('failureRate: should be between 0 and 1');
     }
-    else if (n > failureRate) {
-        throw new errors_1.ChaosError(`${n.toFixed(2)} > ${failureRate} `);
+    else if (randomNum > config.failureRate) {
+        throw new errors_1.RandomChaosError(`${randomNum.toFixed(2)} > ${config.failureRate} `);
     }
     return fetch(input, init);
 });

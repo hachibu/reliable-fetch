@@ -7,8 +7,7 @@ export interface ChaosConfig {
 }
 
 export interface CircuitBreakerConfig {
-    fallback: () => Promise<Response>
-    fetch: ReliableFetchFunction
+    fallback?: () => Promise<Response>
 }
 
 export interface HedgeConfig {

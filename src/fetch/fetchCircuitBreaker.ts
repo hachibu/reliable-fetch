@@ -1,11 +1,14 @@
 import CircuitBreaker from 'opossum'
-import { ReliableFetchFunction } from '../types'
+import { CircuitBreakerConfig, ReliableFetchFunction } from '../types'
 
 const fetchCircuitBreaker: ReliableFetchFunction = async (input, init) => {
-    const breaker = new CircuitBreaker(init?.fetch ?? fetch, init)
+    const config: CircuitBreakerConfig = {
+        fallback: init?.fallback ?? undefined,
+    }
+    const breaker = new CircuitBreaker(fetch, init)
 
-    if (init?.fallback) {
-        breaker.fallback(init.fallback)
+    if (config.fallback) {
+        breaker.fallback(config.fallback)
     }
 
     return breaker.fire(input, init)
