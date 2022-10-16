@@ -7,6 +7,10 @@
 -   [ ] Retry with linear and exponential backoff
 -   [ ] Circuit breaker
 
+## NPM Package
+
+-   [ ] Minify JavaScript in `dist` folder.
+
 ## Developer Experience
 
 -   [ ] Continuous integration testing
