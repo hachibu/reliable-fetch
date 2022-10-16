@@ -22,9 +22,9 @@ export declare class ReliableFetch {
     chaos(config: ChaosConfig): ReliableFetch;
     /**
      * @param {RetryConfig} config
-     * @param {RetryBackoffStrategy} config.backoffStrategy - linear | exponential
-     * @param {number} config.delay - delay between retries in milliseconds
-     * @param {number} config.retries - number of times to retry
+     * @param {RetryStrategy} config.strategy - linear or exponential
+     * @param {number} config.delayBetweenRetries - delay between retries in milliseconds
+     * @param {number} config.maxRetries - maximum number of times to retry
      */
     retry(config: RetryConfig): ReliableFetch;
     /**

@@ -12,18 +12,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const utils_1 = require("../utils");
 const fetchRetry = (input, init) => __awaiter(void 0, void 0, void 0, function* () {
     var _a, _b, _c;
-    let backoff = (_a = init === null || init === void 0 ? void 0 : init.backoffStrategy) !== null && _a !== void 0 ? _a : 'linear';
-    let delay = (_b = init === null || init === void 0 ? void 0 : init.delay) !== null && _b !== void 0 ? _b : 100;
-    let retries = (_c = init === null || init === void 0 ? void 0 : init.retries) !== null && _c !== void 0 ? _c : 1;
-    for (let i = 0; i < retries; i++) {
+    let strategy = (_a = init === null || init === void 0 ? void 0 : init.strategy) !== null && _a !== void 0 ? _a : 'linear';
+    let delayBetweenRetries = (_b = init === null || init === void 0 ? void 0 : init.delayBetweenRetries) !== null && _b !== void 0 ? _b : 100;
+    let maxRetries = (_c = init === null || init === void 0 ? void 0 : init.maxRetries) !== null && _c !== void 0 ? _c : 1;
+    for (let i = 0; i < maxRetries; i++) {
         try {
             let response = yield fetch(input, init);
             return response;
         }
         catch (_d) { }
-        yield (0, utils_1.sleep)(delay);
-        if (backoff === 'exponential') {
-            delay = Math.pow(delay, 2);
+        yield (0, utils_1.sleep)(delayBetweenRetries);
+        if (strategy === 'exponential') {
+            delayBetweenRetries = Math.pow(delayBetweenRetries, 2);
         }
     }
     return fetch(input, init);

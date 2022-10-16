@@ -1,4 +1,4 @@
 import ReliableFetchFunction from './ReliableFetchFunction';
 import ReliableRequestInit, { ChaosConfig, CircuitBreakerConfig, HedgeConfig, RetryConfig, TimeoutConfig } from './ReliableRequestInit';
-import RetryBackoffStrategy from './RetryBackoffStrategy';
-export { ReliableFetchFunction, ReliableRequestInit, RetryBackoffStrategy, ChaosConfig, CircuitBreakerConfig, HedgeConfig, RetryConfig, TimeoutConfig, };
+import RetryStrategy from './RetryStrategy';
+export { ReliableFetchFunction, ReliableRequestInit, RetryStrategy, ChaosConfig, CircuitBreakerConfig, HedgeConfig, RetryConfig, TimeoutConfig, };

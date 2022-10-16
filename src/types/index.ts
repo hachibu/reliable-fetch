@@ -6,12 +6,12 @@ import ReliableRequestInit, {
     RetryConfig,
     TimeoutConfig,
 } from './ReliableRequestInit'
-import RetryBackoffStrategy from './RetryBackoffStrategy'
+import RetryStrategy from './RetryStrategy'
 
 export {
     ReliableFetchFunction,
     ReliableRequestInit,
-    RetryBackoffStrategy,
+    RetryStrategy,
     ChaosConfig,
     CircuitBreakerConfig,
     HedgeConfig,

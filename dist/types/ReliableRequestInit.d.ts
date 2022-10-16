@@ -1,6 +1,6 @@
 import { Options } from 'opossum';
 import ReliableFetchFunction from './ReliableFetchFunction';
-import RetryBackoffStrategy from './RetryBackoffStrategy';
+import RetryStrategy from './RetryStrategy';
 export interface ChaosConfig {
     failureRate: number;
 }
@@ -12,9 +12,9 @@ export interface HedgeConfig {
     timeout: number;
 }
 export interface RetryConfig {
-    backoffStrategy: RetryBackoffStrategy;
-    delay: number;
-    retries: number;
+    strategy: RetryStrategy;
+    delayBetweenRetries: number;
+    maxRetries: number;
 }
 export interface TimeoutConfig {
     timeout: number;

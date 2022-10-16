@@ -60,14 +60,14 @@ class ReliableFetch {
     }
     /**
      * @param {RetryConfig} config
-     * @param {RetryBackoffStrategy} config.backoffStrategy - linear | exponential
-     * @param {number} config.delay - delay between retries in milliseconds
-     * @param {number} config.retries - number of times to retry
+     * @param {RetryStrategy} config.strategy - linear or exponential
+     * @param {number} config.delayBetweenRetries - delay between retries in milliseconds
+     * @param {number} config.maxRetries - maximum number of times to retry
      */
     retry(config) {
-        this.init.backoffStrategy = config.backoffStrategy;
-        this.init.delay = config.delay;
-        this.init.retries = config.retries;
+        this.init.strategy = config.strategy;
+        this.init.delayBetweenRetries = config.delayBetweenRetries;
+        this.init.maxRetries = config.maxRetries;
         this.fetch = fetch_1.fetchRetry;
         return this;
     }
