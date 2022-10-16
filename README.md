@@ -1,31 +1,28 @@
-# Reliable Fetch
+# Reliable Fetch ![npm version](https://img.shields.io/npm/v/@hachibu/reliable-fetch?color=blue) ![minzipped size](https://img.shields.io/bundlephobia/minzip/@hachibu/reliable-fetch) ![coverage](https://raw.githubusercontent.com/hachibu/reliable-fetch/main/coverage-badge.svg)
 
-![npm version](https://img.shields.io/npm/v/@hachibu/reliable-fetch?color=blue)
-![minzipped size](https://img.shields.io/bundlephobia/minzip/@hachibu/reliable-fetch)
-![coverage](https://raw.githubusercontent.com/hachibu/reliable-fetch/main/coverage-badge.svg)
-
-An easy-to-use library for Node.js to make the fetch function more reliable. This library is currently under development and should be considered a work in progress.
+An easy-to-use [Node.js](https://nodejs.org/en/) library to make the [fetch function](https://developer.mozilla.org/en-US/docs/Web/API/fetch) more reliable.
 
 **💡 Goals**
 
 -   Unify reliability functions from multiple libraries into a single library.
 -   Design and document a [fluent API](https://en.wikipedia.org/wiki/Fluent_interface) where users can easily discover and compose reliability functions.
 
-**✨️ Features**
+```ts
+// examples/timeout.ts
+import reliableFetch from '@hachibu/reliable-fetch'
 
--   Timeout
+async function main() {
+    await reliableFetch('https://google.com').timeout({ timeout: 10 }).run()
+}
 
-**[🗺️ Roadmap](https://github.com/hachibu/reliable-fetch/blob/main/ROADMAP.md)**
+main()
+```
 
-**[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
+## ⚠️ Warning
 
-**[💻 Examples](https://github.com/hachibu/reliable-fetch/tree/main/examples)**
+This library is currently under active design and development and should be considered a work-in-progress. This means that the API is not stable and could change without warning until we get to version 1.0.0.
 
-**[🤝 Contributing](https://github.com/hachibu/reliable-fetch/blob/main/CONTRIBUTING.md)**
-
-**[📦 NPM Package](https://www.npmjs.com/package/@hachibu/reliable-fetch)**
-
-## Installation
+## 📦 Installation
 
 **Install with NPM**
 
@@ -39,15 +36,13 @@ npm i @hachibu/reliable-fetch
 yarn add @hachibu/reliable-fetch
 ```
 
-## Usage
+## ✨️ Features
 
-```ts
-// examples/timeout.ts
-import reliableFetch from '@hachibu/reliable-fetch'
+-   Timeout
+-   **[🗺️ Roadmap](https://github.com/hachibu/reliable-fetch/blob/main/ROADMAP.md)**
 
-async function main() {
-    await reliableFetch('https://google.com').timeout({ timeout: 10 }).run()
-}
+## 🔗 Links
 
-main()
-```
+-   **[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
+-   **[💻 Examples](https://github.com/hachibu/reliable-fetch/tree/main/examples)**
+-   **[🤝 Contributing](https://github.com/hachibu/reliable-fetch/blob/main/CONTRIBUTING.md)**

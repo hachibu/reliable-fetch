@@ -11,40 +11,49 @@
 <div class="tsd-page-title">
 <h2>@hachibu/reliable-fetch</h2></div>
 <div class="tsd-panel tsd-typography">
-<a href="#reliable-fetch-" id="reliable-fetch-" style="color: inherit; text-decoration: none;">
-  <h1>Reliable Fetch <img src="https://raw.githubusercontent.com/hachibu/reliable-fetch/main/coverage-badge.svg" alt="coverage"></h1>
+<a href="#reliable-fetch---" id="reliable-fetch---" style="color: inherit; text-decoration: none;">
+  <h1>Reliable Fetch <img src="https://img.shields.io/npm/v/@hachibu/reliable-fetch?color=blue" alt="npm version"> <img src="https://img.shields.io/bundlephobia/minzip/@hachibu/reliable-fetch" alt="minzipped size"> <img src="https://raw.githubusercontent.com/hachibu/reliable-fetch/main/coverage-badge.svg" alt="coverage"></h1>
 </a>
-<p>An easy-to-use library for Node.js to make the fetch function more reliable. This library is currently under development and should be considered a work in progress.</p>
+<p>An easy-to-use <a href="https://nodejs.org/en/">Node.js</a> library to make the <a href="https://developer.mozilla.org/en-US/docs/Web/API/fetch">fetch function</a> more reliable.</p>
 <p><strong>💡 Goals</strong></p>
 <ul>
 <li>Unify reliability functions from multiple libraries into a single library.</li>
 <li>Design and document a <a href="https://en.wikipedia.org/wiki/Fluent_interface">fluent API</a> where users can easily discover and compose reliability functions.</li>
 </ul>
-<p><strong>✨️ Features</strong></p>
-<ul>
-<li>Timeout</li>
-</ul>
-<p><strong><a href="https://github.com/hachibu/reliable-fetch/blob/main/ROADMAP.md">🗺️ Roadmap</a></strong></p>
-<p><strong><a href="https://hachibu.github.io/reliable-fetch">📖 Documentation</a></strong></p>
-<p><strong><a href="https://github.com/hachibu/reliable-fetch/tree/main/examples">💻 Examples</a></strong></p>
-<p><strong><a href="https://github.com/hachibu/reliable-fetch/blob/main/CONTRIBUTING.md">🤝 Contributing</a></strong></p>
-<p><strong><a href="https://www.npmjs.com/package/@hachibu/reliable-fetch">📦 NPM Package</a></strong></p>
+<pre><code class="language-ts"><span class="hl-0">// examples/timeout.ts</span><br/><span class="hl-1">import</span><span class="hl-2"> </span><span class="hl-3">reliableFetch</span><span class="hl-2"> </span><span class="hl-1">from</span><span class="hl-2"> </span><span class="hl-4">&#39;@hachibu/reliable-fetch&#39;</span><br/><br/><span class="hl-5">async</span><span class="hl-2"> </span><span class="hl-5">function</span><span class="hl-2"> </span><span class="hl-6">main</span><span class="hl-2">() {</span><br/><span class="hl-2">    </span><span class="hl-1">await</span><span class="hl-2"> </span><span class="hl-6">reliableFetch</span><span class="hl-2">(</span><span class="hl-4">&#39;https://google.com&#39;</span><span class="hl-2">).</span><span class="hl-6">timeout</span><span class="hl-2">({ </span><span class="hl-3">timeout:</span><span class="hl-2"> </span><span class="hl-7">10</span><span class="hl-2"> }).</span><span class="hl-6">run</span><span class="hl-2">()</span><br/><span class="hl-2">}</span><br/><br/><span class="hl-6">main</span><span class="hl-2">()</span>
+</code></pre>
 
-<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
-  <h2>Installation</h2>
+<a href="#⚠️-warning" id="⚠️-warning" style="color: inherit; text-decoration: none;">
+  <h2>⚠️ Warning</h2>
+</a>
+<p>This library is currently under active design and development and should be considered a work-in-progress. This means that the API is not stable and could change without warning until we get to version 1.0.0.</p>
+
+<a href="#📦-installation" id="📦-installation" style="color: inherit; text-decoration: none;">
+  <h2>📦 Installation</h2>
 </a>
 <p><strong>Install with NPM</strong></p>
-<pre><code><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">i</span><span class="hl-1"> @</span><span class="hl-0">hachibu</span><span class="hl-1">/</span><span class="hl-0">reliable</span><span class="hl-1">-</span><span class="hl-0">fetch</span>
+<pre><code><span class="hl-3">npm</span><span class="hl-2"> </span><span class="hl-3">i</span><span class="hl-2"> @</span><span class="hl-3">hachibu</span><span class="hl-2">/</span><span class="hl-3">reliable</span><span class="hl-2">-</span><span class="hl-3">fetch</span>
 </code></pre>
 <p><strong>Install with Yarn</strong></p>
-<pre><code><span class="hl-0">yarn</span><span class="hl-1"> </span><span class="hl-0">add</span><span class="hl-1"> @</span><span class="hl-0">hachibu</span><span class="hl-1">/</span><span class="hl-0">reliable</span><span class="hl-1">-</span><span class="hl-0">fetch</span>
+<pre><code><span class="hl-3">yarn</span><span class="hl-2"> </span><span class="hl-3">add</span><span class="hl-2"> @</span><span class="hl-3">hachibu</span><span class="hl-2">/</span><span class="hl-3">reliable</span><span class="hl-2">-</span><span class="hl-3">fetch</span>
 </code></pre>
 
-<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
-  <h2>Usage</h2>
+<a href="#✨️-features" id="✨️-features" style="color: inherit; text-decoration: none;">
+  <h2>✨️ Features</h2>
 </a>
-<pre><code class="language-ts"><span class="hl-2">// examples/timeout.ts</span><br/><span class="hl-3">import</span><span class="hl-1"> </span><span class="hl-0">reliableFetch</span><span class="hl-1"> </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-4">&#39;@hachibu/reliable-fetch&#39;</span><br/><br/><span class="hl-5">async</span><span class="hl-1"> </span><span class="hl-5">function</span><span class="hl-1"> </span><span class="hl-6">main</span><span class="hl-1">() {</span><br/><span class="hl-1">    </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-6">reliableFetch</span><span class="hl-1">(</span><span class="hl-4">&#39;https://google.com&#39;</span><span class="hl-1">).</span><span class="hl-6">timeout</span><span class="hl-1">({ </span><span class="hl-0">timeout:</span><span class="hl-1"> </span><span class="hl-7">10</span><span class="hl-1"> }).</span><span class="hl-6">run</span><span class="hl-1">()</span><br/><span class="hl-1">}</span><br/><br/><span class="hl-6">main</span><span class="hl-1">()</span>
-</code></pre>
+<ul>
+<li>Timeout</li>
+<li><strong><a href="https://github.com/hachibu/reliable-fetch/blob/main/ROADMAP.md">🗺️ Roadmap</a></strong></li>
+</ul>
+
+<a href="#🔗-links" id="🔗-links" style="color: inherit; text-decoration: none;">
+  <h2>🔗 Links</h2>
+</a>
+<ul>
+<li><strong><a href="https://hachibu.github.io/reliable-fetch">📖 Documentation</a></strong></li>
+<li><strong><a href="https://github.com/hachibu/reliable-fetch/tree/main/examples">💻 Examples</a></strong></li>
+<li><strong><a href="https://github.com/hachibu/reliable-fetch/blob/main/CONTRIBUTING.md">🤝 Contributing</a></strong></li>
+</ul>
 </div></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
