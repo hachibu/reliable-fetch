@@ -19,17 +19,17 @@ An easy-to-use library for Node.js to make the fetch function more reliable. Thi
 
 **[🤝 Contributing](https://github.com/hachibu/reliable-fetch/blob/main/CONTRIBUTING.md)**
 
-## Installation
-
 **[📦 NPM Package](https://www.npmjs.com/package/@hachibu/reliable-fetch)**
 
-### NPM
+## Installation
+
+**Install with NPM**
 
 ```
 npm i @hachibu/reliable-fetch
 ```
 
-### Yarn
+**Install with Yarn**
 
 ```
 yarn add @hachibu/reliable-fetch
