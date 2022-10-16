@@ -1,0 +1,12 @@
+coverage
+docs
+examples
+src
+
+jest.*
+babel.config.js
+tsconfig.json
+prettier.config.js
+.prettierignore
+.husky/pre-commit
+*.md
