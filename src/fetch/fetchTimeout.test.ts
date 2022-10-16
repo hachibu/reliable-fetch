@@ -1,6 +1,6 @@
 import { describe, expect, it } from '@jest/globals'
 import fetchTimeout from './fetchTimeout'
-import { fetchMockResponseWithDelay, DEFAULT_WAIT } from '../../jest.helpers'
+import { fetchMockResponseWithDelay, DEFAULT_DELAY } from '../utils'
 import fetchMock from 'jest-fetch-mock'
 
 describe('fetchTimeout', () => {
@@ -9,14 +9,14 @@ describe('fetchTimeout', () => {
     it('rejects within timeout', async () => {
         fetchMock.mockAbort()
         await expect(
-            fetchTimeout('', { timeout: DEFAULT_WAIT / 2 })
+            fetchTimeout('', { timeout: DEFAULT_DELAY / 2 })
         ).rejects.toThrow()
         expect(fetch).toBeCalledTimes(1)
     })
 
     it('resolves within timeout', async () => {
         await expect(
-            fetchTimeout('', { timeout: DEFAULT_WAIT * 2 })
+            fetchTimeout('', { timeout: DEFAULT_DELAY * 2 })
         ).resolves.not.toThrow()
         expect(fetch).toBeCalledTimes(1)
     })

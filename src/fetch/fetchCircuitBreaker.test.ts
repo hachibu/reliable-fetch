@@ -1,6 +1,6 @@
 import { describe, expect, it } from '@jest/globals'
 import fetchCircuitBreaker from './fetchCircuitBreaker'
-import { fetchMockResponseWithDelay, DEFAULT_WAIT } from '../../jest.helpers'
+import { fetchMockResponseWithDelay, DEFAULT_DELAY } from '../utils'
 
 describe('fetchCircuitBreaker', () => {
     beforeEach(() => fetchMockResponseWithDelay())
@@ -8,7 +8,7 @@ describe('fetchCircuitBreaker', () => {
     it('calls fetch once if first call resolves within timeout ', async () => {
         await expect(
             fetchCircuitBreaker('', {
-                timeout: DEFAULT_WAIT * 2,
+                timeout: DEFAULT_DELAY * 2,
             })
         ).resolves.not.toThrow()
         expect(fetch).toBeCalledTimes(1)
@@ -16,7 +16,7 @@ describe('fetchCircuitBreaker', () => {
 
     it('returns fallback if first call rejects within timeout ', async () => {
         const response = await fetchCircuitBreaker('', {
-            timeout: DEFAULT_WAIT / 2,
+            timeout: DEFAULT_DELAY / 2,
             fallback: () =>
                 new Promise((resolve) => resolve(new Response('fallback'))),
         })
