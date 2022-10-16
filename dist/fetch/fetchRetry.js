@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const utils_1 = require("../utils");
 const fetchRetry = (input, init) => __awaiter(void 0, void 0, void 0, function* () {
     var _a, _b, _c;
-    let backoff = (_a = init === null || init === void 0 ? void 0 : init.backoff) !== null && _a !== void 0 ? _a : 'linear';
+    let backoff = (_a = init === null || init === void 0 ? void 0 : init.backoffStrategy) !== null && _a !== void 0 ? _a : 'linear';
     let delay = (_b = init === null || init === void 0 ? void 0 : init.delay) !== null && _b !== void 0 ? _b : 100;
     let retries = (_c = init === null || init === void 0 ? void 0 : init.retries) !== null && _c !== void 0 ? _c : 1;
     for (let i = 0; i < retries; i++) {

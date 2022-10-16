@@ -32,47 +32,51 @@ class ReliableFetch {
         this.fetch = fetch;
     }
     /**
-     * Abort the request if it exceeds the timeout.
-     * @param {number} timeout milliseconds
+     * @param {TimeoutConfig} config
+     * @param {number} config.timeout - milliseconds
      */
-    timeout(timeout) {
-        this.init.timeout = timeout;
+    timeout(config) {
+        this.init.timeout = config.timeout;
         this.fetch = fetch_1.fetchTimeout;
         return this;
     }
-    hedge(timeout) {
-        this.init.timeout = timeout;
+    /**
+     * @param {HedgeConfig} config
+     * @param {number} config.timeout - milliseconds
+     */
+    hedge(config) {
+        this.init.timeout = config.timeout;
         this.fetch = fetch_1.fetchHedge;
         return this;
     }
-    chaos(failureRate) {
-        this.init.failureRate = failureRate;
+    /**
+     * @param {ChaosConfig} config
+     * @param {number} config.failureRate - number between 0 and 1 representing the percentage of fetch calls to fail
+     */
+    chaos(config) {
+        this.init.failureRate = config.failureRate;
         this.fetch = fetch_1.fetchChaos;
         return this;
     }
-    retryTimes(retries) {
-        this.init.retries = retries;
+    /**
+     * @param {RetryConfig} config
+     * @param {RetryBackoffStrategy} config.backoffStrategy - linear | exponential
+     * @param {number} config.delay - delay between retries in milliseconds
+     * @param {number} config.retries - number of times to retry
+     */
+    retry(config) {
+        this.init.backoffStrategy = config.backoffStrategy;
+        this.init.delay = config.delay;
+        this.init.retries = config.retries;
         this.fetch = fetch_1.fetchRetry;
         return this;
     }
-    retry(init) {
-        if (init === null || init === void 0 ? void 0 : init.retries) {
-            this.init.retries = init.retries;
-        }
-        if (init === null || init === void 0 ? void 0 : init.timeout) {
-            this.init.timeout = init.timeout;
-        }
-        if (init === null || init === void 0 ? void 0 : init.backoff) {
-            this.init.backoff = init.backoff;
-        }
-        this.fetch = fetch_1.fetchRetry;
-        return this;
-    }
-    circuitBreaker(init) {
+    /**
+     * @param {CircuitBreakerConfig} config
+     */
+    circuitBreaker(config) {
         this.init.fetch = this.fetch;
-        if (init === null || init === void 0 ? void 0 : init.fallback) {
-            this.init.fallback = init.fallback;
-        }
+        this.init.fallback = config.fallback;
         this.fetch = fetch_1.fetchCircuitBreaker;
         return this;
     }

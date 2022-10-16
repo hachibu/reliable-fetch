@@ -18,10 +18,10 @@ This library is currently under development and should be considered incomplete 
 **🗺️ Roadmap**
 
 -   [ ] Timeout
--   [ ] Circuit breaker
--   [ ] Retry with linear and exponential backoff
 -   [ ] Request hedging
 -   [ ] Random chaos
+-   [ ] Retry with linear and exponential backoff
+-   [ ] Circuit breaker
 
 ## Installation
 
@@ -44,7 +44,7 @@ yarn add @hachibu/reliable-fetch
 import reliableFetch from '@hachibu/reliable-fetch'
 
 async function main() {
-    await reliableFetch('https://google.com').timeout(10).run()
+    await reliableFetch('https://google.com').timeout({ timeout: 10 }).run()
 }
 
 main()

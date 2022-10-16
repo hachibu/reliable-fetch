@@ -1,7 +1,7 @@
-import reliableFetch from '@hachibu/reliable-fetch'
+import reliableFetch from '../src/index'
 
 async function main() {
-    await reliableFetch('https://google.com').timeout(10).run()
+    await reliableFetch('https://google.com').timeout({ timeout: 10 }).run()
 }
 
 main()

@@ -1,6 +1,6 @@
 import { describe, expect, it } from '@jest/globals'
 import fetchTimeout from './fetchTimeout'
-import { fetchMockResponseWithDelay, DEFAULT_DELAY } from '../utils'
+import { fetchMockResponseWithDelay, DEFAULT_DELAY } from '../../jest.helpers'
 import fetchMock from 'jest-fetch-mock'
 
 describe('fetchTimeout', () => {

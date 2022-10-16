@@ -1,6 +1,6 @@
 {
     "name": "@hachibu/reliable-fetch",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "author": {
         "name": "Raymond Sohn",
         "email": "raymondsohn@gmail.com"
@@ -25,7 +25,6 @@
         "@babel/core": "^7.19.3",
         "@babel/preset-env": "^7.19.3",
         "@babel/preset-typescript": "^7.18.6",
-        "@hachibu/reliable-fetch": "^0.0.8",
         "@types/jest": "^29.1.2",
         "@types/node": "^18.8.3",
         "@types/opossum": "^6.2.2",
@@ -41,12 +40,10 @@
         "typescript": "^4.8.4"
     },
     "scripts": {
-        "build": "jest && yarn run build:tsc && sleep 2 && yarn build:doc",
-        "build:tsc": "rm -rf dist/* && tsc",
-        "build:doc": "typedoc src",
+        "build": "jest && yarn run build:src && yarn build:docs",
+        "build:docs": "rm -rf docs/* && typedoc src",
+        "build:src": "rm -rf dist/* && tsc",
         "prepare": "husky install",
-        "test": "jest",
-        "publish": "npm publish --access public",
-        "link": "yarn link @hachibu/reliable-fetch"
+        "test": "jest"
     }
 }

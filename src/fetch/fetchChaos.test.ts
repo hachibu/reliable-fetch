@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@jest/globals'
-import { fetchMockResponseWithDelay } from '../utils'
+import { fetchMockResponseWithDelay } from '../../jest.helpers'
 import fetchChaos from './fetchChaos'
 import { ChaosError } from '../errors'
 

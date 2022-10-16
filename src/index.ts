@@ -1,4 +1,8 @@
-import { ReliableFetchFunction, ReliableRequestInit } from './types'
+import {
+    ReliableFetchFunction,
+    ReliableRequestInit,
+    RetryBackoffStrategy,
+} from './types'
 import {
     fetchChaos,
     fetchCircuitBreaker,
@@ -6,62 +10,72 @@ import {
     fetchRetry,
     fetchTimeout,
 } from './fetch'
+import {
+    ChaosConfig,
+    CircuitBreakerConfig,
+    HedgeConfig,
+    RetryConfig,
+    TimeoutConfig,
+} from './types/ReliableRequestInit'
 
 export class ReliableFetch {
-    fetch: ReliableFetchFunction = fetch
+    private fetch: ReliableFetchFunction = fetch
 
     constructor(
-        public url: RequestInfo | URL,
-        public init: ReliableRequestInit = {}
+        private url: RequestInfo | URL,
+        private init: ReliableRequestInit = {}
     ) {}
 
     /**
-     * Abort the request if it exceeds the timeout.
-     * @param {number} timeout milliseconds
+     * @param {TimeoutConfig} config
+     * @param {number} config.timeout - milliseconds
      */
-    timeout(timeout: number): ReliableFetch {
-        this.init.timeout = timeout
+    timeout(config: TimeoutConfig): ReliableFetch {
+        this.init.timeout = config.timeout
         this.fetch = fetchTimeout
         return this
     }
 
-    hedge(timeout: number): ReliableFetch {
-        this.init.timeout = timeout
+    /**
+     * @param {HedgeConfig} config
+     * @param {number} config.timeout - milliseconds
+     */
+    hedge(config: HedgeConfig): ReliableFetch {
+        this.init.timeout = config.timeout
         this.fetch = fetchHedge
         return this
     }
 
-    chaos(failureRate: number): ReliableFetch {
-        this.init.failureRate = failureRate
+    /**
+     * @param {ChaosConfig} config
+     * @param {number} config.failureRate - number between 0 and 1 representing the percentage of fetch calls to fail
+     */
+    chaos(config: ChaosConfig): ReliableFetch {
+        this.init.failureRate = config.failureRate
         this.fetch = fetchChaos
         return this
     }
 
-    retryTimes(retries: number): ReliableFetch {
-        this.init.retries = retries
+    /**
+     * @param {RetryConfig} config
+     * @param {RetryBackoffStrategy} config.backoffStrategy - linear | exponential
+     * @param {number} config.delay - delay between retries in milliseconds
+     * @param {number} config.retries - number of times to retry
+     */
+    retry(config: RetryConfig): ReliableFetch {
+        this.init.backoffStrategy = config.backoffStrategy
+        this.init.delay = config.delay
+        this.init.retries = config.retries
         this.fetch = fetchRetry
         return this
     }
 
-    retry(init?: ReliableRequestInit): ReliableFetch {
-        if (init?.retries) {
-            this.init.retries = init.retries
-        }
-        if (init?.timeout) {
-            this.init.timeout = init.timeout
-        }
-        if (init?.backoff) {
-            this.init.backoff = init.backoff
-        }
-        this.fetch = fetchRetry
-        return this
-    }
-
-    circuitBreaker(init?: ReliableRequestInit): ReliableFetch {
+    /**
+     * @param {CircuitBreakerConfig} config
+     */
+    circuitBreaker(config: CircuitBreakerConfig): ReliableFetch {
         this.init.fetch = this.fetch
-        if (init?.fallback) {
-            this.init.fallback = init.fallback
-        }
+        this.init.fallback = config.fallback
         this.fetch = fetchCircuitBreaker
         return this
     }

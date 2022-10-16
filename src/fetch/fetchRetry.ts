@@ -2,7 +2,7 @@ import { ReliableFetchFunction } from '../types'
 import { sleep } from '../utils'
 
 const fetchRetry: ReliableFetchFunction = async (input, init) => {
-    let backoff = init?.backoff ?? 'linear'
+    let backoff = init?.backoffStrategy ?? 'linear'
     let delay = init?.delay ?? 100
     let retries = init?.retries ?? 1
 

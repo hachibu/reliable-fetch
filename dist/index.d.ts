@@ -1,19 +1,36 @@
-import { ReliableFetchFunction, ReliableRequestInit } from './types';
+import { ReliableRequestInit } from './types';
+import { ChaosConfig, CircuitBreakerConfig, HedgeConfig, RetryConfig, TimeoutConfig } from './types/ReliableRequestInit';
 export declare class ReliableFetch {
-    url: RequestInfo | URL;
-    init: ReliableRequestInit;
-    fetch: ReliableFetchFunction;
+    private url;
+    private init;
+    private fetch;
     constructor(url: RequestInfo | URL, init?: ReliableRequestInit);
     /**
-     * Abort the request if it exceeds the timeout.
-     * @param {number} timeout milliseconds
+     * @param {TimeoutConfig} config
+     * @param {number} config.timeout - milliseconds
      */
-    timeout(timeout: number): ReliableFetch;
-    hedge(timeout: number): ReliableFetch;
-    chaos(failureRate: number): ReliableFetch;
-    retryTimes(retries: number): ReliableFetch;
-    retry(init?: ReliableRequestInit): ReliableFetch;
-    circuitBreaker(init?: ReliableRequestInit): ReliableFetch;
+    timeout(config: TimeoutConfig): ReliableFetch;
+    /**
+     * @param {HedgeConfig} config
+     * @param {number} config.timeout - milliseconds
+     */
+    hedge(config: HedgeConfig): ReliableFetch;
+    /**
+     * @param {ChaosConfig} config
+     * @param {number} config.failureRate - number between 0 and 1 representing the percentage of fetch calls to fail
+     */
+    chaos(config: ChaosConfig): ReliableFetch;
+    /**
+     * @param {RetryConfig} config
+     * @param {RetryBackoffStrategy} config.backoffStrategy - linear | exponential
+     * @param {number} config.delay - delay between retries in milliseconds
+     * @param {number} config.retries - number of times to retry
+     */
+    retry(config: RetryConfig): ReliableFetch;
+    /**
+     * @param {CircuitBreakerConfig} config
+     */
+    circuitBreaker(config: CircuitBreakerConfig): ReliableFetch;
     run(): Promise<Response>;
 }
 declare const reliableFetch: (url: RequestInfo | URL, init?: ReliableRequestInit) => ReliableFetch;
