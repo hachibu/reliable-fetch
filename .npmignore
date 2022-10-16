@@ -12,3 +12,4 @@ prettier.config.js
 .husky/pre-commit
 *.md
 *.svg
+yarn-error.log

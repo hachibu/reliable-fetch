@@ -1,4 +1,4 @@
-# Reliable Fetch
+# Reliable Fetch ![coverage](https://raw.githubusercontent.com/hachibu/reliable-fetch/main/coverage-badge.svg)
 
 An easy-to-use library for Node.js to make the fetch function more reliable.
 
