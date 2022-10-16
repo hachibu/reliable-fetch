@@ -1,6 +1,6 @@
 # Contributing
 
-## Code Release Checklist
+## Feature Release Checklist
 
 -   [ ] Add tests.
 -   [ ] Write documentation.
@@ -8,8 +8,7 @@
 -   [ ] Update `README.md` features and roadmap.
 -   [ ] Compile source code and documentation with `yarn build`.
 
-## NPM Publish Checklist
+## Publish NPM Package Checklist
 
--   [ ] Bump package version in `package.json`.
--   [ ] `npm login`
--   [ ] `npm publish --access public`
+-   [ ] `yarn login`
+-   [ ] `yarn publish`
