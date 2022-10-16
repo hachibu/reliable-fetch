@@ -1,26 +1,61 @@
 import util from 'util'
-import child_process from 'child_process'
+import cp from 'child_process'
 
-const exec = util.promisify(child_process.exec)
-const MAX_ENTRY_COUNT = 50
-const MAX_UNPACKED_SIZE_BYTES = 25000
+const exec = util.promisify(cp.exec)
 
-function exit(message: string, code: number = 1) {
-    console.error(message)
-    process.exit(code)
+const pass = (message: string) => {
+    console.error('✅ ', message)
 }
 
+const fail = (message: string) => {
+    console.error('❌ ', message)
+}
+
+type Rule = NumberRule
+
+interface NumberRule {
+    key: string
+    max: number
+    fmt: (v: number) => string
+}
+
+const RULES: Rule[] = [
+    {
+        key: 'entryCount',
+        max: 50,
+        fmt: (v) => `${v} files`,
+    },
+    {
+        key: 'unpackedSize',
+        max: 25000,
+        fmt: (v) => `${v} B`,
+    },
+]
+
 async function main() {
-    const { stdout, stderr } = await exec('npm pack --dry-run --json')
+    const command = 'npm pack --dry-run --json'
+    const { stdout, stderr } = await exec(command)
     if (stderr) {
-        exit(stderr)
+        fail(stderr)
+        process.exit(1)
     }
 
-    const [{ unpackedSize, entryCount }] = JSON.parse(stdout)
-    if (entryCount > MAX_ENTRY_COUNT) {
-        exit(`entryCount: must be less than ${MAX_ENTRY_COUNT}`)
-    } else if (unpackedSize > MAX_UNPACKED_SIZE_BYTES) {
-        exit(`unpackedSize: must be less than ${MAX_UNPACKED_SIZE_BYTES} bytes`)
+    const [res] = JSON.parse(stdout)
+    let failCount = 0
+
+    for (const { key, max, fmt } of RULES) {
+        const value = res[key]
+
+        if (value > max) {
+            fail(`${key}: ${fmt(value)} > ${fmt(max)}`)
+            failCount++
+        } else {
+            pass(`${key}: ${fmt(value)} <= ${fmt(max)}`)
+        }
+    }
+
+    if (failCount > 0) {
+        process.exit(1)
     }
 }
 
