@@ -1,11 +1,11 @@
 # Contributing
 
-## Feature Release Checklist
+## Code Review Checklist
 
 -   [ ] Add tests.
--   [ ] Write documentation.
+-   [ ] Add documentation.
 -   [ ] Add code examples in the examples folder.
--   [ ] Update `README.md` features and roadmap.
+-   [ ] Update Features and Roadmap section in `README.md`.
 -   [ ] Compile source code and documentation with `yarn build`.
 
 ## Publish NPM Package Checklist
