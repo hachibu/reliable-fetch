@@ -4,11 +4,11 @@ An easy-to-use library for Node.js to make the fetch function more reliable.
 
 This library is currently under development and should be considered incomplete and a work in progress.
 
-**[📦 NPM Package](https://www.npmjs.com/package/@hachibu/reliable-fetch)**
-
 **[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
 
 **[💻 Examples](https://github.com/hachibu/reliable-fetch/tree/main/examples)**
+
+**[🤝 Contributing](https://github.com/hachibu/reliable-fetch/blob/main/CONTRIBUTING.md)**
 
 **💡 Goals**
 
@@ -27,6 +27,8 @@ This library is currently under development and should be considered incomplete 
 -   [ ] Circuit breaker
 
 ## Installation
+
+**[📦 NPM Package](https://www.npmjs.com/package/@hachibu/reliable-fetch)**
 
 ### NPM
 
