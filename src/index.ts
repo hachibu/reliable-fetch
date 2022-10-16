@@ -20,11 +20,13 @@ export class ReliableFetch {
     private fetch: ReliableFetchFunction = fetch
 
     constructor(
-        private url: RequestInfo | URL,
+        private input: RequestInfo | URL,
         private init: ReliableRequestInit = {}
     ) {}
 
     /**
+     * The request will be aborted with an `AbortError` if it does not resolve or reject within the configured timeout.
+     *
      * @param {TimeoutConfig} config
      * @param {number} config.timeout - milliseconds
      */
@@ -79,7 +81,7 @@ export class ReliableFetch {
     }
 
     async run(): Promise<Response> {
-        return this.fetch(this.url, this.init)
+        return this.fetch(this.input, this.init)
     }
 }
 

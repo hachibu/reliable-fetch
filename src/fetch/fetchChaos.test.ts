@@ -8,7 +8,7 @@ describe('fetchChaos', () => {
 
     const table = [[0.1], [0.5], [0.9]]
 
-    it.each(table)('%s of requests fail', async (failureRate) => {
+    it.concurrent.each(table)('aborts %s of requests', async (failureRate) => {
         const requestCount = 100
         let failedRequestCount = 0
 

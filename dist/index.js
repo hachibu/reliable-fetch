@@ -26,12 +26,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReliableFetch = void 0;
 const fetch_1 = require("./fetch");
 class ReliableFetch {
-    constructor(url, init = {}) {
-        this.url = url;
+    constructor(input, init = {}) {
+        this.input = input;
         this.init = init;
         this.fetch = fetch;
     }
     /**
+     * The request will be aborted with an `AbortError` if it does not resolve or reject within the configured timeout.
+     *
      * @param {TimeoutConfig} config
      * @param {number} config.timeout - milliseconds
      */
@@ -82,7 +84,7 @@ class ReliableFetch {
     }
     run() {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.fetch(this.url, this.init);
+            return this.fetch(this.input, this.init);
         });
     }
 }

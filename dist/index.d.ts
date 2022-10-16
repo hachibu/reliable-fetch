@@ -1,11 +1,12 @@
-import { ReliableRequestInit } from './types';
-import { ChaosConfig, CircuitBreakerConfig, HedgeConfig, RetryConfig, TimeoutConfig } from './types/ReliableRequestInit';
+import { ChaosConfig, CircuitBreakerConfig, HedgeConfig, ReliableRequestInit, RetryConfig, TimeoutConfig } from './types';
 export declare class ReliableFetch {
-    private url;
+    private input;
     private init;
     private fetch;
-    constructor(url: RequestInfo | URL, init?: ReliableRequestInit);
+    constructor(input: RequestInfo | URL, init?: ReliableRequestInit);
     /**
+     * The request will be aborted with an `AbortError` if it does not resolve or reject within the configured timeout.
+     *
      * @param {TimeoutConfig} config
      * @param {number} config.timeout - milliseconds
      */

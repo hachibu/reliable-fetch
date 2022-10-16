@@ -1,28 +1,39 @@
-import { describe, expect, it } from '@jest/globals'
-import fetchTimeout from './fetchTimeout'
-import { fetchMockResponseWithDelay, DEFAULT_DELAY } from '../../jest.helpers'
 import fetchMock from 'jest-fetch-mock'
+import fetchTimeout from './fetchTimeout'
+import { describe, expect, it } from '@jest/globals'
+import { fetchMockResponseWithDelay, DEFAULT_DELAY } from '../../jest.helpers'
 
 describe('fetchTimeout', () => {
+    const input = 'https://localhost'
+
     beforeEach(() => fetchMockResponseWithDelay())
 
-    it('rejects within timeout', async () => {
-        fetchMock.mockAbort()
-        await expect(
-            fetchTimeout('', { timeout: DEFAULT_DELAY / 2 })
-        ).rejects.toThrow()
-        expect(fetch).toBeCalledTimes(1)
+    describe('aborts', () => {
+        it('if request does not complete within timeout', async () => {
+            const timeout = DEFAULT_DELAY / 2
+
+            fetchMock.mockAbort()
+            await expect(fetchTimeout(input, { timeout })).rejects.toThrow()
+
+            expect(fetch).toBeCalledTimes(1)
+        })
     })
 
-    it('resolves within timeout', async () => {
-        await expect(
-            fetchTimeout('', { timeout: DEFAULT_DELAY * 2 })
-        ).resolves.not.toThrow()
-        expect(fetch).toBeCalledTimes(1)
-    })
+    describe('does not abort', () => {
+        it('if request resolves within timeout', async () => {
+            const timeout = DEFAULT_DELAY * 2
 
-    it('resolves without timeout', async () => {
-        await expect(fetchTimeout('')).resolves.not.toThrow()
-        expect(fetch).toBeCalledTimes(1)
+            await expect(
+                fetchTimeout(input, { timeout })
+            ).resolves.not.toThrow()
+
+            expect(fetch).toBeCalledTimes(1)
+        })
+
+        it('if timeout is not configured', async () => {
+            await expect(fetchTimeout(input)).resolves.not.toThrow()
+
+            expect(fetch).toBeCalledTimes(1)
+        })
     })
 })
