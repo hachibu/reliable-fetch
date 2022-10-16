@@ -2,9 +2,9 @@
 
 ## Features
 
--   [ ] Request hedging
--   [ ] Random chaos
 -   [ ] Retry with linear and exponential backoff
+-   [ ] Random chaos
+-   [ ] Request hedging
 -   [ ] Circuit breaker
 
 ## Developer Experience
