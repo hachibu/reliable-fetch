@@ -1,4 +1,13 @@
-import { ReliableFetchFunction, ReliableRequestInit } from './types'
+import {
+    ChaosConfig,
+    CircuitBreakerConfig,
+    HedgeConfig,
+    ReliableFetchFunction,
+    ReliableRequestInit,
+    RetryConfig,
+    RetryStrategy,
+    TimeoutConfig,
+} from './types'
 import {
     fetchChaos,
     fetchCircuitBreaker,
@@ -6,14 +15,6 @@ import {
     fetchRetry,
     fetchTimeout,
 } from './fetch'
-import {
-    ChaosConfig,
-    CircuitBreakerConfig,
-    HedgeConfig,
-    RetryConfig,
-    TimeoutConfig,
-} from './types/ReliableRequestInit'
-import RetryStrategy from './types/RetryStrategy'
 
 export class ReliableFetch {
     private fetch: ReliableFetchFunction = fetch
