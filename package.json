@@ -12,8 +12,9 @@
         "url": "git+https://github.com/hachibu/reliable-fetch.git"
     },
     "keywords": [
-        "typescript",
-        "fetch"
+        "fetch",
+        "http",
+        "typescript"
     ],
     "license": "MIT",
     "main": "dist/index.js",

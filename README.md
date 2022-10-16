@@ -1,4 +1,8 @@
-# Reliable Fetch ![coverage](https://raw.githubusercontent.com/hachibu/reliable-fetch/main/coverage-badge.svg)
+# Reliable Fetch
+
+![npm version](https://img.shields.io/npm/v/@hachibu/reliable-fetch?color=blue)
+![minzipped size](https://img.shields.io/bundlephobia/minzip/@hachibu/reliable-fetch)
+![coverage](https://raw.githubusercontent.com/hachibu/reliable-fetch/main/coverage-badge.svg)
 
 An easy-to-use library for Node.js to make the fetch function more reliable. This library is currently under development and should be considered a work in progress.
 
