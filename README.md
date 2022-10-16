@@ -1,14 +1,6 @@
 # Reliable Fetch ![coverage](https://raw.githubusercontent.com/hachibu/reliable-fetch/main/coverage-badge.svg)
 
-An easy-to-use library for Node.js to make the fetch function more reliable.
-
-This library is currently under development and should be considered incomplete and a work in progress.
-
-**[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
-
-**[💻 Examples](https://github.com/hachibu/reliable-fetch/tree/main/examples)**
-
-**[🤝 Contributing](https://github.com/hachibu/reliable-fetch/blob/main/CONTRIBUTING.md)**
+An easy-to-use library for Node.js to make the fetch function more reliable. This library is currently under development and should be considered a work in progress.
 
 **💡 Goals**
 
@@ -19,12 +11,13 @@ This library is currently under development and should be considered incomplete 
 
 -   Timeout
 
-**🗺️ Roadmap**
+**[🗺️ Roadmap](https://github.com/hachibu/reliable-fetch/blob/main/ROADMAP.md)**
 
--   [ ] Request hedging
--   [ ] Random chaos
--   [ ] Retry with linear and exponential backoff
--   [ ] Circuit breaker
+**[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
+
+**[💻 Examples](https://github.com/hachibu/reliable-fetch/tree/main/examples)**
+
+**[🤝 Contributing](https://github.com/hachibu/reliable-fetch/blob/main/CONTRIBUTING.md)**
 
 ## Installation
 
