@@ -961,6 +961,13 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
+"@hachibu/reliable-fetch@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@hachibu/reliable-fetch/-/reliable-fetch-0.0.7.tgz#fa64ba094bf8b2bef47039bd380823995572a93f"
+  integrity sha512-ICWroXvyvleR5EjpIHiHnQ20XmYB7vyhVZbxFo/QeTHxsfzR+NnUmy4d8UJsWyNXIElSPlmLqvGVrQW2wNKkvw==
+  dependencies:
+    opossum "^6.4.0"
+
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@istanbuljs/load-nyc-config/-/load-nyc-config-1.1.0.tgz#fd3db1d59ecf7cf121e80650bb86712f9b55eced"

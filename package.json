@@ -1,6 +1,6 @@
 {
     "name": "@hachibu/reliable-fetch",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "author": {
         "name": "Raymond Sohn",
         "email": "raymondsohn@gmail.com"
@@ -11,9 +11,13 @@
         "type": "git",
         "url": "git+https://github.com/hachibu/reliable-fetch.git"
     },
+    "keywords": [
+        "typescript",
+        "fetch"
+    ],
     "license": "MIT",
-    "main": "lib/index.js",
-    "types": "lib/index.d.ts",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
     "dependencies": {
         "opossum": "^6.4.0"
     },
@@ -21,6 +25,7 @@
         "@babel/core": "^7.19.3",
         "@babel/preset-env": "^7.19.3",
         "@babel/preset-typescript": "^7.18.6",
+        "@hachibu/reliable-fetch": "^0.0.7",
         "@types/jest": "^29.1.2",
         "@types/node": "^18.8.3",
         "@types/opossum": "^6.2.2",
@@ -37,7 +42,7 @@
     },
     "scripts": {
         "build": "jest && yarn run build:tsc && sleep 2 && yarn build:doc",
-        "build:tsc": "tsc",
+        "build:tsc": "rm -rf dist/* && tsc",
         "build:doc": "typedoc src",
         "prepare": "husky install",
         "test": "jest",
