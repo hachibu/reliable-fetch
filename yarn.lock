@@ -961,10 +961,10 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@hachibu/reliable-fetch@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@hachibu/reliable-fetch/-/reliable-fetch-0.0.7.tgz#fa64ba094bf8b2bef47039bd380823995572a93f"
-  integrity sha512-ICWroXvyvleR5EjpIHiHnQ20XmYB7vyhVZbxFo/QeTHxsfzR+NnUmy4d8UJsWyNXIElSPlmLqvGVrQW2wNKkvw==
+"@hachibu/reliable-fetch@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@hachibu/reliable-fetch/-/reliable-fetch-0.0.8.tgz#cbf36b9b57915ed151ec5a39f92227ff75107092"
+  integrity sha512-Mdohg+cHoL/ykWarukLCK+S5wyCf2gCXFHG9HPova1/Alq1HcB5afFKBHf7TrgpcnsHgqsKQu1SCIVzO7km41A==
   dependencies:
     opossum "^6.4.0"
 
