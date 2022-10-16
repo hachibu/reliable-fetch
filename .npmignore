@@ -1,6 +1,7 @@
 coverage
 docs
 examples
+scripts
 src
 
 jest.*
@@ -10,3 +11,4 @@ prettier.config.js
 .prettierignore
 .husky/pre-commit
 *.md
+*.svg
