@@ -13,10 +13,6 @@ async function main() {
 }
 ```
 
-## Node.js Compatibility
-
-...
-
 ## 💡 Goals
 
 -   Unify reliability functions from multiple libraries into a single library.
@@ -31,7 +27,11 @@ async function main() {
 
 ## ⚠️ Warning
 
-This library is under active design and development and should be considered a work-in-progress. This means that the API is not stable and could change without warning until we get to version 1.0.0.
+-   This library is under active design and development and should be considered a work-in-progress. This means that the API is not stable and could change without warning until version 1.0.0.
+
+## 🏎️ Engines
+
+-   Node.js >= 18.
 
 ## ⚙️ Installation
 
