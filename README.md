@@ -1,4 +1,7 @@
-# Reliable Fetch ![npm version](https://img.shields.io/npm/v/@hachibu/reliable-fetch?color=blue) ![minzipped size](https://img.shields.io/bundlephobia/minzip/@hachibu/reliable-fetch) ![coverage](https://raw.githubusercontent.com/hachibu/reliable-fetch/main/coverage-badge.svg)
+# Reliable Fetch
+
+![unit tests](https://img.shields.io/github/workflow/status/hachibu/reliable-fetch/unit-tests/main)
+![coverage](https://raw.githubusercontent.com/hachibu/reliable-fetch/main/coverage-badge.svg)
 
 An easy-to-use [Node.js](https://nodejs.org/en/) library to make the [fetch function](https://developer.mozilla.org/en-US/docs/Web/API/fetch) more reliable.
 
@@ -9,6 +12,10 @@ async function main() {
     await reliableFetch('https://google.com').timeout({ timeout: 10 })
 }
 ```
+
+## Node.js Compatibility
+
+...
 
 ## 💡 Goals
 
