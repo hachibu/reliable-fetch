@@ -3100,11 +3100,6 @@ onetime@^5.1.0, onetime@^5.1.2:
   dependencies:
     mimic-fn "^2.1.0"
 
-opossum@^6.4.0:
-  version "6.4.0"
-  resolved "https://registry.yarnpkg.com/opossum/-/opossum-6.4.0.tgz#9eeb8af88257967be37b778b750485eb72caedb7"
-  integrity sha512-JVSEBsP3L1S8n6OEyFFfXqE9jzmM7QBeDGMT7/EPfv/TMHvbkFUxgXfklE3j1YeOIfIixfpT/4oKbNMhpAsHUQ==
-
 p-limit@^2.2.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.3.0.tgz#3dd33c647a214fdfffd835933eb086da0dc21db1"
