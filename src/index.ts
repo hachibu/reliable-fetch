@@ -1,19 +1,12 @@
 import {
     ChaosConfig,
-    CircuitBreakerConfig,
     HedgeConfig,
     ReliableRequestInit,
     RetryConfig,
     RetryStrategy,
     TimeoutConfig,
 } from './types'
-import {
-    fetchChaos,
-    fetchCircuitBreaker,
-    fetchHedge,
-    fetchRetry,
-    fetchTimeout,
-} from './fetch'
+import { fetchChaos, fetchHedge, fetchRetry, fetchTimeout } from './fetch'
 
 export class ReliableFetch {
     constructor(

@@ -1,7 +1,6 @@
 import ReliableFetchFunction from './ReliableFetchFunction'
 import ReliableRequestInit, {
     ChaosConfig,
-    CircuitBreakerConfig,
     HedgeConfig,
     RetryConfig,
     TimeoutConfig,
@@ -13,7 +12,6 @@ export {
     ReliableRequestInit,
     RetryStrategy,
     ChaosConfig,
-    CircuitBreakerConfig,
     HedgeConfig,
     RetryConfig,
     TimeoutConfig,

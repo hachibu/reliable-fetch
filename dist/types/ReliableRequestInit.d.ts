@@ -1,10 +1,6 @@
-import { Options } from 'opossum';
 import RetryStrategy from './RetryStrategy';
 export interface ChaosConfig {
     failureRate: number;
-}
-export interface CircuitBreakerConfig {
-    fallback?: () => Promise<Response>;
 }
 export interface HedgeConfig {
     timeout: number;
@@ -17,5 +13,5 @@ export interface RetryConfig {
 export interface TimeoutConfig {
     timeout: number;
 }
-declare type ReliableRequestInit = RequestInit & Partial<ChaosConfig> & Partial<CircuitBreakerConfig> & Partial<HedgeConfig> & Partial<RetryConfig> & Partial<TimeoutConfig> & Options;
+declare type ReliableRequestInit = RequestInit & Partial<ChaosConfig> & Partial<HedgeConfig> & Partial<RetryConfig> & Partial<TimeoutConfig>;
 export default ReliableRequestInit;

@@ -19,9 +19,6 @@
     "license": "MIT",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "dependencies": {
-        "opossum": "^6.4.0"
-    },
     "devDependencies": {
         "@babel/core": "^7.19.3",
         "@babel/preset-env": "^7.19.3",
@@ -52,6 +49,6 @@
     },
     "engineStrict": true,
     "engines": {
-        "node": "^18"
+        "node": ">= 18"
     }
 }

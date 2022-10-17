@@ -3,11 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fetchTimeout = exports.fetchRetry = exports.fetchHedge = exports.fetchCircuitBreaker = exports.fetchChaos = void 0;
+exports.fetchTimeout = exports.fetchRetry = exports.fetchHedge = exports.fetchChaos = void 0;
 const fetchChaos_1 = __importDefault(require("./fetchChaos"));
 exports.fetchChaos = fetchChaos_1.default;
-const fetchCircuitBreaker_1 = __importDefault(require("./fetchCircuitBreaker"));
-exports.fetchCircuitBreaker = fetchCircuitBreaker_1.default;
 const fetchHedge_1 = __importDefault(require("./fetchHedge"));
 exports.fetchHedge = fetchHedge_1.default;
 const fetchRetry_1 = __importDefault(require("./fetchRetry"));
