@@ -6,6 +6,7 @@ src
 
 *.md
 *.svg
+.github
 .husky/pre-commit
 .prettierignore
 babel.config.js

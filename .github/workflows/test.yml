@@ -1,0 +1,24 @@
+name: test
+on:
+    push:
+        branches: [main, dev]
+    pull_request:
+        branches: [dev]
+jobs:
+    check:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node: [12, 14, 16, 18]
+        steps:
+            - name: checkout
+              uses: actions/checkout@v3
+            - name: setup node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'npm'
+            - name: install dependencies
+              run: yarn install
+            - name: run tests
+              run: yarn test
