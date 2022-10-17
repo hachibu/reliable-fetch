@@ -2,18 +2,10 @@ import util from 'util'
 import cp from 'child_process'
 
 const exec = util.promisify(cp.exec)
+const pass = (msg: string) => console.log('✅ ', msg)
+const fail = (msg: string) => console.log('❌ ', msg)
 
-const pass = (message: string) => {
-    console.error('✅ ', message)
-}
-
-const fail = (message: string) => {
-    console.error('❌ ', message)
-}
-
-type Rule = NumberRule
-
-interface NumberRule {
+interface Rule {
     key: string
     max: number
     fmt: (v: number) => string
