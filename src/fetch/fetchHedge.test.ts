@@ -4,27 +4,28 @@ import { fetchMockResponseWithDelay, DEFAULT_DELAY } from '../../jest.helpers'
 import fetchMock from 'jest-fetch-mock'
 
 describe('fetchHedge', () => {
+    const input = 'https://localhost'
+
     beforeEach(() => fetchMockResponseWithDelay())
 
     it('calls fetch once if first call resolves within timeout ', async () => {
         await expect(
-            fetchHedge('', { timeout: DEFAULT_DELAY * 2 })
+            fetchHedge(input, { timeout: DEFAULT_DELAY * 2 })
         ).resolves.not.toThrow()
         expect(fetch).toBeCalledTimes(1)
     })
 
-    // it('calls fetch twice if first call aborts', async () => {
-    //     fetchMock.mockAbort()
-    //     await expect(
-    //         fetchHedge('', { timeout: DEFAULT_DELAY / 2 })
-    //     ).rejects.toThrow()
-    //     expect(fetch).toBeCalledTimes(2)
-    // })
+    it('calls fetch twice if first call aborts', async () => {
+        await expect(
+            fetchHedge(input, { timeout: DEFAULT_DELAY / 2 })
+        ).resolves.not.toThrow()
+        expect(fetch).toBeCalledTimes(2)
+    })
 
     it('throws on first call if error is not AbortError', async () => {
         fetchMock.mockReject(new Error())
         await expect(
-            fetchHedge('', { timeout: DEFAULT_DELAY * 2 })
+            fetchHedge(input, { timeout: DEFAULT_DELAY * 2 })
         ).rejects.toThrow()
         expect(fetch).toBeCalledTimes(1)
     })
