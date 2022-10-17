@@ -1,6 +1,6 @@
 # Reliable Fetch
 
-![unit tests](https://img.shields.io/github/workflow/status/hachibu/reliable-fetch/unit-tests/main)
+![unit-tests](https://img.shields.io/github/workflow/status/hachibu/reliable-fetch/unit-tests/main?label=unit-tests)
 ![coverage](https://raw.githubusercontent.com/hachibu/reliable-fetch/main/coverage-badge.svg)
 
 An easy-to-use [Node.js](https://nodejs.org/en/) library to make the [fetch function](https://developer.mozilla.org/en-US/docs/Web/API/fetch) more reliable.
