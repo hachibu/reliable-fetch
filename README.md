@@ -2,21 +2,25 @@
 
 An easy-to-use [Node.js](https://nodejs.org/en/) library to make the [fetch function](https://developer.mozilla.org/en-US/docs/Web/API/fetch) more reliable.
 
-**💡 Goals**
-
--   Unify reliability functions from multiple libraries into a single library.
--   Design and document a [fluent API](https://en.wikipedia.org/wiki/Fluent_interface) where users can easily discover reliability functions.
-
 ```ts
-// examples/timeout.ts
 import reliableFetch from '@hachibu/reliable-fetch'
 
 async function main() {
     await reliableFetch('https://google.com').timeout({ timeout: 10 })
 }
-
-main()
 ```
+
+## 💡 Goals
+
+-   Unify reliability functions from multiple libraries into a single library.
+-   Design and document a [fluent API](https://en.wikipedia.org/wiki/Fluent_interface) where users can easily discover reliability functions.
+
+## ✨️ Features
+
+-   Timeout
+-   Retry
+-   Hedge
+-   Chaos
 
 ## ⚠️ Warning
 
@@ -35,13 +39,6 @@ npm i @hachibu/reliable-fetch
 ```
 yarn add @hachibu/reliable-fetch
 ```
-
-## ✨️ Features
-
--   Timeout
--   Retry
--   Hedging
--   Random chaos
 
 ## 🔗 Links
 

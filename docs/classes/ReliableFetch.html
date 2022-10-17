@@ -18,7 +18,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">ReliableFetch</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/hachibu/reliable-fetch/blob/93146e4/src/index.ts#L18">src/index.ts:18</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/hachibu/reliable-fetch/blob/8f2f5c5/src/index.ts#L18">src/index.ts:18</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -51,7 +51,7 @@
 <h5>init: <a href="../types/ReliableRequestInit.html" class="tsd-signature-type" data-tsd-kind="Type alias">ReliableRequestInit</a><span class="tsd-signature-symbol"> = {}</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ReliableFetch.html" class="tsd-signature-type" data-tsd-kind="Class">ReliableFetch</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/hachibu/reliable-fetch/blob/93146e4/src/index.ts#L19">src/index.ts:19</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/hachibu/reliable-fetch/blob/8f2f5c5/src/index.ts#L19">src/index.ts:19</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="chaos" class="tsd-anchor"></a>
@@ -62,7 +62,7 @@
 <div class="tsd-comment tsd-typography"><p>The request will randomly fail with a <code>RandomChaosError</code> based on the
 configured failure rate (e.g. set <code>config.failureRate</code> to <code>0.1</code> for ~10%
 of requests to fail).</p>
-<pre><code class="language-ts"><span class="hl-1">await</span><span class="hl-2"> </span><span class="hl-6">reliableFetch</span><span class="hl-2">(</span><span class="hl-4">&#39;https://google.com&#39;</span><span class="hl-2">).</span><span class="hl-6">chaos</span><span class="hl-2">({ </span><span class="hl-3">failureRate:</span><span class="hl-2"> </span><span class="hl-7">0.1</span><span class="hl-2"> })</span>
+<pre><code class="language-ts"><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-5">reliableFetch</span><span class="hl-1">(</span><span class="hl-3">&#39;https://google.com&#39;</span><span class="hl-1">).</span><span class="hl-5">chaos</span><span class="hl-1">({ </span><span class="hl-2">failureRate:</span><span class="hl-1"> </span><span class="hl-6">0.1</span><span class="hl-1"> })</span>
 </code></pre>
 </div>
 <div class="tsd-parameters">
@@ -72,7 +72,7 @@ of requests to fail).</p>
 <h5>config: <a href="../interfaces/ChaosConfig.html" class="tsd-signature-type" data-tsd-kind="Interface">ChaosConfig</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/hachibu/reliable-fetch/blob/93146e4/src/index.ts#L67">src/index.ts:67</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/hachibu/reliable-fetch/blob/8f2f5c5/src/index.ts#L67">src/index.ts:67</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="hedge" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>hedge</span><a href="#hedge" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -81,7 +81,7 @@ of requests to fail).</p>
 <div class="tsd-comment tsd-typography"><p>The initial request will be aborted if it does not resolve or reject
 within the configured timeout and hedged with another request (e.g. set
 <code>config.timeout</code> to the P99 response time to hedge 1% of requests).</p>
-<pre><code class="language-ts"><span class="hl-1">await</span><span class="hl-2"> </span><span class="hl-6">reliableFetch</span><span class="hl-2">(</span><span class="hl-4">&#39;https://google.com&#39;</span><span class="hl-2">).</span><span class="hl-6">hedge</span><span class="hl-2">({ </span><span class="hl-3">timeout:</span><span class="hl-2"> </span><span class="hl-7">10</span><span class="hl-2"> })</span>
+<pre><code class="language-ts"><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-5">reliableFetch</span><span class="hl-1">(</span><span class="hl-3">&#39;https://google.com&#39;</span><span class="hl-1">).</span><span class="hl-5">hedge</span><span class="hl-1">({ </span><span class="hl-2">timeout:</span><span class="hl-1"> </span><span class="hl-6">10</span><span class="hl-1"> })</span>
 </code></pre>
 </div>
 <div class="tsd-parameters">
@@ -91,14 +91,14 @@ within the configured timeout and hedged with another request (e.g. set
 <h5>config: <a href="../interfaces/HedgeConfig.html" class="tsd-signature-type" data-tsd-kind="Interface">HedgeConfig</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/hachibu/reliable-fetch/blob/93146e4/src/index.ts#L51">src/index.ts:51</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/hachibu/reliable-fetch/blob/8f2f5c5/src/index.ts#L51">src/index.ts:51</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="retry" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>retry</span><a href="#retry" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 <li class="tsd-signature tsd-anchor-link" id="retry.retry-1">retry<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/RetryConfig.html" class="tsd-signature-type" data-tsd-kind="Interface">RetryConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol">&gt;</span><a href="#retry.retry-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>The request will be retried based on the configuration.</p>
-<pre><code class="language-ts"><span class="hl-1">await</span><span class="hl-2"> </span><span class="hl-6">reliableFetch</span><span class="hl-2">(</span><span class="hl-4">&#39;https://google.com&#39;</span><span class="hl-2">).</span><span class="hl-6">retry</span><span class="hl-2">({</span><br/><span class="hl-2">    </span><span class="hl-3">strategy:</span><span class="hl-2"> </span><span class="hl-4">&#39;linear&#39;</span><span class="hl-2">,</span><br/><span class="hl-2">    </span><span class="hl-3">delayBetweenRetries:</span><span class="hl-2"> </span><span class="hl-7">100</span><span class="hl-2">,</span><br/><span class="hl-2">    </span><span class="hl-3">maxRetries:</span><span class="hl-2"> </span><span class="hl-7">1</span><span class="hl-2">,</span><br/><span class="hl-2">})</span>
+<pre><code class="language-ts"><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-5">reliableFetch</span><span class="hl-1">(</span><span class="hl-3">&#39;https://google.com&#39;</span><span class="hl-1">).</span><span class="hl-5">retry</span><span class="hl-1">({</span><br/><span class="hl-1">    </span><span class="hl-2">strategy:</span><span class="hl-1"> </span><span class="hl-3">&#39;linear&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-2">delayBetweenRetries:</span><span class="hl-1"> </span><span class="hl-6">100</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-2">maxRetries:</span><span class="hl-1"> </span><span class="hl-6">1</span><span class="hl-1">,</span><br/><span class="hl-1">})</span>
 </code></pre>
 </div>
 <div class="tsd-parameters">
@@ -108,7 +108,7 @@ within the configured timeout and hedged with another request (e.g. set
 <h5>config: <a href="../interfaces/RetryConfig.html" class="tsd-signature-type" data-tsd-kind="Interface">RetryConfig</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/hachibu/reliable-fetch/blob/93146e4/src/index.ts#L87">src/index.ts:87</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/hachibu/reliable-fetch/blob/8f2f5c5/src/index.ts#L87">src/index.ts:87</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="timeout" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>timeout</span><a href="#timeout" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -116,7 +116,7 @@ within the configured timeout and hedged with another request (e.g. set
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>The request will be aborted with an <code>AbortError</code> if it does not resolve
 or reject within the configured timeout.</p>
-<pre><code class="language-ts"><span class="hl-1">await</span><span class="hl-2"> </span><span class="hl-6">reliableFetch</span><span class="hl-2">(</span><span class="hl-4">&#39;https://google.com&#39;</span><span class="hl-2">).</span><span class="hl-6">timeout</span><span class="hl-2">({ </span><span class="hl-3">timeout:</span><span class="hl-2"> </span><span class="hl-7">10</span><span class="hl-2"> })</span>
+<pre><code class="language-ts"><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-5">reliableFetch</span><span class="hl-1">(</span><span class="hl-3">&#39;https://google.com&#39;</span><span class="hl-1">).</span><span class="hl-5">timeout</span><span class="hl-1">({ </span><span class="hl-2">timeout:</span><span class="hl-1"> </span><span class="hl-6">10</span><span class="hl-1"> })</span>
 </code></pre>
 </div>
 <div class="tsd-parameters">
@@ -126,7 +126,7 @@ or reject within the configured timeout.</p>
 <h5>config: <a href="../interfaces/TimeoutConfig.html" class="tsd-signature-type" data-tsd-kind="Interface">TimeoutConfig</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/hachibu/reliable-fetch/blob/93146e4/src/index.ts#L35">src/index.ts:35</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/hachibu/reliable-fetch/blob/8f2f5c5/src/index.ts#L35">src/index.ts:35</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
