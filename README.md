@@ -24,9 +24,9 @@ async function main() {
 
 ## ⚠️ Warning
 
-This library is currently under active design and development and should be considered a work-in-progress. This means that the API is not stable and could change without warning until we get to version 1.0.0.
+This library is under active design and development and should be considered a work-in-progress. This means that the API is not stable and could change without warning until we get to version 1.0.0.
 
-## 📦 Installation
+## ⚙️ Installation
 
 **Install with NPM**
 
@@ -46,3 +46,4 @@ yarn add @hachibu/reliable-fetch
 -   **[💻 Examples](https://github.com/hachibu/reliable-fetch/tree/main/examples)**
 -   **[🗺️ Roadmap](https://github.com/hachibu/reliable-fetch/blob/main/ROADMAP.md)**
 -   **[🤝 Contributing](https://github.com/hachibu/reliable-fetch/blob/main/CONTRIBUTING.md)**
+-   **[📦 NPM Package](https://www.npmjs.com/package/@hachibu/reliable-fetch)**
