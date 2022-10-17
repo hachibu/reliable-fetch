@@ -1,24 +1,28 @@
-name: test
+name: Node.js CI
+
 on:
     push:
-        branches: [main, dev]
+        branches: [main]
     pull_request:
-        branches: [dev]
+        branches: [main]
+
 jobs:
-    check:
+    build:
         runs-on: ubuntu-latest
+
         strategy:
             matrix:
-                node: [12, 14, 16, 18]
+                node-version: [18]
+
         steps:
-            - name: checkout
+            - name: Checkout repository
               uses: actions/checkout@v3
-            - name: setup node
+            - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v3
               with:
                   node-version: ${{ matrix.node-version }}
                   cache: 'npm'
-            - name: install dependencies
-              run: yarn install
-            - name: run tests
+            - name: Install dependencies
+              run: yarn --frozen-lockfile
+            - name: Run tests
               run: yarn test
