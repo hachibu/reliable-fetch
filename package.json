@@ -42,11 +42,11 @@
         "typescript": "^4.8.4"
     },
     "scripts": {
-        "build": "yarn run test && yarn run build:src && yarn build:docs",
+        "build": "yarn run test && yarn run test:coverage-badge && yarn run build:src && yarn build:docs",
         "build:docs": "rm -rf docs/* && typedoc src",
         "build:src": "rm -rf dist/* && tsc",
         "prepare": "husky install",
-        "test": "jest && yarn run test:coverage-badge",
+        "test": "jest",
         "test:coverage-badge": "lcov-badge2 -o coverage-badge.svg coverage/lcov.info",
         "lint:npm-package": "ts-node scripts/lintNPMPackage.ts"
     }
