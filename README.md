@@ -20,19 +20,10 @@ async function main() {
 
 ## ✨️ Features
 
--   Timeout
--   Retry
--   Hedge
--   Chaos
-
-## ⚠️ Warning
-
--   This library is under active design and development and should be considered a work-in-progress. This means that the API is not stable and could change without warning until version 1.0.0.
--   The Fetch API is an experimental feature in Node.js. This feature could change at any time.
-
-## 🏎️ Engines
-
--   Node.js >= 18.
+-   [Timeout](https://github.com/hachibu/reliable-fetch/blob/main/examples/timeout.ts)
+-   [Retry](https://github.com/hachibu/reliable-fetch/blob/main/examples/retry.ts)
+-   [Hedge](https://github.com/hachibu/reliable-fetch/blob/main/examples/hedge.ts)
+-   [Chaos](https://github.com/hachibu/reliable-fetch/blob/main/examples/chaos.ts)
 
 ## ⚙️ Installation
 
@@ -47,6 +38,15 @@ npm i @hachibu/reliable-fetch
 ```
 yarn add @hachibu/reliable-fetch
 ```
+
+## 🏎️ Engine Compatibility
+
+-   Node.js >= 18.
+
+## ⚠️ Warning
+
+-   This library is under active design and development and should be considered a work-in-progress. This means that the API is not stable and could change without warning until version 1.0.0.
+-   The Fetch API is an experimental feature in Node.js. This feature could change at any time.
 
 ## 🔗 Links
 
