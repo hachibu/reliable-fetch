@@ -28,6 +28,7 @@ async function main() {
 ## ⚠️ Warning
 
 -   This library is under active design and development and should be considered a work-in-progress. This means that the API is not stable and could change without warning until version 1.0.0.
+-   The Fetch API is an experimental feature in Node.js. This feature could change at any time.
 
 ## 🏎️ Engines
 

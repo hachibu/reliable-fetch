@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const utils_1 = require("../utils");
+const promises_1 = require("timers/promises");
 const fetchRetry = (input, init) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     var _b, _c, _d;
@@ -23,7 +23,7 @@ const fetchRetry = (input, init) => __awaiter(void 0, void 0, void 0, function* 
             return yield fetch(input, init);
         }
         catch (_e) { }
-        yield (0, utils_1.sleep)(config.delayBetweenRetries);
+        yield (0, promises_1.setTimeout)(config.delayBetweenRetries);
         if (config.strategy === 'exponential') {
             (_a = config).delayBetweenRetries = Math.pow(_a.delayBetweenRetries, 2);
         }
