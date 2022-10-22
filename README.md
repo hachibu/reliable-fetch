@@ -39,14 +39,14 @@ npm i @hachibu/reliable-fetch
 yarn add @hachibu/reliable-fetch
 ```
 
-## 🏎️ Engine Compatibility
-
--   Node.js >= 18
-
 ## ⚠️ Warning
 
 -   This library is under development. The API could change at any time until version 1.0.0.
--   The Fetch API is an experimental feature in Node.js. This feature could change at any time.
+-   This library relies on the Node.js Fetch API which is an experimental feature. This feature could change at any time.
+
+## 🏎️ Engine Compatibility
+
+-   Node.js >= 18
 
 ## 🔗 Links
 
