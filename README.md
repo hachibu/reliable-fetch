@@ -45,7 +45,7 @@ yarn add @hachibu/reliable-fetch
 
 ## ⚠️ Warning
 
--   This library is under active design and development and should be considered a work-in-progress. This means that the API is not stable and could change without warning until version 1.0.0.
+-   This library is under development. The API could change at any time until version 1.0.0.
 -   The Fetch API is an experimental feature in Node.js. This feature could change at any time.
 
 ## 🔗 Links
