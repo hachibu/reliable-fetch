@@ -1,5 +1,5 @@
 import { ReliableFetchFunction, RetryConfig } from '../types'
-import { sleep } from '../utils'
+import { setTimeout } from 'timers/promises'
 
 const fetchRetry: ReliableFetchFunction = async (input, init) => {
     const config: RetryConfig = {
@@ -12,7 +12,7 @@ const fetchRetry: ReliableFetchFunction = async (input, init) => {
         try {
             return await fetch(input, init)
         } catch {}
-        await sleep(config.delayBetweenRetries)
+        await setTimeout(config.delayBetweenRetries)
         if (config.strategy === 'exponential') {
             config.delayBetweenRetries **= 2
         }
