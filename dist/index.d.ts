@@ -1,8 +1,8 @@
-import { ChaosConfig, HedgeConfig, ReliableRequestInit, RetryConfig, TimeoutConfig } from './types';
+import { ChaosConfig, HedgeConfig, ReliableRequestInfo, ReliableRequestInit, RetryConfig, TimeoutConfig } from './types';
 export declare class ReliableFetch {
     private input;
     private init;
-    constructor(input: RequestInfo | URL, init?: ReliableRequestInit);
+    constructor(input: ReliableRequestInfo, init?: ReliableRequestInit);
     /**
      * The request will be aborted with an `AbortError` if it does not resolve
      * or reject within the configured timeout.
@@ -59,7 +59,7 @@ export declare class ReliableFetch {
      */
     retry(config: RetryConfig): Promise<Response>;
 }
-declare const reliableFetch: (url: RequestInfo | URL, init?: ReliableRequestInit) => ReliableFetch;
+declare const reliableFetch: (url: ReliableRequestInfo, init?: ReliableRequestInit) => ReliableFetch;
 export default reliableFetch;
 export * from './errors';
 export * from './fetch';

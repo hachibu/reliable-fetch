@@ -1,6 +1,7 @@
 import {
     ChaosConfig,
     HedgeConfig,
+    ReliableRequestInfo,
     ReliableRequestInit,
     RetryConfig,
     RetryStrategy,
@@ -10,7 +11,7 @@ import { fetchChaos, fetchHedge, fetchRetry, fetchTimeout } from './fetch'
 
 export class ReliableFetch {
     constructor(
-        private input: RequestInfo | URL,
+        private input: ReliableRequestInfo,
         private init: ReliableRequestInit = {}
     ) {}
 
@@ -83,7 +84,7 @@ export class ReliableFetch {
 }
 
 const reliableFetch = (
-    url: RequestInfo | URL,
+    url: ReliableRequestInfo,
     init?: ReliableRequestInit
 ): ReliableFetch => new ReliableFetch(url, init)
 
