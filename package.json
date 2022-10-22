@@ -47,7 +47,6 @@
         "test:coverage-badge": "lcov-badge2 -o coverage-badge.svg coverage/lcov.info",
         "lint:npm-package": "ts-node scripts/lintNPMPackage.ts"
     },
-    "engineStrict": true,
     "engines": {
         "node": ">= 18"
     }
