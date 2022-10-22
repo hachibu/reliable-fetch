@@ -1,5 +1,5 @@
 import { ChaosConfig, ReliableFetchFunction } from '../types'
-import { RandomChaosError } from '../errors'
+import { ReliableFetchChaosError } from '../errors'
 
 const fetchChaos: ReliableFetchFunction = async (input, init) => {
     const config: ChaosConfig = {
@@ -10,7 +10,7 @@ const fetchChaos: ReliableFetchFunction = async (input, init) => {
     if (config.failureRate < 0 || config.failureRate > 1) {
         throw new RangeError('failureRate: should be between 0 and 1')
     } else if (randomNum > config.failureRate) {
-        throw new RandomChaosError(
+        throw new ReliableFetchChaosError(
             `${randomNum.toFixed(2)} > ${config.failureRate} `
         )
     }

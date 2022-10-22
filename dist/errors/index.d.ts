@@ -1,2 +1,2 @@
-import RandomChaosError from './RandomChaosError';
-export { RandomChaosError };
+import ReliableFetchChaosError from './ReliableFetchChaosError';
+export { ReliableFetchChaosError };

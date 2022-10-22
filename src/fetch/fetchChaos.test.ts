@@ -1,5 +1,5 @@
 import fetchChaos from './fetchChaos'
-import { RandomChaosError } from '../errors'
+import { ReliableFetchChaosError } from '../errors'
 import { describe, expect, it } from '@jest/globals'
 import { fetchMockResponseWithDelay } from '../../jest.helpers'
 
@@ -17,7 +17,7 @@ describe('fetchChaos', () => {
             try {
                 await fetchChaos(input, { failureRate })
             } catch (error) {
-                if (error instanceof RandomChaosError) {
+                if (error instanceof ReliableFetchChaosError) {
                     failedRequestCount++
                 } else {
                     throw error

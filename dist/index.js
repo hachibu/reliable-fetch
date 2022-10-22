@@ -51,9 +51,9 @@ class ReliableFetch {
         return (0, fetch_1.fetchHedge)(this.input, Object.assign(Object.assign({}, this.init), config));
     }
     /**
-     * The request will randomly fail with a `RandomChaosError` based on the
-     * configured failure rate (e.g. set `config.failureRate` to `0.1` for ~10%
-     * of requests to fail).
+     * The request will randomly fail with a `ReliableFetchChaosError` based on
+     * the configured failure rate (e.g. set `config.failureRate` to `0.1` for
+     * ~10% of requests to fail).
      *
      * ```ts
      * await reliableFetch('https://google.com').chaos({ failureRate: 0.1 })

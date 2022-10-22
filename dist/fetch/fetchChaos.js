@@ -20,7 +20,7 @@ const fetchChaos = (input, init) => __awaiter(void 0, void 0, void 0, function* 
         throw new RangeError('failureRate: should be between 0 and 1');
     }
     else if (randomNum > config.failureRate) {
-        throw new errors_1.RandomChaosError(`${randomNum.toFixed(2)} > ${config.failureRate} `);
+        throw new errors_1.ReliableFetchChaosError(`${randomNum.toFixed(2)} > ${config.failureRate} `);
     }
     return fetch(input, init);
 });

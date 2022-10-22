@@ -1,3 +1,3 @@
-import RandomChaosError from './RandomChaosError'
+import ReliableFetchChaosError from './ReliableFetchChaosError'
 
-export { RandomChaosError }
+export { ReliableFetchChaosError }
