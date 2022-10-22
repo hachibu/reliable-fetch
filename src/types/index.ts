@@ -1,11 +1,7 @@
 import ReliableFetchFunction from './ReliableFetchFunction'
-import ReliableRequestInit, {
-    ChaosConfig,
-    HedgeConfig,
-    RetryConfig,
-    TimeoutConfig,
-} from './ReliableRequestInit'
+import ReliableRequestInit from './ReliableRequestInit'
 import RetryStrategy from './RetryStrategy'
+import { ChaosConfig, HedgeConfig, RetryConfig, TimeoutConfig } from './config'
 
 export {
     ReliableFetchFunction,
