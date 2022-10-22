@@ -1,3 +1,3 @@
-export type RetryStrategy = 'linear' | 'exponential'
+export type RetryStrategy = 'constant' | 'exponential'
 
 export default RetryStrategy

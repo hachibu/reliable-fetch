@@ -1,11 +1,7 @@
 import reliableFetch from '../src/index'
 
 async function main() {
-    const res = await reliableFetch('https://google.com').retry({
-        strategy: 'linear',
-        delayBetweenRetries: 100,
-        maxRetries: 1,
-    })
+    const res = await reliableFetch('https://google.com').retry()
 
     console.log(res.status)
 }

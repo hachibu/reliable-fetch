@@ -1,20 +1,34 @@
 import { ReliableFetchFunction, RetryConfig } from '../types'
 import { setTimeout } from 'timers/promises'
+import { randomJitter } from '../utils'
 
 const fetchRetry: ReliableFetchFunction = async (input, init) => {
     const config: RetryConfig = {
-        strategy: init?.strategy ?? 'linear',
-        delayBetweenRetries: init?.delayBetweenRetries ?? 100,
-        maxRetries: init?.maxRetries ?? 1,
+        delay: init?.delay ?? 100,
+        jitter: init?.jitter ?? true,
+        retries: init?.retries ?? 1,
+        strategy: init?.strategy ?? 'constant',
     }
+    const maxDelay = 10000
+    const maxRetries = 10
+    const retries = Math.min(config.retries, maxRetries)
 
-    for (let i = 0; i < config.maxRetries; i++) {
+    for (let i = 0; i < retries; i++) {
         try {
             return await fetch(input, init)
         } catch {}
-        await setTimeout(config.delayBetweenRetries)
+
+        const delay = Math.min(config.delay, maxDelay)
+
+        await setTimeout(delay)
+
         if (config.strategy === 'exponential') {
-            config.delayBetweenRetries **= 2
+            // 100, 200, 400, 800, 1600, ...
+            config.delay = delay * Math.pow(2, i)
+        }
+
+        if (config.jitter) {
+            config.delay = randomJitter(config.delay)
         }
     }
 
