@@ -24,9 +24,9 @@ export class ReliableFetch {
      * ```
      *
      * @param {TimeoutConfig} config
-     * @param {number} config.timeout - milliseconds
+     * @param {number} config.timeout - milliseconds (default: 0)
      */
-    timeout(config: TimeoutConfig): Promise<Response> {
+    timeout(config?: Partial<TimeoutConfig>): Promise<Response> {
         return fetchTimeout(this.input, { ...this.init, ...config })
     }
 
@@ -40,9 +40,9 @@ export class ReliableFetch {
      * ```
      *
      * @param {HedgeConfig} config
-     * @param {number} config.timeout - milliseconds
+     * @param {number} config.timeout - milliseconds (default: 0)
      */
-    hedge(config: HedgeConfig): Promise<Response> {
+    hedge(config?: Partial<HedgeConfig>): Promise<Response> {
         return fetchHedge(this.input, { ...this.init, ...config })
     }
 
@@ -56,9 +56,9 @@ export class ReliableFetch {
      * ```
      *
      * @param {ChaosConfig} config
-     * @param {number} config.failureRate - number between 0 and 1 representing the percentage of fetch calls to fail
+     * @param {number} config.failureRate - number between 0 and 1 representing the percentage of fetch calls to fail (default: 1)
      */
-    chaos(config: ChaosConfig): Promise<Response> {
+    chaos(config?: Partial<ChaosConfig>): Promise<Response> {
         return fetchChaos(this.input, { ...this.init, ...config })
     }
 
@@ -66,19 +66,16 @@ export class ReliableFetch {
      * The request will be retried based on the configuration.
      *
      * ```ts
-     * await reliableFetch('https://google.com').retry({
-     *     strategy: 'linear',
-     *     delayBetweenRetries: 100,
-     *     maxRetries: 1,
-     * })
+     * await reliableFetch('https://google.com').retry()
      * ```
      *
      * @param {RetryConfig} config
-     * @param {RetryStrategy} config.strategy - linear or exponential
-     * @param {number} config.delayBetweenRetries - delay between retries in milliseconds
-     * @param {number} config.maxRetries - maximum number of times to retry
+     * @param {number} config.retries - number of times to retry (default: 1)
+     * @param {number} config.delay - delay between retries in milliseconds (default: 100)
+     * @param {RetryStrategy} config.strategy - constant or exponential (default: constant)
+     * @param {boolean} jitter - apply jitter to delay between retries (default: true)
      */
-    retry(config: RetryConfig): Promise<Response> {
+    retry(config?: Partial<RetryConfig>): Promise<Response> {
         return fetchRetry(this.input, { ...this.init, ...config })
     }
 }

@@ -10,22 +10,31 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const promises_1 = require("timers/promises");
+const utils_1 = require("../utils");
 const fetchRetry = (input, init) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a;
-    var _b, _c, _d;
+    var _a, _b, _c, _d;
     const config = {
-        strategy: (_b = init === null || init === void 0 ? void 0 : init.strategy) !== null && _b !== void 0 ? _b : 'linear',
-        delayBetweenRetries: (_c = init === null || init === void 0 ? void 0 : init.delayBetweenRetries) !== null && _c !== void 0 ? _c : 100,
-        maxRetries: (_d = init === null || init === void 0 ? void 0 : init.maxRetries) !== null && _d !== void 0 ? _d : 1,
+        delay: (_a = init === null || init === void 0 ? void 0 : init.delay) !== null && _a !== void 0 ? _a : 100,
+        jitter: (_b = init === null || init === void 0 ? void 0 : init.jitter) !== null && _b !== void 0 ? _b : true,
+        retries: (_c = init === null || init === void 0 ? void 0 : init.retries) !== null && _c !== void 0 ? _c : 1,
+        strategy: (_d = init === null || init === void 0 ? void 0 : init.strategy) !== null && _d !== void 0 ? _d : 'constant',
     };
-    for (let i = 0; i < config.maxRetries; i++) {
+    const maxDelay = 10000;
+    const maxRetries = 10;
+    const retries = Math.min(config.retries, maxRetries);
+    for (let i = 0; i < retries; i++) {
         try {
             return yield fetch(input, init);
         }
         catch (_e) { }
-        yield (0, promises_1.setTimeout)(config.delayBetweenRetries);
+        const delay = Math.min(config.delay, maxDelay);
+        yield (0, promises_1.setTimeout)(delay);
         if (config.strategy === 'exponential') {
-            (_a = config).delayBetweenRetries = Math.pow(_a.delayBetweenRetries, 2);
+            // 100, 200, 400, 800, 1600, ...
+            config.delay = delay * Math.pow(2, i);
+        }
+        if (config.jitter) {
+            config.delay = (0, utils_1.randomJitter)(config.delay);
         }
     }
     return fetch(input, init);

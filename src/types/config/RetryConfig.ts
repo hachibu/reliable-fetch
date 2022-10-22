@@ -1,7 +1,8 @@
 import RetryStrategy from '../RetryStrategy'
 
 export default interface RetryConfig {
+    retries: number
+    delay: number
     strategy: RetryStrategy
-    delayBetweenRetries: number
-    maxRetries: number
+    jitter: boolean
 }
