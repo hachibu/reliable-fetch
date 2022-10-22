@@ -1,6 +1,9 @@
 # Roadmap
 
-## Features
+## 1.0.0
 
--   [ ] Add optional timeout support to retry
+-   [x] Timeout
+-   [x] Retry
+-   [x] Hedge
+-   [x] Chaos
 -   [ ] Circuit breaker
