@@ -28,4 +28,12 @@ describe('fetchChaos', () => {
 
         expect(failedRequestRatio).toBeLessThanOrEqual(failureRate + 0.1)
     })
+
+    it('throws an error when failure rate is invalid', async () => {
+        try {
+            await fetchChaos(input, { failureRate: 10 })
+        } catch (error) {
+            expect(error).toBeInstanceOf(RangeError)
+        }
+    })
 })

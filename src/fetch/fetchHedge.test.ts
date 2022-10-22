@@ -29,4 +29,9 @@ describe('fetchHedge', () => {
         ).rejects.toThrow()
         expect(fetch).toBeCalledTimes(1)
     })
+
+    it('defaults config values', async () => {
+        await expect(fetchHedge(input)).resolves.not.toThrow()
+        expect(fetch).toBeCalledTimes(1)
+    })
 })

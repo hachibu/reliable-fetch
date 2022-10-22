@@ -4,11 +4,13 @@ import { fetchMockResponseWithDelay, DEFAULT_DELAY } from '../../jest.helpers'
 import fetchMock from 'jest-fetch-mock'
 
 describe('fetchRetry', () => {
+    const input = 'https://localhost'
+
     it('resolves without retry', async () => {
         const maxRetries = 3
         fetchMockResponseWithDelay()
         await expect(
-            fetchRetry('', {
+            fetchRetry(input, {
                 delayBetweenRetries: DEFAULT_DELAY / 2,
                 maxRetries,
             })
@@ -21,7 +23,7 @@ describe('fetchRetry', () => {
         fetchMockResponseWithDelay()
         fetchMock.mockAbort()
         await expect(
-            fetchRetry('', {
+            fetchRetry(input, {
                 delayBetweenRetries: DEFAULT_DELAY / 2,
                 maxRetries,
             })
@@ -34,12 +36,19 @@ describe('fetchRetry', () => {
         fetchMockResponseWithDelay(1)
         fetchMock.mockAbort()
         await expect(
-            fetchRetry('', {
+            fetchRetry(input, {
                 strategy: 'exponential',
                 delayBetweenRetries: 1,
                 maxRetries,
             })
         ).rejects.toThrow()
         expect(fetch).toBeCalledTimes(maxRetries + 1)
+    })
+
+    it('defaults config values', async () => {
+        fetchMockResponseWithDelay(1)
+        fetchMock.mockAbort()
+        await expect(fetchRetry(input)).rejects.toThrow()
+        expect(fetch).toBeCalledTimes(2)
     })
 })
