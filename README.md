@@ -41,7 +41,7 @@ yarn add @hachibu/reliable-fetch
 
 ## 🏎️ Engine Compatibility
 
--   Node.js >= 18.
+-   Node.js >= 18
 
 ## ⚠️ Warning
 
