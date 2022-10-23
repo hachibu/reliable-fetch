@@ -18,7 +18,7 @@ const fetchRetry = (input, init) => __awaiter(void 0, void 0, void 0, function* 
         maxDelay: (_b = init === null || init === void 0 ? void 0 : init.maxDelay) !== null && _b !== void 0 ? _b : 10000,
         retries: (_c = init === null || init === void 0 ? void 0 : init.retries) !== null && _c !== void 0 ? _c : 1,
         maxRetries: (_d = init === null || init === void 0 ? void 0 : init.maxRetries) !== null && _d !== void 0 ? _d : 10,
-        strategy: (_e = init === null || init === void 0 ? void 0 : init.strategy) !== null && _e !== void 0 ? _e : 'constant',
+        backoffStrategy: (_e = init === null || init === void 0 ? void 0 : init.backoffStrategy) !== null && _e !== void 0 ? _e : 'constant',
         jitter: (_f = init === null || init === void 0 ? void 0 : init.jitter) !== null && _f !== void 0 ? _f : true,
     };
     const retries = Math.min(config.retries, config.maxRetries);
@@ -29,7 +29,7 @@ const fetchRetry = (input, init) => __awaiter(void 0, void 0, void 0, function* 
         catch (_g) { }
         const delay = Math.min(config.delay, config.maxDelay);
         yield (0, promises_1.setTimeout)(delay);
-        if (config.strategy === 'exponential') {
+        if (config.backoffStrategy === 'exponential') {
             // 100, 200, 400, 800, 1600, ...
             config.delay = delay * Math.pow(2, i);
         }

@@ -1,9 +1,9 @@
-import RetryStrategy from '../RetryStrategy';
+import RetryBackoffStrategy from '../RetryBackoffStrategy';
 export default interface RetryConfig {
     retries: number;
     maxRetries: number;
     delay: number;
     maxDelay: number;
-    strategy: RetryStrategy;
+    backoffStrategy: RetryBackoffStrategy;
     jitter: boolean;
 }

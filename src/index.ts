@@ -4,7 +4,7 @@ import {
     ReliableRequestInfo,
     ReliableRequestInit,
     RetryConfig,
-    RetryStrategy,
+    RetryBackoffStrategy,
     TimeoutConfig,
 } from './types'
 import { fetchChaos, fetchHedge, fetchRetry, fetchTimeout } from './fetch'
@@ -58,7 +58,7 @@ export class ReliableFetch {
      * @param {number} config.maxRetries - maximum number of times to retry (default: 10)
      * @param {number} config.delay - delay between retries in milliseconds (default: 100)
      * @param {number} config.maxDelay - maximum delay between retries in milliseconds (default: 10000)
-     * @param {RetryStrategy} config.strategy - constant or exponential (default: constant)
+     * @param {RetryBackoffStrategy} config.strategy - constant or exponential (default: constant)
      * @param {boolean} jitter - apply jitter to delay between retries (default: true)
      */
     retry(config?: Partial<RetryConfig>): Promise<Response> {

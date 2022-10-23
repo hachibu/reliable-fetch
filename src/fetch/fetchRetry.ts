@@ -8,7 +8,7 @@ const fetchRetry: ReliableFetchFunction = async (input, init) => {
         maxDelay: init?.maxDelay ?? 10000,
         retries: init?.retries ?? 1,
         maxRetries: init?.maxRetries ?? 10,
-        strategy: init?.strategy ?? 'constant',
+        backoffStrategy: init?.backoffStrategy ?? 'constant',
         jitter: init?.jitter ?? true,
     }
     const retries = Math.min(config.retries, config.maxRetries)
@@ -22,7 +22,7 @@ const fetchRetry: ReliableFetchFunction = async (input, init) => {
 
         await setTimeout(delay)
 
-        if (config.strategy === 'exponential') {
+        if (config.backoffStrategy === 'exponential') {
             // 100, 200, 400, 800, 1600, ...
             config.delay = delay * Math.pow(2, i)
         }
