@@ -1,23 +1,17 @@
 import { describe, expect, it } from '@jest/globals'
-import { randomNumberWithinJitterPeriod, randomNumberBetween } from './index'
+import { addRandomJitter, randomNumberBetween } from './index'
 
 describe('utils', () => {
-    describe('randomNumberWithinJitterPeriod', () => {
-        it.concurrent(
-            'returns a random number within jitter period',
-            async () => {
-                for (let i = 0; i < 100; i++) {
-                    const n = Math.random() * 1000
-                    const v = randomNumberWithinJitterPeriod(n)
-                    const maxJitter = n * 0.2
-                    const min = n - maxJitter
-                    const max = n + maxJitter
+    describe('addRandomJitter', () => {
+        it.concurrent('returns a number with random jitter added', async () => {
+            for (let i = 0; i < 100; i++) {
+                const v = addRandomJitter(i)
+                const maxJitter = i * 0.2
 
-                    expect(v).toBeGreaterThanOrEqual(min)
-                    expect(v).toBeLessThanOrEqual(max)
-                }
+                expect(v).toBeGreaterThanOrEqual(i)
+                expect(v).toBeLessThanOrEqual(i + maxJitter)
             }
-        )
+        })
     })
 
     describe('randomNumberBetween', () => {

@@ -1,6 +1,6 @@
 import { ReliableFetchFunction, RetryConfig } from '../types'
 import { setTimeout } from 'timers/promises'
-import { randomNumberWithinJitterPeriod } from '../utils'
+import { addRandomJitter } from '../utils'
 
 const fetchRetry: ReliableFetchFunction = async (input, init) => {
     const config: RetryConfig = {
@@ -9,7 +9,7 @@ const fetchRetry: ReliableFetchFunction = async (input, init) => {
         attempts: init?.attempts ?? 1,
         maxAttempts: init?.maxAttempts ?? 10,
         backoff: init?.backoff ?? 'constant',
-        jitter: init?.jitter ?? false,
+        jitter: init?.jitter ?? 'none',
     }
     const errors = []
     const retries = Math.min(config.attempts, config.maxAttempts)
@@ -21,14 +21,14 @@ const fetchRetry: ReliableFetchFunction = async (input, init) => {
     }
 
     for (let i = 0; i < retries; i++) {
+        const delay = Math.min(config.delay, config.maxDelay)
+
         try {
-            init?.eventEmitter?.emit('retry', i + 1)
+            init?.eventEmitter?.emit('retry', i + 1, delay)
             return await fetch(input, init)
         } catch (error) {
             errors.push(error)
         }
-
-        const delay = Math.min(config.delay, config.maxDelay)
 
         await setTimeout(delay)
 
@@ -36,8 +36,8 @@ const fetchRetry: ReliableFetchFunction = async (input, init) => {
             config.delay = delay * Math.pow(2, i + 1)
         }
 
-        if (config.jitter) {
-            config.delay = randomNumberWithinJitterPeriod(config.delay)
+        if (config.jitter === 'naive') {
+            config.delay = addRandomJitter(config.delay)
         }
     }
 

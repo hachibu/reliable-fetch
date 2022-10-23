@@ -1,4 +1,5 @@
 import Backoff from '../Backoff'
+import Jitter from '../Jitter'
 
 export default interface RetryConfig {
     attempts: number
@@ -6,5 +7,5 @@ export default interface RetryConfig {
     delay: number
     maxDelay: number
     backoff: Backoff
-    jitter: boolean
+    jitter: Jitter
 }

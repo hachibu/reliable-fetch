@@ -81,12 +81,12 @@ class ReliableFetch {
      * The request will be retried based on the configuration.
      *
      * @param {RetryConfig} config
-     * @param {number} config.retries - number of times to retry (default: 1)
-     * @param {number} config.maxRetries - maximum number of times to retry (default: 10)
-     * @param {number} config.delay - delay between retries in milliseconds (default: 100)
-     * @param {number} config.maxDelay - maximum delay between retries in milliseconds (default: 10000)
-     * @param {Backoff} config.strategy - constant or exponential (default: constant)
-     * @param {boolean} jitter - apply jitter to delay between retries (default: true)
+     * @param {number} config.attempts - number of times to attempt (default: 1)
+     * @param {number} config.maxAttempts - maximum number of times to attempt (default: 10)
+     * @param {number} config.delay - delay between attempts in milliseconds (default: 100)
+     * @param {number} config.maxDelay - maximum delay between attempts in milliseconds (default: 10000)
+     * @param {Backoff} config.backoff - constant or exponential (default: constant)
+     * @param {Jitter} jitter - none or naive (default: none)
      */
     retry(config) {
         return (0, fetch_1.fetchRetry)(this.input, Object.assign(Object.assign({}, this.init), config));

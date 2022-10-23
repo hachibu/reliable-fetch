@@ -19,7 +19,7 @@ const fetchRetry = (input, init) => __awaiter(void 0, void 0, void 0, function* 
         attempts: (_c = init === null || init === void 0 ? void 0 : init.attempts) !== null && _c !== void 0 ? _c : 1,
         maxAttempts: (_d = init === null || init === void 0 ? void 0 : init.maxAttempts) !== null && _d !== void 0 ? _d : 10,
         backoff: (_e = init === null || init === void 0 ? void 0 : init.backoff) !== null && _e !== void 0 ? _e : 'constant',
-        jitter: (_f = init === null || init === void 0 ? void 0 : init.jitter) !== null && _f !== void 0 ? _f : false,
+        jitter: (_f = init === null || init === void 0 ? void 0 : init.jitter) !== null && _f !== void 0 ? _f : 'none',
     };
     const errors = [];
     const retries = Math.min(config.attempts, config.maxAttempts);
@@ -30,20 +30,20 @@ const fetchRetry = (input, init) => __awaiter(void 0, void 0, void 0, function* 
         errors.push(error);
     }
     for (let i = 0; i < retries; i++) {
+        const delay = Math.min(config.delay, config.maxDelay);
         try {
-            (_g = init === null || init === void 0 ? void 0 : init.eventEmitter) === null || _g === void 0 ? void 0 : _g.emit('retry', i + 1);
+            (_g = init === null || init === void 0 ? void 0 : init.eventEmitter) === null || _g === void 0 ? void 0 : _g.emit('retry', i + 1, delay);
             return yield fetch(input, init);
         }
         catch (error) {
             errors.push(error);
         }
-        const delay = Math.min(config.delay, config.maxDelay);
         yield (0, promises_1.setTimeout)(delay);
         if (config.backoff === 'exponential') {
             config.delay = delay * Math.pow(2, i + 1);
         }
-        if (config.jitter) {
-            config.delay = (0, utils_1.randomNumberWithinJitterPeriod)(config.delay);
+        if (config.jitter === 'naive') {
+            config.delay = (0, utils_1.addRandomJitter)(config.delay);
         }
     }
     throw errors.at(-1);
