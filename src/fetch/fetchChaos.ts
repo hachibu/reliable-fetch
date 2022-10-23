@@ -3,16 +3,16 @@ import { ReliableFetchChaosError } from '../errors'
 
 const fetchChaos: ReliableFetchFunction = async (input, init) => {
     const config: ChaosConfig = {
-        failureRate: 1 - (init?.failureRate ?? 0),
+        rate: 1 - (init?.rate ?? 0),
     }
     const randomNum = Math.random()
 
-    if (config.failureRate < 0 || config.failureRate > 1) {
-        throw new RangeError('failureRate: should be between 0 and 1')
-    } else if (randomNum > config.failureRate) {
+    if (config.rate < 0 || config.rate > 1) {
+        throw new RangeError('rate: should be between 0 and 1')
+    } else if (randomNum > config.rate) {
         init?.eventEmitter?.emit('chaos')
         throw new ReliableFetchChaosError(
-            `${randomNum.toFixed(2)} > ${config.failureRate} `
+            `${randomNum.toFixed(2)} > ${config.rate} `
         )
     }
 

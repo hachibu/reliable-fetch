@@ -13,15 +13,15 @@ const errors_1 = require("../errors");
 const fetchChaos = (input, init) => __awaiter(void 0, void 0, void 0, function* () {
     var _a, _b;
     const config = {
-        failureRate: 1 - ((_a = init === null || init === void 0 ? void 0 : init.failureRate) !== null && _a !== void 0 ? _a : 0),
+        rate: 1 - ((_a = init === null || init === void 0 ? void 0 : init.rate) !== null && _a !== void 0 ? _a : 0),
     };
     const randomNum = Math.random();
-    if (config.failureRate < 0 || config.failureRate > 1) {
-        throw new RangeError('failureRate: should be between 0 and 1');
+    if (config.rate < 0 || config.rate > 1) {
+        throw new RangeError('rate: should be between 0 and 1');
     }
-    else if (randomNum > config.failureRate) {
+    else if (randomNum > config.rate) {
         (_b = init === null || init === void 0 ? void 0 : init.eventEmitter) === null || _b === void 0 ? void 0 : _b.emit('chaos');
-        throw new errors_1.ReliableFetchChaosError(`${randomNum.toFixed(2)} > ${config.failureRate} `);
+        throw new errors_1.ReliableFetchChaosError(`${randomNum.toFixed(2)} > ${config.rate} `);
     }
     return fetch(input, init);
 });

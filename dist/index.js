@@ -68,11 +68,11 @@ class ReliableFetch {
     }
     /**
      * The request will randomly fail with a `ReliableFetchChaosError` based on
-     * the configured failure rate (e.g. set `config.failureRate` to `0.1` for
-     * ~10% of requests to fail).
+     * the configured rate (e.g. set `config.rate` to `0.1` for ~10% of requests
+     * to fail).
      *
      * @param {ChaosConfig} config
-     * @param {number} config.failureRate - number between 0 and 1 representing the percentage of fetch calls to fail (default: 1)
+     * @param {number} config.rate - number between 0 and 1 representing the percentage of fetch calls to fail (default: 1)
      */
     chaos(config) {
         return (0, fetch_1.fetchChaos)(this.input, Object.assign(Object.assign({}, this.init), config));
