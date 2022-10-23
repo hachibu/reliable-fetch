@@ -1334,13 +1334,6 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.8.3.tgz#ce750ab4017effa51aed6a7230651778d54e327c"
   integrity sha512-0os9vz6BpGwxGe9LOhgP/ncvYN5Tx1fNcd2TM3rD/aCGBkysb+ZWpXEocG24h6ZzOi13+VB8HndAQFezsSOw1w==
 
-"@types/opossum@^6.2.2":
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/@types/opossum/-/opossum-6.2.2.tgz#f3526a6c7966dbe28b5722e59513feedb2616c8d"
-  integrity sha512-VYrqkucrT4nbQZpPxk522+HnhAC5f0EEZNMZATCRQeJwchNwx/GqBscZrHCQvNRx7mlhbgMvZ0DG4NE6BgiVAw==
-  dependencies:
-    "@types/node" "*"
-
 "@types/prettier@^2.1.5":
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.7.1.tgz#dfd20e2dc35f027cdd6c1908e80a5ddc7499670e"
