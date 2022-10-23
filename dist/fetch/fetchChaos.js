@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const errors_1 = require("../errors");
 const fetchChaos = (input, init) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a;
+    var _a, _b;
     const config = {
         failureRate: 1 - ((_a = init === null || init === void 0 ? void 0 : init.failureRate) !== null && _a !== void 0 ? _a : 0),
     };
@@ -20,6 +20,7 @@ const fetchChaos = (input, init) => __awaiter(void 0, void 0, void 0, function* 
         throw new RangeError('failureRate: should be between 0 and 1');
     }
     else if (randomNum > config.failureRate) {
+        (_b = init === null || init === void 0 ? void 0 : init.eventEmitter) === null || _b === void 0 ? void 0 : _b.emit('chaos');
         throw new errors_1.ReliableFetchChaosError(`${randomNum.toFixed(2)} > ${config.failureRate} `);
     }
     return fetch(input, init);

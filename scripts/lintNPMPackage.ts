@@ -19,7 +19,7 @@ const RULES: Rule[] = [
     },
     {
         key: 'unpackedSize',
-        max: 25000,
+        max: 30000,
         fmt: (v) => `${v} B`,
     },
 ]

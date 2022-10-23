@@ -6,8 +6,8 @@
 -   [x] Retry
 -   [x] Hedge
 -   [x] Chaos
--   [ ] Circuit breaker
+-   [ ] Lifecycle hooks using event emitter
 
 ## Backlog
 
--   [ ] Lifecycle hooks using event emitter
+-   [ ] Circuit breaker

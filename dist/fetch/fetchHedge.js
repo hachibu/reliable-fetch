@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const fetchTimeout_1 = __importDefault(require("./fetchTimeout"));
 const fetchHedge = (input, init) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a;
+    var _a, _b;
     const config = {
         timeout: (_a = init === null || init === void 0 ? void 0 : init.timeout) !== null && _a !== void 0 ? _a : 0,
     };
@@ -28,6 +28,7 @@ const fetchHedge = (input, init) => __awaiter(void 0, void 0, void 0, function* 
                 throw error;
             }
         }
+        (_b = init === null || init === void 0 ? void 0 : init.eventEmitter) === null || _b === void 0 ? void 0 : _b.emit('hedge');
         response = yield fetch(input, init);
     }
     return response;

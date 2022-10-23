@@ -1,8 +1,16 @@
 import { ChaosConfig, HedgeConfig, ReliableRequestInfo, ReliableRequestInit, RetryConfig, TimeoutConfig } from './types';
+import { EventName, ListenerFunction } from './types';
 export declare class ReliableFetch {
     private input;
     private init;
     constructor(input: ReliableRequestInfo, init?: ReliableRequestInit);
+    /**
+     * Listen for a specific lifecycle event by event name.
+     *
+     * @param {EventName} eventName - unique identifier for a lifecycle event
+     * @param {ListenerFunction} listener - callback function for when the lifecycle event is emitted
+     */
+    on(eventName: EventName, listener: ListenerFunction): ReliableFetch;
     /**
      * The request will be aborted with an `AbortError` if it does not resolve
      * or reject within the configured timeout.

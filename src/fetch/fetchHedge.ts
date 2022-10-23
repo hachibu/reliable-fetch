@@ -15,6 +15,7 @@ const fetchHedge: ReliableFetchFunction = async (input, init) => {
                 throw error
             }
         }
+        init?.eventEmitter?.emit('hedge')
         response = await fetch(input, init)
     }
 

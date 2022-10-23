@@ -1,6 +1,13 @@
-import { ChaosConfig, HedgeConfig, RetryConfig, TimeoutConfig } from './config'
+import {
+    BaseConfig,
+    ChaosConfig,
+    HedgeConfig,
+    RetryConfig,
+    TimeoutConfig,
+} from './config'
 
 type ReliableRequestInit = RequestInit &
+    Partial<BaseConfig> &
     Partial<ChaosConfig> &
     Partial<HedgeConfig> &
     Partial<RetryConfig> &

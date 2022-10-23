@@ -13,13 +13,37 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReliableFetch = void 0;
 const fetch_1 = require("./fetch");
+const events_1 = __importDefault(require("events"));
 class ReliableFetch {
     constructor(input, init = {}) {
         this.input = input;
         this.init = init;
+        this.init.eventEmitter = new events_1.default();
+    }
+    /**
+     * Listen for a specific lifecycle event by event name.
+     *
+     * @param {EventName} eventName - unique identifier for a lifecycle event
+     * @param {ListenerFunction} listener - callback function for when the lifecycle event is emitted
+     */
+    on(eventName, listener) {
+        const { eventEmitter } = this.init;
+        if (!eventEmitter) {
+            return this;
+        }
+        else if (eventEmitter.listenerCount(eventName) > 0) {
+            return this;
+        }
+        else {
+            eventEmitter.on(eventName, listener);
+        }
+        return this;
     }
     /**
      * The request will be aborted with an `AbortError` if it does not resolve
