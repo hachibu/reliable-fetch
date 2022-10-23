@@ -2,11 +2,11 @@
 
 ## 1.0.0
 
--   Timeouts
--   Retries
--   Request hedging
--   Random chaos
--   Lifecycle hooks
+-   [x] Timeouts
+-   [x] Retries
+-   [ ] Request hedging
+-   [ ] Random chaos
+-   [ ] Lifecycle hooks
 
 ## Backlog
 

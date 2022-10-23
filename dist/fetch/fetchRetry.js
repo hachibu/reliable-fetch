@@ -31,6 +31,7 @@ const fetchRetry = (input, init) => __awaiter(void 0, void 0, void 0, function* 
         errors.push(error);
     }
     for (let i = 0; i < retries; i++) {
+        const attempt = i + 1;
         const delay = Math.min(config.delay, config.maxDelay);
         delays.push(delay);
         (_g = init === null || init === void 0 ? void 0 : init.eventEmitter) === null || _g === void 0 ? void 0 : _g.emit('retry', i + 1, delay);
@@ -43,7 +44,7 @@ const fetchRetry = (input, init) => __awaiter(void 0, void 0, void 0, function* 
         yield (0, promises_1.setTimeout)(delay);
         switch (config.backoff) {
             case 'exponential':
-                config.delay = delay * Math.pow(2, i + 1);
+                config.delay = Math.pow(2, attempt) * delay;
                 break;
             case 'fibonacci':
                 if (delays.length > 1) {
@@ -52,8 +53,17 @@ const fetchRetry = (input, init) => __awaiter(void 0, void 0, void 0, function* 
                 }
                 break;
         }
-        if (config.jitter === 'naive') {
-            config.delay = (0, utils_1.addRandomJitter)(config.delay);
+        switch (config.jitter) {
+            case 'naive':
+                config.delay += (0, utils_1.randomNumberBetween)(0, delay * 0.2);
+                break;
+            case 'equal':
+                config.delay =
+                    config.delay / 2 + (0, utils_1.randomNumberBetween)(0, config.delay / 2);
+                break;
+            case 'full':
+                config.delay = (0, utils_1.randomNumberBetween)(0, config.delay);
+                break;
         }
     }
     throw errors.at(-1);

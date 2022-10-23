@@ -1,6 +1,6 @@
 import { ReliableFetchFunction, RetryConfig } from '../types'
 import { setTimeout } from 'timers/promises'
-import { addRandomJitter } from '../utils'
+import { randomNumberBetween } from '../utils'
 
 const fetchRetry: ReliableFetchFunction = async (input, init) => {
     const config: RetryConfig = {
@@ -22,6 +22,7 @@ const fetchRetry: ReliableFetchFunction = async (input, init) => {
     }
 
     for (let i = 0; i < retries; i++) {
+        const attempt = i + 1
         const delay = Math.min(config.delay, config.maxDelay)
 
         delays.push(delay)
@@ -37,7 +38,7 @@ const fetchRetry: ReliableFetchFunction = async (input, init) => {
 
         switch (config.backoff) {
             case 'exponential':
-                config.delay = delay * Math.pow(2, i + 1)
+                config.delay = Math.pow(2, attempt) * delay
                 break
             case 'fibonacci':
                 if (delays.length > 1) {
@@ -47,8 +48,17 @@ const fetchRetry: ReliableFetchFunction = async (input, init) => {
                 break
         }
 
-        if (config.jitter === 'naive') {
-            config.delay = addRandomJitter(config.delay)
+        switch (config.jitter) {
+            case 'naive':
+                config.delay += randomNumberBetween(0, delay * 0.2)
+                break
+            case 'equal':
+                config.delay =
+                    config.delay / 2 + randomNumberBetween(0, config.delay / 2)
+                break
+            case 'full':
+                config.delay = randomNumberBetween(0, config.delay)
+                break
         }
     }
 
