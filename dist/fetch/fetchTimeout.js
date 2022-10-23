@@ -9,18 +9,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const createAbortSignalWithTimeout = (timeout) => {
-    const controller = new AbortController();
-    setTimeout(() => controller.abort(), timeout);
-    return controller.signal;
-};
 const fetchTimeout = (input, init) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     const config = {
         timeout: (_a = init === null || init === void 0 ? void 0 : init.timeout) !== null && _a !== void 0 ? _a : 0,
     };
+    const controller = new AbortController();
     if (init && config.timeout) {
-        init.signal = createAbortSignalWithTimeout(config.timeout);
+        setTimeout(() => {
+            var _a;
+            controller.abort();
+            (_a = init === null || init === void 0 ? void 0 : init.eventEmitter) === null || _a === void 0 ? void 0 : _a.emit('timeout');
+        }, config.timeout);
+        init.signal = controller.signal;
     }
     return fetch(input, init);
 });

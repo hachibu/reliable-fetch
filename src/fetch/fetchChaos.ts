@@ -10,6 +10,7 @@ const fetchChaos: ReliableFetchFunction = async (input, init) => {
     if (config.failureRate < 0 || config.failureRate > 1) {
         throw new RangeError('failureRate: should be between 0 and 1')
     } else if (randomNum > config.failureRate) {
+        init?.eventEmitter?.emit('chaos')
         throw new ReliableFetchChaosError(
             `${randomNum.toFixed(2)} > ${config.failureRate} `
         )

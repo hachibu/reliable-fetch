@@ -1,18 +1,18 @@
 import { ReliableFetchFunction, TimeoutConfig } from '../types'
 
-const createAbortSignalWithTimeout = (timeout: number): AbortSignal => {
-    const controller = new AbortController()
-    setTimeout(() => controller.abort(), timeout)
-    return controller.signal
-}
-
 const fetchTimeout: ReliableFetchFunction = async (input, init) => {
     const config: TimeoutConfig = {
         timeout: init?.timeout ?? 0,
     }
+    const controller = new AbortController()
 
     if (init && config.timeout) {
-        init.signal = createAbortSignalWithTimeout(config.timeout)
+        setTimeout(() => {
+            controller.abort()
+            init?.eventEmitter?.emit('timeout')
+        }, config.timeout)
+
+        init.signal = controller.signal
     }
 
     return fetch(input, init)

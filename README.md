@@ -9,7 +9,9 @@ An easy-to-use [Node.js](https://nodejs.org/en/) library to make the [fetch func
 import reliableFetch from '@hachibu/reliable-fetch'
 
 async function main() {
-    await reliableFetch('https://google.com').timeout({ timeout: 10 })
+    await reliableFetch('https://google.com')
+        .on('timeout', () => console.log('timeout triggered'))
+        .timeout({ timeout: 10 })
 }
 ```
 
@@ -27,6 +29,7 @@ async function main() {
     -   Capped delays and retries
 -   Request hedging ([example](https://github.com/hachibu/reliable-fetch/blob/main/examples/hedge.ts))
 -   Random chaos ([example](https://github.com/hachibu/reliable-fetch/blob/main/examples/chaos.ts))
+-   Lifecycle hooks
 
 ## ⚙️ Installation
 

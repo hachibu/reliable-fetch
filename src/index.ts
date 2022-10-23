@@ -8,12 +8,36 @@ import {
     TimeoutConfig,
 } from './types'
 import { fetchChaos, fetchHedge, fetchRetry, fetchTimeout } from './fetch'
+import EventEmitter from 'events'
+import { EventName, ListenerFunction } from './types'
 
 export class ReliableFetch {
     constructor(
         private input: ReliableRequestInfo,
         private init: ReliableRequestInit = {}
-    ) {}
+    ) {
+        this.init.eventEmitter = new EventEmitter()
+    }
+
+    /**
+     * Listen for a specific lifecycle event by event name.
+     *
+     * @param {EventName} eventName - unique identifier for a lifecycle event
+     * @param {ListenerFunction} listener - callback function for when the lifecycle event is emitted
+     */
+    on(eventName: EventName, listener: ListenerFunction): ReliableFetch {
+        const { eventEmitter } = this.init
+
+        if (!eventEmitter) {
+            return this
+        } else if (eventEmitter.listenerCount(eventName) > 0) {
+            return this
+        } else {
+            eventEmitter.on(eventName, listener)
+        }
+
+        return this
+    }
 
     /**
      * The request will be aborted with an `AbortError` if it does not resolve
