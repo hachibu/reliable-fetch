@@ -1,2 +1,2 @@
-export declare type Backoff = 'constant' | 'exponential';
+export declare type Backoff = 'constant' | 'exponential' | 'fibonacci';
 export default Backoff;

@@ -12,6 +12,7 @@ const fetchRetry: ReliableFetchFunction = async (input, init) => {
         jitter: init?.jitter ?? 'none',
     }
     const errors = []
+    const delays: number[] = []
     const retries = Math.min(config.attempts, config.maxAttempts)
 
     try {
@@ -23,8 +24,10 @@ const fetchRetry: ReliableFetchFunction = async (input, init) => {
     for (let i = 0; i < retries; i++) {
         const delay = Math.min(config.delay, config.maxDelay)
 
+        delays.push(delay)
+        init?.eventEmitter?.emit('retry', i + 1, delay)
+
         try {
-            init?.eventEmitter?.emit('retry', i + 1, delay)
             return await fetch(input, init)
         } catch (error) {
             errors.push(error)
@@ -32,8 +35,16 @@ const fetchRetry: ReliableFetchFunction = async (input, init) => {
 
         await setTimeout(delay)
 
-        if (config.backoff === 'exponential') {
-            config.delay = delay * Math.pow(2, i + 1)
+        switch (config.backoff) {
+            case 'exponential':
+                config.delay = delay * Math.pow(2, i + 1)
+                break
+            case 'fibonacci':
+                if (delays.length > 1) {
+                    config.delay =
+                        delays[delays.length - 2] + delays[delays.length - 1]
+                }
+                break
         }
 
         if (config.jitter === 'naive') {

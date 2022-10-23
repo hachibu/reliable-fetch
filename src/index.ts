@@ -81,7 +81,7 @@ export class ReliableFetch {
      * @param {number} config.maxAttempts - maximum number of times to attempt (default: 10)
      * @param {number} config.delay - delay between attempts in milliseconds (default: 100)
      * @param {number} config.maxDelay - maximum delay between attempts in milliseconds (default: 10000)
-     * @param {Backoff} config.backoff - constant or exponential (default: constant)
+     * @param {Backoff} config.backoff - constant, exponential or fibonacci (default: constant)
      * @param {Jitter} jitter - none or naive (default: none)
      */
     retry(config?: Partial<RetryConfig>): Promise<Response> {
