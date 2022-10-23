@@ -3,7 +3,7 @@ import ListenerFunction from './ListenerFunction'
 import ReliableFetchFunction from './ReliableFetchFunction'
 import ReliableRequestInfo from './ReliableRequestInfo'
 import ReliableRequestInit from './ReliableRequestInit'
-import RetryBackoffStrategy from './RetryBackoffStrategy'
+import Backoff from './Backoff'
 import {
     BaseConfig,
     ChaosConfig,
@@ -18,7 +18,7 @@ export {
     ReliableFetchFunction,
     ReliableRequestInfo,
     ReliableRequestInit,
-    RetryBackoffStrategy,
+    Backoff,
     BaseConfig,
     ChaosConfig,
     HedgeConfig,

@@ -6,9 +6,9 @@ async function main() {
             console.log(`retry ${attempt} triggered`)
         })
         .retry({
+            attempts: 3,
             delay: 100,
-            retries: 3,
-            backoffStrategy: 'exponential',
+            backoff: 'exponential',
             jitter: true,
         })
 

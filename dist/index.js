@@ -85,7 +85,7 @@ class ReliableFetch {
      * @param {number} config.maxRetries - maximum number of times to retry (default: 10)
      * @param {number} config.delay - delay between retries in milliseconds (default: 100)
      * @param {number} config.maxDelay - maximum delay between retries in milliseconds (default: 10000)
-     * @param {RetryBackoffStrategy} config.strategy - constant or exponential (default: constant)
+     * @param {Backoff} config.strategy - constant or exponential (default: constant)
      * @param {boolean} jitter - apply jitter to delay between retries (default: true)
      */
     retry(config) {

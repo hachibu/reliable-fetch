@@ -5,50 +5,45 @@ import fetchMock from 'jest-fetch-mock'
 
 describe('fetchRetry', () => {
     const input = 'https://localhost'
+    const attempts = 3
 
     it('resolves without retry', async () => {
-        const retries = 3
-
         fetchMockResponseWithDelay()
 
         await expect(
             fetchRetry(input, {
+                attempts,
                 delay: DEFAULT_DELAY / 2,
-                retries,
             })
         ).resolves.not.toThrow()
         expect(fetch).toBeCalledTimes(1)
     })
 
     it('retries with constant delay', async () => {
-        const retries = 3
-
         fetchMockResponseWithDelay()
         fetchMock.mockAbort()
 
         await expect(
             fetchRetry(input, {
+                attempts,
                 delay: DEFAULT_DELAY / 2,
-                retries,
             })
         ).rejects.toThrow()
-        expect(fetch).toBeCalledTimes(retries + 1)
+        expect(fetch).toBeCalledTimes(attempts + 1)
     })
 
     it('retries with exponential delay', async () => {
-        const retries = 3
-
         fetchMockResponseWithDelay(1)
         fetchMock.mockAbort()
 
         await expect(
             fetchRetry(input, {
+                attempts,
                 delay: 1,
-                retries,
-                strategy: 'exponential',
+                backoff: 'exponential',
             })
         ).rejects.toThrow()
-        expect(fetch).toBeCalledTimes(retries + 1)
+        expect(fetch).toBeCalledTimes(attempts + 1)
     })
 
     it('defaults config values', async () => {

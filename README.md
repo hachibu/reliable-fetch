@@ -26,7 +26,7 @@ async function main() {
 -   Retries ([example](https://github.com/hachibu/reliable-fetch/blob/main/examples/retry.ts))
     -   Exponential and constant backoff
     -   Random jitter
-    -   Capped delays and retries
+    -   Capped delays and attempts
 -   Request hedging ([example](https://github.com/hachibu/reliable-fetch/blob/main/examples/hedge.ts))
 -   Random chaos ([example](https://github.com/hachibu/reliable-fetch/blob/main/examples/chaos.ts))
 -   Lifecycle hooks

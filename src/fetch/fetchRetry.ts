@@ -6,13 +6,13 @@ const fetchRetry: ReliableFetchFunction = async (input, init) => {
     const config: RetryConfig = {
         delay: init?.delay ?? 100,
         maxDelay: init?.maxDelay ?? 10000,
-        retries: init?.retries ?? 1,
-        maxRetries: init?.maxRetries ?? 10,
-        backoffStrategy: init?.backoffStrategy ?? 'constant',
+        attempts: init?.attempts ?? 1,
+        maxAttempts: init?.maxAttempts ?? 10,
+        backoff: init?.backoff ?? 'constant',
         jitter: init?.jitter ?? false,
     }
     const errors = []
-    const retries = Math.min(config.retries, config.maxRetries)
+    const retries = Math.min(config.attempts, config.maxAttempts)
 
     try {
         return await fetch(input, init)
@@ -32,7 +32,7 @@ const fetchRetry: ReliableFetchFunction = async (input, init) => {
 
         await setTimeout(delay)
 
-        if (config.backoffStrategy === 'exponential') {
+        if (config.backoff === 'exponential') {
             config.delay = delay * Math.pow(2, i + 1)
         }
 
