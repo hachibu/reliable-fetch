@@ -20,7 +20,7 @@ const fetchHedge = (input, init) => __awaiter(void 0, void 0, void 0, function* 
     };
     let response;
     try {
-        response = yield (0, fetchTimeout_1.default)(input, Object.assign({}, init));
+        response = yield (0, fetchTimeout_1.default)(input, Object.assign(Object.assign({}, init), config));
     }
     catch (error) {
         if (error instanceof Error) {
@@ -28,7 +28,7 @@ const fetchHedge = (input, init) => __awaiter(void 0, void 0, void 0, function* 
                 throw error;
             }
         }
-        response = yield fetch(input, Object.assign({}, init));
+        response = yield fetch(input, init);
     }
     return response;
 });

@@ -8,14 +8,14 @@ const fetchHedge: ReliableFetchFunction = async (input, init) => {
     let response: Response
 
     try {
-        response = await fetchTimeout(input, { ...init })
+        response = await fetchTimeout(input, { ...init, ...config })
     } catch (error) {
         if (error instanceof Error) {
             if (error.name !== 'AbortError') {
                 throw error
             }
         }
-        response = await fetch(input, { ...init })
+        response = await fetch(input, init)
     }
 
     return response
