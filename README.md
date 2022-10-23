@@ -20,10 +20,13 @@ async function main() {
 
 ## ✨️ Features
 
--   [Timeout](https://github.com/hachibu/reliable-fetch/blob/main/examples/timeout.ts)
--   [Retry](https://github.com/hachibu/reliable-fetch/blob/main/examples/retry.ts)
--   [Hedge](https://github.com/hachibu/reliable-fetch/blob/main/examples/hedge.ts)
--   [Chaos](https://github.com/hachibu/reliable-fetch/blob/main/examples/chaos.ts)
+-   Timeout ([example](https://github.com/hachibu/reliable-fetch/blob/main/examples/timeout.ts))
+-   Retry ([example](https://github.com/hachibu/reliable-fetch/blob/main/examples/retry.ts))
+    -   Constant or exponential backoff
+    -   Capped retries and delay
+    -   Jitter
+-   Hedge ([example](https://github.com/hachibu/reliable-fetch/blob/main/examples/hedge.ts))
+-   Chaos ([example](https://github.com/hachibu/reliable-fetch/blob/main/examples/chaos.ts))
 
 ## ⚙️ Installation
 
