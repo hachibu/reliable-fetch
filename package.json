@@ -1,6 +1,6 @@
 {
     "name": "@hachibu/reliable-fetch",
-    "version": "0.0.32",
+    "version": "0.0.33",
     "author": {
         "name": "Raymond Sohn",
         "email": "raymondsohn@gmail.com"
