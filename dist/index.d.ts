@@ -13,10 +13,10 @@ export declare class ReliableFetch {
     on(eventName: EventName, listener: ListenerFunction): ReliableFetch;
     /**
      * The request will be aborted with an `AbortError` if it does not resolve
-     * or reject within the configured timeout.
+     * or reject within the configured timeout. (e.g. 3x the p99)
      *
      * @param {TimeoutConfig} config
-     * @param {number} config.timeout - milliseconds (default: 0)
+     * @param {number} config.timeout - milliseconds (default: 10000)
      */
     timeout(config?: Partial<TimeoutConfig>): Promise<Response>;
     /**

@@ -12,17 +12,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const fetchTimeout = (input, init) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     const config = {
-        timeout: (_a = init === null || init === void 0 ? void 0 : init.timeout) !== null && _a !== void 0 ? _a : 0,
+        timeout: (_a = init === null || init === void 0 ? void 0 : init.timeout) !== null && _a !== void 0 ? _a : 10000,
     };
     const controller = new AbortController();
+    let timeout;
     if (init && config.timeout) {
-        setTimeout(() => {
+        timeout = setTimeout(() => {
             var _a;
             controller.abort();
             (_a = init === null || init === void 0 ? void 0 : init.eventEmitter) === null || _a === void 0 ? void 0 : _a.emit('timeout');
         }, config.timeout);
         init.signal = controller.signal;
     }
-    return fetch(input, init);
+    let response = yield fetch(input, init);
+    if (timeout) {
+        clearTimeout(timeout);
+    }
+    return response;
 });
 exports.default = fetchTimeout;

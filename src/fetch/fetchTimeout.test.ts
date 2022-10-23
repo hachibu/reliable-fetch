@@ -8,6 +8,8 @@ describe('fetchTimeout', () => {
 
     beforeEach(() => fetchMockResponseWithDelay())
 
+    it.todo('clears timeout if request completes within timeout')
+
     describe('aborts', () => {
         it('if request does not complete within timeout', async () => {
             const timeout = DEFAULT_DELAY / 2
