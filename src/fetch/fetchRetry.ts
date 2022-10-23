@@ -5,20 +5,20 @@ import { randomNumberWithinJitterPeriod } from '../utils'
 const fetchRetry: ReliableFetchFunction = async (input, init) => {
     const config: RetryConfig = {
         delay: init?.delay ?? 100,
-        jitter: init?.jitter ?? true,
+        maxDelay: init?.maxDelay ?? 10000,
         retries: init?.retries ?? 1,
+        maxRetries: init?.maxRetries ?? 10,
         strategy: init?.strategy ?? 'constant',
+        jitter: init?.jitter ?? true,
     }
-    const maxDelay = 10000
-    const maxRetries = 10
-    const retries = Math.min(config.retries, maxRetries)
+    const retries = Math.min(config.retries, config.maxRetries)
 
     for (let i = 0; i < retries; i++) {
         try {
             return await fetch(input, init)
         } catch {}
 
-        const delay = Math.min(config.delay, maxDelay)
+        const delay = Math.min(config.delay, config.maxDelay)
 
         await setTimeout(delay)
 
