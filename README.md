@@ -26,7 +26,7 @@ async function main() {
     -   Random jitter
     -   Maximum delays and retries
 -   Request hedging ([example](https://github.com/hachibu/reliable-fetch/blob/main/examples/hedge.ts))
--   Random Chaos ([example](https://github.com/hachibu/reliable-fetch/blob/main/examples/chaos.ts))
+-   Random chaos ([example](https://github.com/hachibu/reliable-fetch/blob/main/examples/chaos.ts))
 
 ## ⚙️ Installation
 
