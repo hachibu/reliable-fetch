@@ -6,7 +6,10 @@
 -   [x] Retry
 -   [x] Hedge
 -   [x] Chaos
--   [ ] Lifecycle hooks using event emitter
+-   [x] Lifecycle hooks
+-   [ ] Complete documentation
+-   [ ] Changelog update
+-   [ ] Release
 
 ## Backlog
 
