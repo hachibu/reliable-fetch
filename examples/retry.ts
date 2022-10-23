@@ -1,7 +1,7 @@
 import reliableFetch from '../src/index'
 
 async function main() {
-    const res = await reliableFetch('https://foo.bar')
+    await reliableFetch('https://foo.bar')
         .on('retry', (attempt: number, delay: number) => {
             console.log('retry triggered:', { attempt, delay })
         })
@@ -11,8 +11,6 @@ async function main() {
             backoff: 'exponential',
             jitter: 'naive',
         })
-
-    console.log(res.status)
 }
 
 main()
