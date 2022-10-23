@@ -34,7 +34,7 @@ const fetchRetry = (input, init) => __awaiter(void 0, void 0, void 0, function* 
             config.delay = delay * Math.pow(2, i);
         }
         if (config.jitter) {
-            config.delay = (0, utils_1.randomJitter)(config.delay);
+            config.delay = (0, utils_1.randomNumberWithinJitterPeriod)(config.delay);
         }
     }
     return fetch(input, init);

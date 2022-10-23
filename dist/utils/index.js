@@ -1,10 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.randomJitter = void 0;
-const randomJitter = (n) => {
+exports.randomNumberWithinJitterPeriod = exports.randomNumberBetween = void 0;
+const randomNumberBetween = (min, max) => {
+    return Math.random() * (max - min) + min;
+};
+exports.randomNumberBetween = randomNumberBetween;
+const randomNumberWithinJitterPeriod = (n) => {
     const maxJitter = n * 0.2;
     const min = n - maxJitter;
     const max = n + maxJitter;
-    return Math.random() * (max - min) + min;
+    return (0, exports.randomNumberBetween)(min, max);
 };
-exports.randomJitter = randomJitter;
+exports.randomNumberWithinJitterPeriod = randomNumberWithinJitterPeriod;

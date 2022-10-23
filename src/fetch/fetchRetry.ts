@@ -1,6 +1,6 @@
 import { ReliableFetchFunction, RetryConfig } from '../types'
 import { setTimeout } from 'timers/promises'
-import { randomJitter } from '../utils'
+import { randomNumberWithinJitterPeriod } from '../utils'
 
 const fetchRetry: ReliableFetchFunction = async (input, init) => {
     const config: RetryConfig = {
@@ -28,7 +28,7 @@ const fetchRetry: ReliableFetchFunction = async (input, init) => {
         }
 
         if (config.jitter) {
-            config.delay = randomJitter(config.delay)
+            config.delay = randomNumberWithinJitterPeriod(config.delay)
         }
     }
 
