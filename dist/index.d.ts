@@ -46,7 +46,9 @@ export declare class ReliableFetch {
      * @param {number} config.delay - delay between attempts in milliseconds (default: 100)
      * @param {number} config.maxDelay - maximum delay between attempts in milliseconds (default: 10000)
      * @param {Backoff} config.backoff - constant, exponential or fibonacci (default: constant)
-     * @param {Jitter} jitter - none or naive (default: none)
+     * @param {Jitter} config.jitter - none or naive (default: none)
+     *
+     * @see https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/
      */
     retry(config?: Partial<RetryConfig>): Promise<Response>;
 }
