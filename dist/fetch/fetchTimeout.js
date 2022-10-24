@@ -9,25 +9,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const utils_1 = require("../utils");
 const fetchTimeout = (input, init) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     const config = {
         timeout: (_a = init === null || init === void 0 ? void 0 : init.timeout) !== null && _a !== void 0 ? _a : 10000,
     };
     const controller = new AbortController();
-    let timeout;
-    if (init && config.timeout) {
-        timeout = setTimeout(() => {
-            var _a;
-            controller.abort();
-            (_a = init === null || init === void 0 ? void 0 : init.eventEmitter) === null || _a === void 0 ? void 0 : _a.emit('timeout');
-        }, config.timeout);
-        init.signal = controller.signal;
-    }
-    let response = yield fetch(input, init);
-    if (timeout) {
-        clearTimeout(timeout);
-    }
-    return response;
+    const { cancel } = (0, utils_1.setTimeoutWithCancel)(() => {
+        var _a;
+        controller.abort();
+        (_a = init === null || init === void 0 ? void 0 : init.eventEmitter) === null || _a === void 0 ? void 0 : _a.emit('timeout');
+    }, config.timeout);
+    return fetch(input, Object.assign(Object.assign({}, init), { signal: controller.signal })).finally(cancel);
 });
 exports.default = fetchTimeout;
