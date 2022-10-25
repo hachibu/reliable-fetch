@@ -4,7 +4,7 @@ import { fetchMockResponseWithDelay, DEFAULT_DELAY } from '../../jest.helpers'
 import fetchMock from 'jest-fetch-mock'
 
 describe('fetchHedge', () => {
-    const input = 'https://localhost'
+    const input = 'http://localhost'
 
     beforeEach(() => fetchMockResponseWithDelay())
 

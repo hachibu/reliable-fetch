@@ -4,7 +4,7 @@ import { fetchMockResponseWithDelay, DEFAULT_DELAY } from '../../jest.helpers'
 import fetchMock from 'jest-fetch-mock'
 
 describe('fetchRetry', () => {
-    const input = 'https://localhost'
+    const input = 'http://localhost'
     const attempts = 3
 
     it('resolves without retry', async () => {

@@ -6,7 +6,7 @@ import { fetchMockResponseWithDelay } from '../../jest.helpers'
 describe('fetchChaos', () => {
     beforeEach(() => fetchMockResponseWithDelay(10))
 
-    const input = 'https://localhost'
+    const input = 'http://localhost'
     const table = [[0.1], [0.5], [0.9]]
 
     it.concurrent.each(table)('aborts %s of requests', async (rate) => {
