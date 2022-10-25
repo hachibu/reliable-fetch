@@ -46,8 +46,8 @@ class ReliableFetch {
         return this;
     }
     /**
-     * The request will be aborted with an `AbortError` if it does not resolve
-     * or reject within the configured timeout. (e.g. 3x the p99)
+     * The request will be aborted with an `AbortError` if it does not settle
+     * within the configured timeout.
      *
      * @param {TimeoutConfig} config
      * @param {number} config.timeout - milliseconds (default: 10000)
@@ -56,8 +56,8 @@ class ReliableFetch {
         return (0, fetch_1.fetchTimeout)(this.input, Object.assign(Object.assign({}, this.init), config));
     }
     /**
-     * The initial request will be aborted if it does not resolve or reject
-     * within the configured timeout and hedged with another request (e.g. set
+     * The initial request will be aborted if it does not settle within the
+     * configured timeout and hedged with another request (e.g. set
      * `config.timeout` to the P99 response time to hedge 1% of requests).
      *
      * @param {HedgeConfig} config
