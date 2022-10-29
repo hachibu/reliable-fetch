@@ -1,28 +1,31 @@
 import util from 'util'
 import cp from 'child_process'
+import {
+    Almanac,
+    Event,
+    Engine,
+    AllConditions,
+    ConditionProperties,
+    RuleResult,
+} from 'json-rules-engine'
+
+type Result = ConditionProperties & RuleResult & { factResult: any }
 
 const exec = util.promisify(cp.exec)
-const pass = (msg: string) => console.log('✅ ', msg)
-const fail = (msg: string) => console.log('❌ ', msg)
+const render = (e: Event, a: Almanac, ruleResult: RuleResult) => {
+    const conditions = ruleResult.conditions as AllConditions
+    const ruleResults = conditions.all as Result[]
 
-interface Rule {
-    key: string
-    max: number
-    fmt: (v: number) => string
+    for (const ruleResult of ruleResults) {
+        const { fact, operator, value, result, factResult, params } = ruleResult
+        const unit = params?.unit
+        const messages = [
+            result ? '✅' : '❌',
+            `${fact} ${operator} ${value} ${unit} (${factResult} ${unit})`,
+        ]
+        console.log(...messages)
+    }
 }
-
-const RULES: Rule[] = [
-    {
-        key: 'entryCount',
-        max: 50,
-        fmt: (v) => `${v} files`,
-    },
-    {
-        key: 'unpackedSize',
-        max: 30000,
-        fmt: (v) => `${v} B`,
-    },
-]
 
 async function main() {
     const command = 'npm pack --dry-run --json'
@@ -31,23 +34,17 @@ async function main() {
         fail(stderr)
         process.exit(1)
     }
+    const [facts] = JSON.parse(stdout)
+    const rule = require(`${process.cwd()}/package.lint.json`)
+    const engine = new Engine()
 
-    const [res] = JSON.parse(stdout)
-    let failCount = 0
+    console.log('🔍  Linting NPM package.')
+    engine.addRule(rule).on('success', render).on('failure', render)
 
-    for (const { key, max, fmt } of RULES) {
-        const value = res[key]
+    const { failureResults } = await engine.run(facts)
 
-        if (value > max) {
-            fail(`${key}: ${fmt(value)} > ${fmt(max)}`)
-            failCount++
-        } else {
-            pass(`${key}: ${fmt(value)} <= ${fmt(max)}`)
-        }
-    }
-
-    if (failCount > 0) {
-        process.exit(1)
+    if (failureResults.length > 0) {
+        process.exit()
     }
 }
 
