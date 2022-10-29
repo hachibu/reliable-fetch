@@ -12,7 +12,7 @@ import {
 type Result = ConditionProperties & RuleResult & { factResult: any }
 
 const exec = util.promisify(cp.exec)
-const render = (e: Event, a: Almanac, ruleResult: RuleResult) => {
+const renderRuleResult = (e: Event, a: Almanac, ruleResult: RuleResult) => {
     const conditions = ruleResult.conditions as AllConditions
     const ruleResults = conditions.all as Result[]
 
@@ -31,7 +31,7 @@ async function main() {
     const command = 'npm pack --dry-run --json'
     const { stdout, stderr } = await exec(command)
     if (stderr) {
-        fail(stderr)
+        console.error(stderr)
         process.exit(1)
     }
     const [facts] = JSON.parse(stdout)
@@ -39,12 +39,15 @@ async function main() {
     const engine = new Engine()
 
     console.log('🔍  Linting NPM package.')
-    engine.addRule(rule).on('success', render).on('failure', render)
+    engine
+        .addRule(rule)
+        .on('success', renderRuleResult)
+        .on('failure', renderRuleResult)
 
     const { failureResults } = await engine.run(facts)
 
     if (failureResults.length > 0) {
-        process.exit()
+        process.exit(1)
     }
 }
 
