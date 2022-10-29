@@ -1,11 +1,4 @@
-import fetchMock from 'jest-fetch-mock'
+import { MockResponseInitFunction } from 'jest-fetch-mock'
 
-export const DEFAULT_DELAY = 100
-
-export const fetchMockResponseWithDelay = (ms?: number) =>
-    fetchMock.mockResponse(
-        () =>
-            new Promise((resolve) =>
-                setTimeout(() => resolve(''), ms ?? DEFAULT_DELAY)
-            )
-    )
+export const mockResponse = (): MockResponseInitFunction => () =>
+    new Promise((resolve) => setTimeout(() => resolve(''), 100))

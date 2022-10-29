@@ -1,0 +1,29 @@
+{
+    "conditions": {
+        "all": [
+            {
+                "fact": "entryCount",
+                "operator": "lessThan",
+                "value": 100,
+                "params": {
+                    "unit": "files"
+                }
+            },
+            {
+                "fact": "unpackedSize",
+                "operator": "lessThan",
+                "value": 30000,
+                "params": {
+                    "unit": "bytes"
+                }
+            }
+        ]
+    },
+    "event": {
+        "type": "npm-pack-valid",
+        "params": {
+            "message": "NPM pack is valid"
+        }
+    },
+    "name": "NPM Pack Rule"
+}

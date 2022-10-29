@@ -1,10 +1,10 @@
 import fetchChaos from './fetchChaos'
 import { ReliableFetchChaosError } from '../errors'
 import { describe, expect, it } from '@jest/globals'
-import { fetchMockResponseWithDelay } from '../../jest.helpers'
+import { mockResponse } from '../../jest.helpers'
 
 describe('fetchChaos', () => {
-    beforeEach(() => fetchMockResponseWithDelay(10))
+    beforeEach(() => fetchMock.mockResponse(mockResponse()))
 
     const input = 'http://localhost'
     const table = [[0.1], [0.5], [0.9]]
