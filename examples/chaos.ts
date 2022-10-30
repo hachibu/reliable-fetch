@@ -1,9 +1,25 @@
 import reliableFetch from '../src/index'
 
 async function main() {
-    await reliableFetch('https://google.com')
-        .on('chaos', () => console.log('chaos triggered'))
-        .chaos({ rate: 1 })
+    const response = await reliableFetch('https://google.com')
+        .on('chaos:down', (status) =>
+            console.log('chaos:down triggered', { status })
+        )
+        .on('chaos:slow', (delay) =>
+            console.log('chaos:slow triggered', { delay })
+        )
+        .chaos({
+            rate: 0.5,
+            down: {
+                status: 503,
+            },
+            slow: {
+                delay: 1000,
+                jitter: 'naive',
+            },
+        })
+
+    console.log(response.status)
 }
 
 main()
