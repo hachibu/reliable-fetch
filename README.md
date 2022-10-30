@@ -20,7 +20,7 @@ async function main() {
 
 ### ✨️ API
 
--   Lifecycle hooks (e.g. logging custom errors and/or metrics)
+-   Lifecycle hooks (e.g. post custom metrics)
 -   Timeouts
     -   [Example](https://github.com/hachibu/reliable-fetch/blob/main/examples/timeout.ts)
 -   Retries with caps, backoff and jitter
