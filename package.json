@@ -26,6 +26,7 @@
         "@types/jest": "^29.1.2",
         "@types/node": "^18.8.3",
         "babel-jest": "^29.1.2",
+        "esbuild": "^0.15.12",
         "husky": "^8.0.1",
         "jest": "^29.1.2",
         "jest-fetch-mock": "^3.0.3",
@@ -39,9 +40,10 @@
         "typescript": "^4.8.4"
     },
     "scripts": {
-        "build": "yarn run test && yarn run test:coverage-badge && yarn run build:src && yarn build:docs",
-        "build:docs": "rm -rf docs/* && typedoc src",
-        "build:src": "rm -rf dist/* && tsc",
+        "build": "yarn run clean && yarn run build:src && yarn build:docs",
+        "build:docs": "typedoc src",
+        "build:src": "yarn tsc && yarn node esbuild.js",
+        "clean": "rm -rf docs/* dist/*",
         "prepare": "husky install",
         "test": "jest --no-cache",
         "test:coverage-badge": "lcov-badge2 -o coverage-badge.svg coverage/lcov.info",
