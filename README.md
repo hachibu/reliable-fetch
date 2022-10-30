@@ -1,7 +1,6 @@
 # Reliable Fetch
 
 ![unit tests](https://img.shields.io/github/workflow/status/hachibu/reliable-fetch/unit-tests/main?label=unit-tests)
-![coverage](https://raw.githubusercontent.com/hachibu/reliable-fetch/main/coverage-badge.svg)
 ![minzipped size](https://img.shields.io/bundlephobia/minzip/@hachibu/reliable-fetch)
 ![license](https://img.shields.io/github/license/hachibu/reliable-fetch?color=blue)
 
