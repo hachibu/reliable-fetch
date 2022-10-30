@@ -4,7 +4,7 @@
 
 -   Timeouts
 -   Retries
--   Request hedging
+-   Hedged requests
 -   Random chaos
 -   Lifecycle hooks
 -   Testing

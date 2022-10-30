@@ -28,7 +28,7 @@ async function main() {
     -   Maximum delay and attempts
     -   Constant, exponential and fibonacci backoff
     -   Naive, equal and full jitter
--   Request hedging ([example](https://github.com/hachibu/reliable-fetch/blob/main/examples/hedge.ts))
+-   Hedged requests ([example](https://github.com/hachibu/reliable-fetch/blob/main/examples/hedge.ts))
 -   Random chaos ([example](https://github.com/hachibu/reliable-fetch/blob/main/examples/chaos.ts))
 -   Lifecycle hooks
 

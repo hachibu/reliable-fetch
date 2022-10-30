@@ -50,6 +50,8 @@ export class ReliableFetch {
      *
      * @param {HedgeConfig} config
      * @param {number} config.timeout - milliseconds (default: 10000)
+     *
+     * @see https://courses.cs.duke.edu//cps296.4/fall13/838-CloudPapers/dean_longtail.pdf
      */
     hedge(config?: Partial<HedgeConfig>): Promise<Response> {
         return fetchHedge(this.input, { ...this.init, ...config })
