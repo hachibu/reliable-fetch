@@ -39,13 +39,14 @@ async function main() {
 
 ### Performance
 
+-   Zero dependencies
 -   Less than 2 kB minzipped (i.e. minified + gzipped)
--   No dependencies
 
 ### Security
 
--   2FA for publishing NPM package
 -   Automated dependency review
+-   Automated code scanning with CodeQL
+-   2FA required for publishing NPM package
 
 ## 🏎️ Engine Compatibility
 
