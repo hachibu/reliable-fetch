@@ -8,6 +8,8 @@ import Jitter from './Jitter'
 import {
     BaseConfig,
     ChaosConfig,
+    ChaosDownConfig,
+    ChaosSlowConfig,
     HedgeConfig,
     RetryConfig,
     TimeoutConfig,
@@ -17,6 +19,8 @@ export {
     Backoff,
     BaseConfig,
     ChaosConfig,
+    ChaosDownConfig,
+    ChaosSlowConfig,
     EventName,
     HedgeConfig,
     Jitter,
