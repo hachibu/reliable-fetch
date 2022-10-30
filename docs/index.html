@@ -18,29 +18,23 @@
 </a>
 <p><img src="https://img.shields.io/github/workflow/status/hachibu/reliable-fetch/unit-tests/main?label=unit-tests" alt="unit tests">
 <img src="https://raw.githubusercontent.com/hachibu/reliable-fetch/main/coverage-badge.svg" alt="coverage">
-<img src="https://img.shields.io/bundlephobia/minzip/@hachibu/reliable-fetch" alt="minzipped size"></p>
+<img src="https://img.shields.io/bundlephobia/minzip/@hachibu/reliable-fetch" alt="minzipped size">
+<img src="https://img.shields.io/github/license/hachibu/reliable-fetch?color=blue" alt="license"></p>
 <p>An easy-to-use <a href="https://nodejs.org/en/">Node.js</a> library to make the <a href="https://developer.mozilla.org/en-US/docs/Web/API/fetch">fetch function</a> more reliable.</p>
 <pre><code class="language-ts"><span class="hl-0">import</span><span class="hl-1"> </span><span class="hl-2">reliableFetch</span><span class="hl-1"> </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;@hachibu/reliable-fetch&#39;</span><br/><br/><span class="hl-4">async</span><span class="hl-1"> </span><span class="hl-4">function</span><span class="hl-1"> </span><span class="hl-5">main</span><span class="hl-1">() {</span><br/><span class="hl-1">    </span><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-5">reliableFetch</span><span class="hl-1">(</span><span class="hl-3">&#39;https://google.com&#39;</span><span class="hl-1">)</span><br/><span class="hl-1">        .</span><span class="hl-5">on</span><span class="hl-1">(</span><span class="hl-3">&#39;timeout&#39;</span><span class="hl-1">, () </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-2">console</span><span class="hl-1">.</span><span class="hl-5">log</span><span class="hl-1">(</span><span class="hl-3">&#39;timeout triggered&#39;</span><span class="hl-1">))</span><br/><span class="hl-1">        .</span><span class="hl-5">timeout</span><span class="hl-1">({ </span><span class="hl-2">timeout:</span><span class="hl-1"> </span><span class="hl-6">10</span><span class="hl-1"> })</span><br/><span class="hl-1">}</span>
 </code></pre>
-
-<a href="#💡-goals" id="💡-goals" style="color: inherit; text-decoration: none;">
-  <h2>💡 Goals</h2>
-</a>
-<ul>
-<li>Unify reliability functions from multiple libraries into a single library.</li>
-<li>Design and document a <a href="https://en.wikipedia.org/wiki/Fluent_interface">fluent API</a> where users can easily discover reliability functions.</li>
-</ul>
 
 <a href="#✨️-features" id="✨️-features" style="color: inherit; text-decoration: none;">
   <h2>✨️ Features</h2>
 </a>
 <ul>
-<li>Lifecycle hooks</li>
+<li>An easy-to-use and well documented <a href="https://en.wikipedia.org/wiki/Fluent_interface">fluent API</a></li>
+<li>Lifecycle hooks for logging custom errors and/or metrics</li>
 <li>Timeouts<ul>
 <li><a href="https://github.com/hachibu/reliable-fetch/blob/main/examples/timeout.ts">Example</a></li>
 </ul>
 </li>
-<li>Retries with capping, backoff and jitter<ul>
+<li>Retries with caps, backoff and jitter<ul>
 <li><a href="https://github.com/hachibu/reliable-fetch/blob/main/examples/retry.ts">Example</a></li>
 <li><a href="https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter">Exponential Backoff And Jitter</a></li>
 </ul>
@@ -54,6 +48,30 @@
 <li><a href="https://github.com/hachibu/reliable-fetch/blob/main/examples/chaos.ts">Example</a></li>
 </ul>
 </li>
+</ul>
+
+<a href="#testing" id="testing" style="color: inherit; text-decoration: none;">
+  <h3>Testing</h3>
+</a>
+<ul>
+<li>Greater than 90% unit test coverage</li>
+<li>Automated testing against Node v18 and v19</li>
+</ul>
+
+<a href="#performance" id="performance" style="color: inherit; text-decoration: none;">
+  <h3>Performance</h3>
+</a>
+<ul>
+<li>Less than 2 kB minzipped (i.e. minified + gzipped)</li>
+<li>No dependencies</li>
+</ul>
+
+<a href="#security" id="security" style="color: inherit; text-decoration: none;">
+  <h3>Security</h3>
+</a>
+<ul>
+<li>2FA for publishing NPM package</li>
+<li>Automated dependency review</li>
 </ul>
 
 <a href="#🏎️-engine-compatibility" id="🏎️-engine-compatibility" style="color: inherit; text-decoration: none;">
@@ -85,11 +103,10 @@
   <h2>🔗 Links</h2>
 </a>
 <ul>
+<li><strong><a href="https://www.npmjs.com/package/@hachibu/reliable-fetch">📦 NPM Package</a></strong></li>
 <li><strong><a href="https://hachibu.github.io/reliable-fetch">📖 Documentation</a></strong></li>
 <li><strong><a href="https://github.com/hachibu/reliable-fetch/tree/main/examples">💻 Examples</a></strong></li>
-<li><strong><a href="https://github.com/hachibu/reliable-fetch/blob/main/ROADMAP.md">🗺️ Roadmap</a></strong></li>
 <li><strong><a href="https://github.com/hachibu/reliable-fetch/blob/main/CONTRIBUTING.md">🤝 Contributing</a></strong></li>
-<li><strong><a href="https://www.npmjs.com/package/@hachibu/reliable-fetch">📦 NPM Package</a></strong></li>
 </ul>
 </div></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
