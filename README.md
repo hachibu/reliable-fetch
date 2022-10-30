@@ -17,10 +17,11 @@ async function main() {
 }
 ```
 
-## ✨️ Features
+## Features
 
--   An easy-to-use and well documented [fluent API](https://en.wikipedia.org/wiki/Fluent_interface)
--   Lifecycle hooks for logging custom errors and/or metrics
+### ✨️ API
+
+-   Lifecycle hooks (e.g. logging custom errors and/or metrics)
 -   Timeouts
     -   [Example](https://github.com/hachibu/reliable-fetch/blob/main/examples/timeout.ts)
 -   Retries with caps, backoff and jitter
@@ -32,48 +33,43 @@ async function main() {
 -   Random chaos
     -   [Example](https://github.com/hachibu/reliable-fetch/blob/main/examples/chaos.ts)
 
-### Testing
+### 🧪 Testing
 
--   Greater than 90% unit test coverage
 -   Automated testing against Node v18 and v19
+-   Greater than 90% test coverage
 
-### Performance
+### 🏎️ Performance
 
 -   Zero dependencies
 -   Less than 2 kB minzipped (i.e. minified + gzipped)
 
-### Security
+### 🔒 Security
 
 -   Automated dependency review
 -   Automated code scanning with CodeQL
 -   2FA required for publishing NPM package
 
-## 🏎️ Engine Compatibility
+## Installation
 
--   Node.js >= 18
+### ⚠️ Warning
 
-## ⚠️ Warning
+-   This library is under heavy development and the API could change at any time until version 1.0.0.
+-   This library is only compatible with Node.js >= 18 and relies on the Node.js Fetch API which is an experimental feature.
 
--   This library is under development. The API could change at any time until version 1.0.0.
--   This library relies on the Node.js Fetch API which is an experimental feature. This feature could change at any time.
-
-## ⚙️ Installation
-
-**Install with NPM**
+### Install with NPM
 
 ```
 npm i @hachibu/reliable-fetch
 ```
 
-**Install with Yarn**
+### Install with Yarn
 
 ```
 yarn add @hachibu/reliable-fetch
 ```
 
-## 🔗 Links
+## Appendix
 
 -   **[📦 NPM Package](https://www.npmjs.com/package/@hachibu/reliable-fetch)**
 -   **[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
 -   **[💻 Examples](https://github.com/hachibu/reliable-fetch/tree/main/examples)**
--   **[🤝 Contributing](https://github.com/hachibu/reliable-fetch/blob/main/CONTRIBUTING.md)**
