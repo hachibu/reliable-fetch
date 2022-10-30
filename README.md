@@ -45,6 +45,7 @@ async function main() {
 ### 🔒 Security
 
 -   Automated dependency review, Dependabot alerts and code scanning with CodeQL
+-   Security policy with a response SLA of 72 hours
 -   2FA required for publishing NPM package
 
 ## Installation
