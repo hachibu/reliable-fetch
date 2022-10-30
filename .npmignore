@@ -12,6 +12,7 @@ src
 babel.config.js
 esbuild.js
 jest.*
+package.lint.json
 prettier.config.js
 tsconfig.json
 yarn-error.log
