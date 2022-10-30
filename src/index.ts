@@ -8,7 +8,7 @@ import {
 } from './types'
 import { fetchChaos, fetchHedge, fetchRetry, fetchTimeout } from './fetch'
 import EventEmitter from 'events'
-import { EventName, ListenerFunction } from './types'
+import { EventName, EventListenerFunction } from './types'
 
 export class ReliableFetch {
     constructor(
@@ -22,9 +22,9 @@ export class ReliableFetch {
      * Listen for a specific lifecycle event by event name.
      *
      * @param {EventName} eventName - unique identifier for a lifecycle event
-     * @param {ListenerFunction} listener - callback function for when the lifecycle event is emitted
+     * @param {EventListenerFunction} listener - callback function for when the lifecycle event is emitted
      */
-    on(eventName: EventName, listener: ListenerFunction): ReliableFetch {
+    on(eventName: EventName, listener: EventListenerFunction): ReliableFetch {
         const { eventEmitter } = this.init
         if (eventEmitter) {
             eventEmitter.on(eventName, listener)

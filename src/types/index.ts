@@ -1,5 +1,5 @@
 import EventName from './EventName'
-import ListenerFunction from './ListenerFunction'
+import EventListenerFunction from './EventListenerFunction'
 import ReliableFetchFunction from './ReliableFetchFunction'
 import ReliableRequestInfo from './ReliableRequestInfo'
 import ReliableRequestInit from './ReliableRequestInit'
@@ -20,7 +20,7 @@ export {
     EventName,
     HedgeConfig,
     Jitter,
-    ListenerFunction,
+    EventListenerFunction,
     ReliableFetchFunction,
     ReliableRequestInfo,
     ReliableRequestInit,
