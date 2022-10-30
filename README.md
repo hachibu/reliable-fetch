@@ -44,8 +44,7 @@ async function main() {
 
 ### 🔒 Security
 
--   Automated dependency review
--   Automated code scanning with CodeQL
+-   Automated dependency review, Dependabot alerts and code scanning with CodeQL
 -   2FA required for publishing NPM package
 
 ## Installation
