@@ -35,16 +35,40 @@
   <h2>✨️ Features</h2>
 </a>
 <ul>
-<li>Timeouts (<a href="https://github.com/hachibu/reliable-fetch/blob/main/examples/timeout.ts">example</a>)</li>
-<li>Retries (<a href="https://github.com/hachibu/reliable-fetch/blob/main/examples/retry.ts">example</a>)<ul>
-<li>Maximum delay and attempts</li>
-<li>Constant, exponential and fibonacci backoff</li>
-<li>Naive, equal and full jitter</li>
+<li>Lifecycle hooks</li>
+<li>Timeouts<ul>
+<li><a href="https://github.com/hachibu/reliable-fetch/blob/main/examples/timeout.ts">Example</a></li>
 </ul>
 </li>
-<li>Hedged requests (<a href="https://github.com/hachibu/reliable-fetch/blob/main/examples/hedge.ts">example</a>)</li>
-<li>Random chaos (<a href="https://github.com/hachibu/reliable-fetch/blob/main/examples/chaos.ts">example</a>)</li>
-<li>Lifecycle hooks</li>
+<li>Retries with capping, backoff and jitter<ul>
+<li><a href="https://github.com/hachibu/reliable-fetch/blob/main/examples/retry.ts">Example</a></li>
+<li><a href="https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter">Exponential Backoff And Jitter</a></li>
+</ul>
+</li>
+<li>Hedged requests<ul>
+<li><a href="https://github.com/hachibu/reliable-fetch/blob/main/examples/hedge.ts">Example</a></li>
+<li><a href="https://courses.cs.duke.edu//cps296.4/fall13/838-CloudPapers/dean_longtail.pdf">The Tail at Scale</a></li>
+</ul>
+</li>
+<li>Random chaos<ul>
+<li><a href="https://github.com/hachibu/reliable-fetch/blob/main/examples/chaos.ts">Example</a></li>
+</ul>
+</li>
+</ul>
+
+<a href="#🏎️-engine-compatibility" id="🏎️-engine-compatibility" style="color: inherit; text-decoration: none;">
+  <h2>🏎️ Engine Compatibility</h2>
+</a>
+<ul>
+<li>Node.js &gt;= 18</li>
+</ul>
+
+<a href="#⚠️-warning" id="⚠️-warning" style="color: inherit; text-decoration: none;">
+  <h2>⚠️ Warning</h2>
+</a>
+<ul>
+<li>This library is under development. The API could change at any time until version 1.0.0.</li>
+<li>This library relies on the Node.js Fetch API which is an experimental feature. This feature could change at any time.</li>
 </ul>
 
 <a href="#⚙️-installation" id="⚙️-installation" style="color: inherit; text-decoration: none;">
@@ -56,21 +80,6 @@
 <p><strong>Install with Yarn</strong></p>
 <pre><code><span class="hl-2">yarn</span><span class="hl-1"> </span><span class="hl-2">add</span><span class="hl-1"> @</span><span class="hl-2">hachibu</span><span class="hl-1">/</span><span class="hl-2">reliable</span><span class="hl-1">-</span><span class="hl-2">fetch</span>
 </code></pre>
-
-<a href="#⚠️-warning" id="⚠️-warning" style="color: inherit; text-decoration: none;">
-  <h2>⚠️ Warning</h2>
-</a>
-<ul>
-<li>This library is under development. The API could change at any time until version 1.0.0.</li>
-<li>This library relies on the Node.js Fetch API which is an experimental feature. This feature could change at any time.</li>
-</ul>
-
-<a href="#🏎️-engine-compatibility" id="🏎️-engine-compatibility" style="color: inherit; text-decoration: none;">
-  <h2>🏎️ Engine Compatibility</h2>
-</a>
-<ul>
-<li>Node.js &gt;= 18</li>
-</ul>
 
 <a href="#🔗-links" id="🔗-links" style="color: inherit; text-decoration: none;">
   <h2>🔗 Links</h2>
