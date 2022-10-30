@@ -26,15 +26,9 @@ export class ReliableFetch {
      */
     on(eventName: EventName, listener: ListenerFunction): ReliableFetch {
         const { eventEmitter } = this.init
-
-        if (!eventEmitter) {
-            return this
-        } else if (eventEmitter.listenerCount(eventName) > 0) {
-            return this
-        } else {
+        if (eventEmitter) {
             eventEmitter.on(eventName, listener)
         }
-
         return this
     }
 
