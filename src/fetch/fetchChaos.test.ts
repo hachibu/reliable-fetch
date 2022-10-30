@@ -26,7 +26,7 @@ describe('fetchChaos', () => {
         }
         let failedRequestRatio = failedRequestCount / requestCount
 
-        expect(failedRequestRatio).toBeLessThanOrEqual(rate + 0.2)
+        expect(failedRequestRatio).toBeLessThanOrEqual(rate + 0.1)
     })
 
     it('throws an error when failure rate is invalid', async () => {

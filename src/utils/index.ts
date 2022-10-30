@@ -1,5 +1,12 @@
+import crypto from 'crypto'
+
+export const randomNumber = (): number => {
+    const max = 100
+    return crypto.randomInt(0, max) / max
+}
+
 export const randomNumberBetween = (min: number, max: number): number => {
-    return Math.random() * (max - min) + min
+    return randomNumber() * (max - min) + min
 }
 
 export const setTimeoutWithCancel = (
