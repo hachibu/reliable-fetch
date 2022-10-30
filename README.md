@@ -23,14 +23,26 @@ async function main() {
 
 ## ✨️ Features
 
--   Timeouts ([example](https://github.com/hachibu/reliable-fetch/blob/main/examples/timeout.ts))
--   Retries ([example](https://github.com/hachibu/reliable-fetch/blob/main/examples/retry.ts))
-    -   Maximum delay and attempts
-    -   Constant, exponential and fibonacci backoff
-    -   Naive, equal and full jitter
--   Hedged requests ([example](https://github.com/hachibu/reliable-fetch/blob/main/examples/hedge.ts))
--   Random chaos ([example](https://github.com/hachibu/reliable-fetch/blob/main/examples/chaos.ts))
 -   Lifecycle hooks
+-   Timeouts
+    -   [Example](https://github.com/hachibu/reliable-fetch/blob/main/examples/timeout.ts)
+-   Retries with capping, backoff and jitter
+    -   [Example](https://github.com/hachibu/reliable-fetch/blob/main/examples/retry.ts)
+    -   [Exponential Backoff And Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter)
+-   Hedged requests
+    -   [Example](https://github.com/hachibu/reliable-fetch/blob/main/examples/hedge.ts)
+    -   [The Tail at Scale](https://courses.cs.duke.edu//cps296.4/fall13/838-CloudPapers/dean_longtail.pdf)
+-   Random chaos
+    -   [Example](https://github.com/hachibu/reliable-fetch/blob/main/examples/chaos.ts)
+
+## 🏎️ Engine Compatibility
+
+-   Node.js >= 18
+
+## ⚠️ Warning
+
+-   This library is under development. The API could change at any time until version 1.0.0.
+-   This library relies on the Node.js Fetch API which is an experimental feature. This feature could change at any time.
 
 ## ⚙️ Installation
 
@@ -45,15 +57,6 @@ npm i @hachibu/reliable-fetch
 ```
 yarn add @hachibu/reliable-fetch
 ```
-
-## ⚠️ Warning
-
--   This library is under development. The API could change at any time until version 1.0.0.
--   This library relies on the Node.js Fetch API which is an experimental feature. This feature could change at any time.
-
-## 🏎️ Engine Compatibility
-
--   Node.js >= 18
 
 ## 🔗 Links
 
