@@ -1,4 +1,4 @@
-import reliableFetch from '../src/index'
+import reliableFetch from '../dist/index'
 
 async function main() {
     await reliableFetch('https://google.com')

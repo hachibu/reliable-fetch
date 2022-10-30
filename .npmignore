@@ -10,6 +10,7 @@ src
 .husky/pre-commit
 .prettierignore
 babel.config.js
+esbuild.js
 jest.*
 prettier.config.js
 tsconfig.json

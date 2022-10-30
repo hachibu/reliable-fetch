@@ -4,15 +4,15 @@
             {
                 "fact": "entryCount",
                 "operator": "lessThan",
-                "value": 100,
+                "value": 30,
                 "params": {
                     "unit": "files"
                 }
             },
             {
-                "fact": "unpackedSize",
+                "fact": "size",
                 "operator": "lessThan",
-                "value": 30000,
+                "value": 10000,
                 "params": {
                     "unit": "bytes"
                 }
