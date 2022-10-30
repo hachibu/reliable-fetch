@@ -46,10 +46,10 @@ export class ReliableFetch {
     /**
      * The initial request will be aborted if it does not settle within the
      * configured timeout and hedged with another request (e.g. set
-     * `config.timeout` to the P99 response time to hedge 1% of requests).
+     * `config.timeout` to the P95 response time to hedge 5% of requests).
      *
      * @param {HedgeConfig} config
-     * @param {number} config.timeout - milliseconds (default: 0)
+     * @param {number} config.timeout - milliseconds (default: 10000)
      */
     hedge(config?: Partial<HedgeConfig>): Promise<Response> {
         return fetchHedge(this.input, { ...this.init, ...config })

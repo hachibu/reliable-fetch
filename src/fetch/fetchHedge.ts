@@ -3,7 +3,7 @@ import fetchTimeout from './fetchTimeout'
 
 const fetchHedge: ReliableFetchFunction = async (input, init) => {
     const config: HedgeConfig = {
-        timeout: init?.timeout ?? 0,
+        timeout: init?.timeout ?? 10000,
     }
     let response: Response
 
