@@ -4,9 +4,12 @@
 
 -   [x] Timeouts
 -   [x] Retries
--   [ ] Request hedging
+-   [x] Request hedging
 -   [ ] Random chaos
 -   [ ] Lifecycle hooks
+-   [ ] Testing
+    -   [ ] > = 90% unit test coverage
+    -   [x] CI testing against Node v18 and v19
 
 ## Backlog
 
