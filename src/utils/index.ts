@@ -2,7 +2,7 @@ import crypto from 'crypto'
 import { Jitter } from '../types'
 
 export const randomNumber = (): number => {
-    const max = 100
+    const max = 10 ** 10
     return crypto.randomInt(0, max) / max
 }
 
