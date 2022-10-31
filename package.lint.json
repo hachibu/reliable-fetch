@@ -4,7 +4,7 @@
             {
                 "fact": "entryCount",
                 "operator": "lessThan",
-                "value": 30,
+                "value": 50,
                 "params": {
                     "unit": "files"
                 }
@@ -12,7 +12,7 @@
             {
                 "fact": "size",
                 "operator": "lessThan",
-                "value": 10000,
+                "value": 15000,
                 "params": {
                     "unit": "bytes"
                 }

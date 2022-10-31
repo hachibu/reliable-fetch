@@ -10,3 +10,4 @@ export declare const setTimeoutWithCancel: (callback: VoidFunction, ms?: number)
     cancel: VoidFunction;
 };
 export declare const addJitter: (delay: number, jitter: Jitter) => number;
+//# sourceMappingURL=index.d.ts.map

@@ -3,3 +3,4 @@ import fetchHedge from './fetchHedge';
 import fetchRetry from './fetchRetry';
 import fetchTimeout from './fetchTimeout';
 export { fetchChaos, fetchHedge, fetchRetry, fetchTimeout };
+//# sourceMappingURL=index.d.ts.map

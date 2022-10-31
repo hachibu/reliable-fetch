@@ -8,3 +8,4 @@ export default interface RetryConfig {
     backoff: Backoff;
     jitter: Jitter;
 }
+//# sourceMappingURL=RetryConfig.d.ts.map

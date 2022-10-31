@@ -11,3 +11,4 @@ export default interface ChaosConfig {
     down: ChaosDownConfig;
     slow: ChaosSlowConfig;
 }
+//# sourceMappingURL=ChaosConfig.d.ts.map

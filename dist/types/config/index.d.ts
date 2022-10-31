@@ -4,3 +4,4 @@ import HedgeConfig from './HedgeConfig';
 import RetryConfig from './RetryConfig';
 import TimeoutConfig from './TimeoutConfig';
 export { BaseConfig, ChaosConfig, ChaosDownConfig, ChaosSlowConfig, HedgeConfig, RetryConfig, TimeoutConfig, };
+//# sourceMappingURL=index.d.ts.map
