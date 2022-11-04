@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/hachibu/reliable-fetch/main/images/reliable-fetch-logo.svg" width="30%">
+
 # Reliable Fetch
 
 ![unit tests](https://img.shields.io/github/workflow/status/hachibu/reliable-fetch/unit-tests/main?label=unit-tests)
