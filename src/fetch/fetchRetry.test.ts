@@ -25,11 +25,7 @@ describe('fetchRetry', () => {
         expect(emit).toBeCalledTimes(0)
     })
 
-    const backoffTests: Backoff[][] = [
-        ['constant'],
-        ['exponential'],
-        ['fibonacci'],
-    ]
+    const backoffTests: Backoff[][] = [['constant'], ['exponential']]
 
     it.each(backoffTests)('retries with %s backoff', async (backoff) => {
         const eventEmitter = new EventEmitter()

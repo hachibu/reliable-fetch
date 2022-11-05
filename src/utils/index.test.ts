@@ -1,5 +1,6 @@
 import { describe, expect, it } from '@jest/globals'
-import { randomNumber, randomNumberBetween } from './index'
+import { delayWithBackoff, randomNumber, randomNumberBetween } from './index'
+import { Backoff } from '../types'
 
 describe('utils', () => {
     describe('randomNumber', () => {
@@ -31,4 +32,32 @@ describe('utils', () => {
             }
         )
     })
+
+    describe('delayWithBackoff', () => {
+        it.concurrent('grows at a constant rate', async () => {
+            const delays: number[] = mockBackoff('constant')
+
+            expect(delays).toEqual([1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+        })
+
+        it.concurrent('grows at an exponential rate', async () => {
+            const delays: number[] = mockBackoff('exponential')
+
+            expect(delays).toEqual([2, 4, 8, 16, 32, 64, 128, 256, 512, 1024])
+        })
+
+        const mockBackoff = (backoff: Backoff): number[] => {
+            const delays: number[] = []
+            let delay = 1
+
+            for (let attempt = 1; attempt <= 10; attempt++) {
+                delay = delayWithBackoff(delay, 1, backoff)
+                delays.push(delay)
+            }
+
+            return delays
+        }
+    })
+
+    describe('delayWithJitter', () => {})
 })

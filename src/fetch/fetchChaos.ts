@@ -1,5 +1,5 @@
 import { ChaosConfig, ReliableFetchFunction } from '../types'
-import { addJitter, randomNumber } from '../utils'
+import { delayWithJitter, randomNumber } from '../utils'
 import { setTimeout } from 'timers/promises'
 
 const fetchChaos: ReliableFetchFunction = async (input, init) => {
@@ -27,7 +27,7 @@ const fetchChaos: ReliableFetchFunction = async (input, init) => {
     }
 
     if (slowEnabled && randomNumber() > config.rate) {
-        const delay = addJitter(config.slow.delay, config.slow.jitter)
+        const delay = delayWithJitter(config.slow.delay, config.slow.jitter)
         await setTimeout(delay)
         init?.eventEmitter?.emit('chaos:slow', delay)
     }

@@ -1,5 +1,5 @@
 import crypto from 'crypto'
-import { Jitter } from '../types'
+import { Backoff, Jitter } from '../types'
 
 export const randomNumber = (): number => {
     const max = 10 ** 10
@@ -23,7 +23,23 @@ export const setTimeoutWithCancel = (
     }
 }
 
-export const addJitter = (delay: number, jitter: Jitter): number => {
+export const delayWithBackoff = (
+    delay: number,
+    attempt: number,
+    backoff: Backoff
+): number => {
+    switch (backoff) {
+        case 'constant':
+            delay = delay
+            break
+        case 'exponential':
+            delay = Math.pow(2, attempt) * delay
+            break
+    }
+    return delay
+}
+
+export const delayWithJitter = (delay: number, jitter: Jitter): number => {
     switch (jitter) {
         case 'naive':
             delay += randomNumberBetween(0, delay * 0.2)

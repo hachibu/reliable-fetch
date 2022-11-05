@@ -1,3 +1,3 @@
-export type Backoff = 'constant' | 'exponential' | 'fibonacci'
+export type Backoff = 'constant' | 'exponential'
 
 export default Backoff

@@ -1,3 +1,3 @@
-export declare type Backoff = 'constant' | 'exponential' | 'fibonacci';
+export declare type Backoff = 'constant' | 'exponential';
 export default Backoff;
 //# sourceMappingURL=Backoff.d.ts.map
