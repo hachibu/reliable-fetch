@@ -11,7 +11,7 @@ const fetchRetry: ReliableFetchFunction = async (input, init) => {
         backoff: init?.backoff ?? 'constant',
         jitter: init?.jitter ?? 'none',
     }
-    const retries = Math.min(config.attempts, config.maxAttempts)
+    const attempts = Math.min(config.attempts, config.maxAttempts)
     let error
 
     try {
@@ -20,7 +20,7 @@ const fetchRetry: ReliableFetchFunction = async (input, init) => {
         error = e
     }
 
-    for (let attempt = 1; attempt <= retries; attempt++) {
+    for (let attempt = 1; attempt <= attempts; attempt++) {
         let delay = Math.min(config.delay, config.maxDelay)
 
         try {
