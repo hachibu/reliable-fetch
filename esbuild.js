@@ -15,10 +15,10 @@ const config = {
 
 async function main() {
     const result = await esbuild.build(config).catch(() => process.exit(1))
-    const text = await esbuild.analyzeMetafile(result.metafile, {
+    const analysis = await esbuild.analyzeMetafile(result.metafile, {
         verbose: true,
     })
-    console.log(text)
+    console.log(analysis)
 }
 
 main()
