@@ -14,6 +14,7 @@ web
 .husky/pre-commit
 .prettierignore
 .prettierrc.json
+CODEOWNERS
 esbuild.mjs
 jest.*
 package.lint.json
