@@ -29,11 +29,8 @@ export const delayWithBackoff = (
     backoff: Backoff
 ): number => {
     switch (backoff) {
-        case 'constant':
-            delay = delay
-            break
         case 'exponential':
-            delay = Math.pow(2, attempt) * delay
+            delay *= Math.pow(2, attempt)
             break
     }
     return delay
