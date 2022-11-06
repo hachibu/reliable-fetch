@@ -14,16 +14,18 @@ const FeatureList: FeatureItem[] = [
         Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
         description: (
             <>
-                A chainable API with IDE-friendly documentation.
+                An easy to use chainable TypeScript API with comprehensive
+                documentation and tutorials.
             </>
         ),
     },
     {
-        title: 'Performance',
+        title: 'Performance & Reliability',
         Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
         description: (
             <>
-                Zero dependencies and less than 2 kB minzipped.
+                Lightweight with zero dependencies, high test coverage, and
+                continuous integration against compatible versions of Node.js.
             </>
         ),
     },
@@ -32,8 +34,8 @@ const FeatureList: FeatureItem[] = [
         Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
         description: (
             <>
-                Automated checks, account takeover mitigations, and a
-                security policy.
+                Automated security checks, mitigations to prevent GitHub and NPM
+                account takeovers, and a vulnerability response SLA of 72 hours.
             </>
         ),
     },
