@@ -38,23 +38,6 @@ async function main() {
 -   Random chaos
     -   [Example](https://github.com/hachibu/reliable-fetch/blob/main/examples/chaos.ts)
 
-### 🧪 Testing
-
--   Automated testing against Node v18 and v19
--   Greater than 90% test coverage
-
-### 🏎️ Performance
-
--   Zero dependencies
--   Less than 2 kB minzipped (i.e. minified + gzipped)
-
-### 🔒 Security
-
--   Automated dependency review, Dependabot alerts and code scanning with CodeQL
--   Security policy with a response SLA of 72 hours
--   Signature required for commits
--   2FA required for publishing NPM package
-
 ## Installation
 
 ### ⚠️ Warning
