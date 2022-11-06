@@ -1,4 +1,6 @@
-import { MockResponseInitFunction } from 'jest-fetch-mock'
+import { MockResponseInit, MockResponseInitFunction } from 'jest-fetch-mock'
 
 export const mockResponse = (): MockResponseInitFunction => () =>
-    new Promise((resolve) => setTimeout(() => resolve(''), 100))
+    new Promise<MockResponseInit>((resolve) =>
+        setTimeout(() => resolve({}), 100)
+    )
