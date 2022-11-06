@@ -18,19 +18,21 @@ async function main() {
 }
 ```
 
--   **✨ Features**
-    -   Lifecycle hooks
-    -   Timeouts
-    -   Retries with caps, backoff and jitter
-    -   Hedged requests
-    -   Random chaos
--   **[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
--   **[💻 Examples](https://github.com/hachibu/reliable-fetch/tree/main/examples)**
--   **[📦 NPM Package](https://www.npmjs.com/package/@hachibu/reliable-fetch)**
+**✨ Features**
+
+-   Lifecycle hooks
+-   Timeouts
+-   Retries with caps, backoff and jitter
+-   Hedged requests
+-   Random chaos
+
+**[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
+**[💻 Examples](https://github.com/hachibu/reliable-fetch/tree/main/examples)**
+**[📦 NPM Package](https://www.npmjs.com/package/@hachibu/reliable-fetch)**
 
 ## Installation
 
-**⚠️ Warning:** This library is only compatible with Node.js v18+ and relies on the native Fetch API which is an experimental feature.
+**⚠️ Warning** This library is only compatible with Node.js v18+ and relies on the native Fetch API which is an experimental feature.
 
 ```
 npm i @hachibu/reliable-fetch@latest
