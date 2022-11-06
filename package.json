@@ -47,7 +47,8 @@
         "clean": "rm -rf docs/* dist/*",
         "prepare": "husky install",
         "test": "jest --no-cache",
-        "lint": "eslint --fix .",
+        "lint": "yarn run lint:src && yarn run lint:npm-package",
+        "lint:src": "eslint --fix .",
         "lint:npm-package": "ts-node scripts/lintNPMPackage.ts"
     },
     "engines": {
