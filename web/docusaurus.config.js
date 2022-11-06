@@ -6,13 +6,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: 'My Site',
-    tagline: 'Dinosaurs are cool',
+    title: 'Reliable Fetch',
+    tagline: 'An easy-to-use Node.js library to make the fetch function more reliable.',
     url: 'https://hachibu.github.io/',
     baseUrl: '/reliable-fetch/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
-    favicon: 'img/favicon.ico',
+    favicon: 'img/favicon.png',
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
@@ -57,9 +57,9 @@ const config = {
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             navbar: {
-                title: 'My Site',
+                title: 'Reliable Fetch',
                 logo: {
-                    alt: 'My Site Logo',
+                    alt: 'Reliable Fetch Logo',
                     src: 'img/logo.svg',
                 },
                 items: [
