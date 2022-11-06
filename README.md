@@ -18,6 +18,10 @@ async function main() {
 }
 ```
 
+-   **[📦 NPM Package](https://www.npmjs.com/package/@hachibu/reliable-fetch)**
+-   **[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
+-   **[💻 Examples](https://github.com/hachibu/reliable-fetch/tree/main/examples)**
+
 ## Features
 
 ### ✨️ API
@@ -68,9 +72,3 @@ npm i @hachibu/reliable-fetch
 ```
 yarn add @hachibu/reliable-fetch
 ```
-
-## Appendix
-
--   **[📦 NPM Package](https://www.npmjs.com/package/@hachibu/reliable-fetch)**
--   **[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
--   **[💻 Examples](https://github.com/hachibu/reliable-fetch/tree/main/examples)**
