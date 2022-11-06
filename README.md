@@ -18,41 +18,20 @@ async function main() {
 }
 ```
 
--   **[📦 NPM Package](https://www.npmjs.com/package/@hachibu/reliable-fetch)**
+-   **✨ Features**
+    -   Lifecycle hooks
+    -   Timeouts
+    -   Retries with caps, backoff and jitter
+    -   Hedged requests
+    -   Random chaos
 -   **[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
 -   **[💻 Examples](https://github.com/hachibu/reliable-fetch/tree/main/examples)**
-
-## Features
-
-### ✨️ API
-
--   Lifecycle hooks (e.g. post custom metrics)
--   Timeouts
-    -   [Example](https://github.com/hachibu/reliable-fetch/blob/main/examples/timeout.ts)
--   Retries with caps, backoff and jitter
-    -   [Example](https://github.com/hachibu/reliable-fetch/blob/main/examples/retry.ts)
-    -   [Exponential Backoff And Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter)
--   Hedged requests
-    -   [Example](https://github.com/hachibu/reliable-fetch/blob/main/examples/hedge.ts)
-    -   [The Tail at Scale](https://courses.cs.duke.edu//cps296.4/fall13/838-CloudPapers/dean_longtail.pdf)
--   Random chaos
-    -   [Example](https://github.com/hachibu/reliable-fetch/blob/main/examples/chaos.ts)
+-   **[📦 NPM Package](https://www.npmjs.com/package/@hachibu/reliable-fetch)**
 
 ## Installation
 
-### ⚠️ Warning
-
--   This library is under heavy development and the API could change at any time until version 1.0.0.
--   This library is only compatible with Node.js >= 18 and relies on the Node.js Fetch API which is an experimental feature.
-
-### Install with NPM
+**⚠️ Warning:** This library is only compatible with Node.js v18+ and relies on the native Fetch API which is an experimental feature.
 
 ```
-npm i @hachibu/reliable-fetch
-```
-
-### Install with Yarn
-
-```
-yarn add @hachibu/reliable-fetch
+npm i @hachibu/reliable-fetch@latest
 ```
