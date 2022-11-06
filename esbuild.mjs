@@ -1,4 +1,4 @@
-const esbuild = require('esbuild')
+import { build, analyzeMetafile } from 'esbuild'
 
 const config = {
     entryPoints: ['src/index.ts'],
@@ -14,8 +14,8 @@ const config = {
 }
 
 async function main() {
-    const result = await esbuild.build(config).catch(() => process.exit(1))
-    const analysis = await esbuild.analyzeMetafile(result.metafile, {
+    const result = await build(config).catch(() => process.exit(1))
+    const analysis = await analyzeMetafile(result.metafile, {
         verbose: true,
     })
     console.log(analysis)

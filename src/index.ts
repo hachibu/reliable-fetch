@@ -1,7 +1,5 @@
 import {
     ChaosConfig,
-    ChaosDownConfig,
-    ChaosSlowConfig,
     HedgeConfig,
     ReliableRequestInfo,
     ReliableRequestInit,

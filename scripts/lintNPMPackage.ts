@@ -9,7 +9,7 @@ import {
     RuleResult,
 } from 'json-rules-engine'
 
-type Result = ConditionProperties & RuleResult & { factResult: any }
+type Result = ConditionProperties & RuleResult & { factResult: number }
 
 const exec = util.promisify(cp.exec)
 const renderRuleResult = (e: Event, a: Almanac, ruleResult: RuleResult) => {
@@ -35,7 +35,7 @@ async function main() {
         process.exit(1)
     }
     const [facts] = JSON.parse(stdout)
-    const rule = require(`${process.cwd()}/package.lint.json`)
+    const rule = await import(`${process.cwd()}/package.lint.json`)
     const engine = new Engine()
 
     console.log('🔍  Linting NPM package.')

@@ -6,13 +6,15 @@ src
 
 *.md
 *.svg
+.babelrc.json
+.eslintignore
+.eslintrc.json
 .github
 .husky/pre-commit
 .prettierignore
-babel.config.js
-esbuild.js
+.prettierrc.json
+esbuild.mjs
 jest.*
 package.lint.json
-prettier.config.js
 tsconfig.json
 yarn-error.log

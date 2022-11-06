@@ -1,5 +1,5 @@
 import EventEmitter from 'events'
-import { Jitter, Backoff, ReliableRequestInit } from '../types'
+import { ReliableRequestInit } from '../types'
 import fetchChaos from './fetchChaos'
 import { describe, expect, it } from '@jest/globals'
 import { mockResponse } from '../../jest.helpers'
@@ -34,7 +34,7 @@ describe('fetchChaos', () => {
                     }
                 }
             }
-            let failedRequestRatio = failedRequestCount / requestCount
+            const failedRequestRatio = failedRequestCount / requestCount
 
             expect(failedRequestRatio).toBeLessThanOrEqual(rate + 0.1)
         }
