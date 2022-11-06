@@ -3,6 +3,7 @@ docs
 examples
 scripts
 src
+web
 
 *.md
 *.svg
