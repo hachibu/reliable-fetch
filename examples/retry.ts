@@ -9,7 +9,7 @@ async function main() {
             attempts: 3,
             delay: 100,
             backoff: 'exponential',
-            jitter: 'naive',
+            jitter: 'full',
         })
 }
 

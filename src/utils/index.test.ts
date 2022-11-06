@@ -1,6 +1,11 @@
 import { describe, expect, it } from '@jest/globals'
-import { delayWithBackoff, randomNumber, randomNumberBetween } from './index'
-import { Backoff } from '../types'
+import {
+    delayWithBackoff,
+    delayWithJitter,
+    randomNumber,
+    randomNumberBetween,
+} from './index'
+import { Backoff, Jitter } from '../types'
 
 describe('utils', () => {
     describe('randomNumber', () => {
@@ -59,5 +64,52 @@ describe('utils', () => {
         }
     })
 
-    describe('delayWithJitter', () => {})
+    describe('delayWithJitter', () => {
+        it.concurrent('does not add jitter', async () => {
+            const delay = 1
+            const delays: number[] = mockJitter(delay, 'none')
+
+            expect(delays).toEqual([1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+        })
+
+        it.concurrent('adds full jitter', async () => {
+            const delay = 1
+            const delays: number[] = mockJitter(delay, 'full')
+
+            for (const d of delays) {
+                expect(d).toBeGreaterThanOrEqual(delay)
+                expect(d).toBeLessThanOrEqual(delay * 2)
+            }
+        })
+
+        it.concurrent('adds equal jitter', async () => {
+            const delay = 1
+            const delays: number[] = mockJitter(delay, 'equal')
+
+            for (const d of delays) {
+                expect(d).toBeGreaterThanOrEqual(delay + delay / 2)
+                expect(d).toBeLessThanOrEqual(delay * 2)
+            }
+        })
+
+        it.concurrent('adds decorrelated jitter', async () => {
+            const delay = 1
+            const delays: number[] = mockJitter(delay, 'decorrelated')
+
+            for (const d of delays) {
+                expect(d).toBeGreaterThanOrEqual(delay)
+                expect(d).toBeLessThanOrEqual(delay + delay * 3)
+            }
+        })
+
+        const mockJitter = (delay: number, jitter: Jitter): number[] => {
+            const delays: number[] = []
+
+            for (let attempt = 1; attempt <= 10; attempt++) {
+                delays.push(delayWithJitter(delay, jitter))
+            }
+
+            return delays
+        }
+    })
 })

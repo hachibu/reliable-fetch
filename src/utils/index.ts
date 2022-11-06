@@ -38,14 +38,14 @@ export const delayWithBackoff = (
 
 export const delayWithJitter = (delay: number, jitter: Jitter): number => {
     switch (jitter) {
-        case 'naive':
-            delay += randomNumberBetween(0, delay * 0.2)
+        case 'full':
+            delay += randomNumberBetween(0, delay)
             break
         case 'equal':
-            delay = delay / 2 + randomNumberBetween(0, delay / 2)
+            delay += delay / 2 + randomNumberBetween(0, delay / 2)
             break
-        case 'full':
-            delay = randomNumberBetween(0, delay)
+        case 'decorrelated':
+            delay += randomNumberBetween(delay, delay * 3)
             break
     }
     return delay

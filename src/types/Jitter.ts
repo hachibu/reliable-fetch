@@ -1,3 +1,3 @@
-type Jitter = 'none' | 'naive' | 'equal' | 'full'
+type Jitter = 'none' | 'full' | 'equal' | 'decorrelated'
 
 export default Jitter
