@@ -14,7 +14,7 @@ const FeatureList: FeatureItem[] = [
         Svg: require('@site/static/img/undraw-good-doggy.svg').default,
         description: (
             <>
-                An easy to use chainable TypeScript API with developer-friendly
+                An easy-to-use chainable TypeScript API with developer-friendly
                 documentation.
             </>
         ),
