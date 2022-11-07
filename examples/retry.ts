@@ -11,6 +11,7 @@ async function main() {
             backoff: 'exponential',
             jitter: 'full',
         })
+        .catch(console.log)
 }
 
 main()
