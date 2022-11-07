@@ -84,7 +84,7 @@ const config = {
             footer: {
                 style: 'light',
                 links: [],
-                copyright: 'Built with Docusaurus.',
+                copyright: 'Built with Docusaurus and Undraw.',
             },
             prism: {
                 theme: lightCodeTheme,
