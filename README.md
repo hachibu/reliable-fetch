@@ -6,7 +6,7 @@
 ![minzipped size](https://img.shields.io/bundlephobia/minzip/@hachibu/reliable-fetch)
 ![license](https://img.shields.io/github/license/hachibu/reliable-fetch?color=blue)
 
-An easy-to-use [Node.js](https://nodejs.org/en/) library to make the [fetch function](https://developer.mozilla.org/en-US/docs/Web/API/fetch) more reliable.
+An easy-to-use [Node.js](https://nodejs.org/en/) library to make the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/fetch) more reliable.
 
 ```ts
 import reliableFetch from '@hachibu/reliable-fetch'

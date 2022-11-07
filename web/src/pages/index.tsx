@@ -23,7 +23,7 @@ export default function Home(): JSX.Element {
     return (
         <Layout
             title={siteConfig.title}
-            description="An easy-to-use Node.js library to make the fetch function more reliable."
+            description="An easy-to-use Node.js library to make the Fetch API more reliable."
         >
             <HomepageHeader />
             <main>

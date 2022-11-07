@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 /** @type {import('@docusaurus/types').Config} */
 const config = {
     title: 'Reliable Fetch',
-    tagline: 'An easy-to-use Node.js library to make the fetch function more reliable.',
+    tagline: 'An easy-to-use Node.js library to make the Fetch API more reliable.',
     url: 'https://hachibu.github.io/',
     baseUrl: '/reliable-fetch/',
     onBrokenLinks: 'throw',

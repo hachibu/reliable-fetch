@@ -5,7 +5,7 @@
         "name": "Raymond Sohn",
         "email": "raymondsohn@gmail.com"
     },
-    "description": "An easy-to-use Node.js library to make the fetch function more reliable.",
+    "description": "An easy-to-use Node.js library to make the Fetch API more reliable.",
     "homepage": "https://hachibu.github.io/reliable-fetch",
     "repository": {
         "type": "git",
