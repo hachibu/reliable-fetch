@@ -70,6 +70,11 @@ const config = {
                         label: 'Docs',
                     },
                     {
+                        href: 'https://www.npmjs.com/package/@hachibu/reliable-fetch',
+                        label: 'NPM',
+                        position: 'right',
+                    },
+                    {
                         href: 'https://github.com/hachibu/reliable-fetch',
                         label: 'GitHub',
                         position: 'right',
