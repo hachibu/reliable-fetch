@@ -11,7 +11,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
     {
         title: 'Easy to Use',
-        Svg: require('@site/static/img/undraw-mountain.svg').default,
+        Svg: require('@site/static/img/undraw-good-doggy.svg').default,
         description: (
             <>
                 An easy to use chainable TypeScript API with comprehensive
@@ -21,7 +21,7 @@ const FeatureList: FeatureItem[] = [
     },
     {
         title: 'Performance & Reliability',
-        Svg: require('@site/static/img/undraw-tree.svg').default,
+        Svg: require('@site/static/img/undraw-delivery-truck.svg').default,
         description: (
             <>
                 Lightweight with zero dependencies, high test coverage, and
@@ -31,7 +31,7 @@ const FeatureList: FeatureItem[] = [
     },
     {
         title: 'Security',
-        Svg: require('@site/static/img/undraw-computers.svg').default,
+        Svg: require('@site/static/img/undraw-security.svg').default,
         description: (
             <>
                 Automated security checks, mitigations to prevent GitHub and NPM
