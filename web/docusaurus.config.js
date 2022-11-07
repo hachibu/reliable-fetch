@@ -78,43 +78,7 @@ const config = {
             },
             footer: {
                 style: 'light',
-                links: [
-                    {
-                        title: 'Docs',
-                        items: [
-                            {
-                                label: 'Tutorial',
-                                to: '/docs/intro',
-                            },
-                        ],
-                    },
-                    {
-                        title: 'Community',
-                        items: [
-                            {
-                                label: 'Stack Overflow',
-                                href: 'https://stackoverflow.com/questions/tagged/reliable-fetch',
-                            },
-                            {
-                                label: 'Twitter',
-                                href: 'https://twitter.com/20percentempty',
-                            },
-                        ],
-                    },
-                    {
-                        title: 'More',
-                        items: [
-                            {
-                                label: 'NPM',
-                                href: 'https://www.npmjs.com/package/@hachibu/reliable-fetch',
-                            },
-                            {
-                                label: 'GitHub',
-                                href: 'https://github.com/hachibu/reliable-fetch',
-                            },
-                        ],
-                    },
-                ],
+                links: [],
                 copyright: 'Built with Docusaurus.',
             },
             prism: {
