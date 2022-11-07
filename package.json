@@ -42,9 +42,7 @@
         "typescript": "^4.8.4"
     },
     "scripts": {
-        "build": "yarn run clean && yarn run build:src",
-        "build:src": "yarn tsc && yarn node esbuild.mjs",
-        "clean": "rm -rf docs/* dist/*",
+        "build": "rm -rf dist/* && yarn tsc && yarn node esbuild.mjs",
         "prepare": "husky install",
         "test": "jest --no-cache",
         "lint": "yarn run lint:src && yarn run lint:npm-package",
