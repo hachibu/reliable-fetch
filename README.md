@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/hachibu/reliable-fetch/main/images/reliable-fetch-logo.svg" width="30%">
+<img src="https://raw.githubusercontent.com/hachibu/reliable-fetch/main/web/static/img/logo.svg" width="30%">
 
 # Reliable Fetch
 
