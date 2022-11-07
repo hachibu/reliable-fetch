@@ -13,4 +13,4 @@ the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) more
 2. `git clone git@github.com:hachibu/reliable-fetch-examples.git`
 3. `cd reliable-fetch-examples`
 4. `npm i`
-5. `node src/timeout.js`
+5. `npm exec ts-node src/timeout.ts`
