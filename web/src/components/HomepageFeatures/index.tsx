@@ -14,8 +14,8 @@ const FeatureList: FeatureItem[] = [
         Svg: require('@site/static/img/undraw-good-doggy.svg').default,
         description: (
             <>
-                An easy to use chainable TypeScript API with comprehensive
-                documentation and tutorials.
+                An easy to use chainable TypeScript API with developer-friendly
+                documentation.
             </>
         ),
     },
@@ -24,8 +24,8 @@ const FeatureList: FeatureItem[] = [
         Svg: require('@site/static/img/undraw-delivery-truck.svg').default,
         description: (
             <>
-                Lightweight with zero dependencies, high test coverage, and
-                continuous integration against compatible versions of Node.js.
+                Lightweight with zero dependencies, and continuous integration
+                against compatible versions of Node.js.
             </>
         ),
     },
@@ -34,8 +34,8 @@ const FeatureList: FeatureItem[] = [
         Svg: require('@site/static/img/undraw-security.svg').default,
         description: (
             <>
-                Automated security checks, mitigations to prevent GitHub and NPM
-                account takeovers, and a vulnerability response SLA of 72 hours.
+                Automated security checks, account takeover mitigations,
+                and a security policy.
             </>
         ),
     },
