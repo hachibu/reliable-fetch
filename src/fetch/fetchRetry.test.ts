@@ -9,7 +9,10 @@ describe('fetchRetry', () => {
     const input = 'http://localhost'
     const attempts = 3
 
-    beforeEach(() => fetchMock.mockResponse(mockResponse()))
+    beforeEach(() => {
+        fetchMock.resetMocks()
+        fetchMock.mockResponse(mockResponse())
+    })
 
     it('resolves without retry', async () => {
         const eventEmitter = new EventEmitter()
@@ -44,7 +47,7 @@ describe('fetchRetry', () => {
         expect(emit).toBeCalledTimes(attempts)
     })
 
-    const jitterTests: Jitter[][] = [['naive'], ['equal'], ['full']]
+    const jitterTests: Jitter[][] = [['full'], ['equal'], ['decorrelated']]
 
     it.each(jitterTests)('retries with %s jitter', async (jitter) => {
         const eventEmitter = new EventEmitter()

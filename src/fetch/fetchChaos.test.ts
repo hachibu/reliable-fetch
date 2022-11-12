@@ -7,7 +7,10 @@ import { mockResponse } from '../../jest.helpers'
 describe('fetchChaos', () => {
     const input = 'http://localhost'
 
-    beforeEach(() => fetchMock.mockResponse(mockResponse()))
+    beforeEach(() => {
+        fetchMock.resetMocks()
+        fetchMock.mockResponse(mockResponse())
+    })
 
     const rateTests = [[0.1], [0.5], [0.9]]
 

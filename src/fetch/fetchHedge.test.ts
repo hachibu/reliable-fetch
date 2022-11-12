@@ -8,7 +8,10 @@ import { mockResponse } from '../../jest.helpers'
 describe('fetchHedge', () => {
     const input = 'http://localhost'
 
-    beforeEach(() => fetchMock.mockResponse(mockResponse()))
+    beforeEach(() => {
+        fetchMock.resetMocks()
+        fetchMock.mockResponse(mockResponse())
+    })
 
     it('hedges if first request fails', async () => {
         const eventEmitter = new EventEmitter()

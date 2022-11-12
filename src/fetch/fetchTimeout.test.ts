@@ -10,7 +10,10 @@ jest.spyOn(global, 'clearTimeout')
 describe('fetchTimeout', () => {
     const input = 'http://localhost'
 
-    beforeEach(() => fetchMock.mockResponse(mockResponse()))
+    beforeEach(() => {
+        fetchMock.resetMocks()
+        fetchMock.mockResponse(mockResponse())
+    })
 
     it('aborts if timeout completes first', async () => {
         const init: ReliableRequestInit = {
