@@ -43,11 +43,11 @@
     },
     "scripts": {
         "build": "rm -rf dist/* && yarn tsc && yarn node esbuild.mjs",
-        "prepare": "husky install",
-        "test": "jest --no-cache",
-        "lint": "yarn run lint:src && yarn run lint:npm-package",
+        "lint": "yarn run lint:src && yarn run lint:package",
+        "lint:package": "ts-node scripts/lintPackage.ts",
         "lint:src": "eslint --fix .",
-        "lint:npm-package": "ts-node scripts/lintNPMPackage.ts"
+        "prepare": "husky install",
+        "test": "jest --no-cache"
     },
     "engines": {
         "node": ">= 18"
