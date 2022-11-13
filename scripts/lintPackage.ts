@@ -1,5 +1,6 @@
 import util from 'util'
 import cp from 'child_process'
+import logger from './logger'
 import {
     Almanac,
     Event,
@@ -10,15 +11,6 @@ import {
 } from 'json-rules-engine'
 
 type RuleResults = (ConditionProperties & RuleResult & { factResult: number })[]
-
-const logger = {
-    error(...messages: string[]) {
-        console.log('❌', ...messages)
-    },
-    success(...messages: string[]) {
-        console.log('✅', ...messages)
-    },
-}
 
 const ruleResultHandler = (
     event: Event,
@@ -44,13 +36,11 @@ async function main() {
     const command = 'npm pack --dry-run --json'
     const { stdout, stderr } = await util.promisify(cp.exec)(command)
     if (stderr) {
-        logger.error(stderr)
-        process.exit(1)
+        logger.fatal(stderr)
     }
     const npmPack = JSON.parse(stdout)
     if (npmPack.length === 0) {
-        logger.error('NPM pack is empty')
-        process.exit(1)
+        logger.fatal(`${command}: output is empty`)
     }
 
     const engine = new Engine()
