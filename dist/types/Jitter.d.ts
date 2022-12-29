@@ -1,3 +1,3 @@
-declare type Jitter = 'none' | 'full' | 'equal' | 'decorrelated';
+type Jitter = 'none' | 'full' | 'equal' | 'decorrelated';
 export default Jitter;
 //# sourceMappingURL=Jitter.d.ts.map
