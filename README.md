@@ -2,9 +2,6 @@
 
 # Reliable Fetch
 
-![minzipped size](https://img.shields.io/bundlephobia/minzip/@hachibu/reliable-fetch)
-![license](https://img.shields.io/github/license/hachibu/reliable-fetch?color=blue)
-
 An easy-to-use [Node.js](https://nodejs.org) library to make the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) more reliable.
 
 ```typescript
