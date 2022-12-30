@@ -72,6 +72,12 @@ const config = {
                         label: 'Docs',
                     },
                     {
+                        type: 'doc',
+                        docId: '/category/api',
+                        position: 'left',
+                        label: 'API',
+                    },
+                    {
                         href: 'https://www.npmjs.com/package/@hachibu/reliable-fetch',
                         label: 'NPM',
                         position: 'right',

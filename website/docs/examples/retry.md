@@ -4,7 +4,9 @@ sidebar_position: 2
 
 # Retry
 
-```ts title="examples/retry.ts"
+Retry a fetch request.
+
+```ts
 import reliableFetch from '@hachibu/reliable-fetch'
 
 async function main() {
@@ -23,3 +25,7 @@ async function main() {
 
 main()
 ```
+
+## Resources
+
+- https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/

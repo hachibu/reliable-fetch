@@ -30,11 +30,3 @@ async function main() {
 **[💻 Examples](https://github.com/hachibu/reliable-fetch-examples)**
 
 **[📦 NPM Package](https://www.npmjs.com/package/@hachibu/reliable-fetch)**
-
-## Installation
-
-**⚠️ Warning:** This library is only compatible with Node.js v18+ and relies on the native Fetch API which is an experimental feature.
-
-```
-npm i @hachibu/reliable-fetch@latest
-```

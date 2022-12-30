@@ -4,7 +4,9 @@ sidebar_position: 1
 
 # Timeout
 
-```ts title="examples/timeout.ts"
+Ensure that a fetch request times out.
+
+```ts
 import reliableFetch from '@hachibu/reliable-fetch'
 
 async function main() {

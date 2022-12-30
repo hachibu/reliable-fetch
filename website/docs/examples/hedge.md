@@ -4,7 +4,9 @@ sidebar_position: 3
 
 # Hedge
 
-```ts title="examples/hedge.ts"
+Hedge a fetch request.
+
+```ts
 import reliableFetch from '@hachibu/reliable-fetch'
 
 async function main() {
@@ -17,3 +19,7 @@ async function main() {
 
 main()
 ```
+
+## Resources
+
+- https://courses.cs.duke.edu//cps296.4/fall13/838-CloudPapers/dean_longtail.pdf

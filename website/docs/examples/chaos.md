@@ -4,7 +4,9 @@ sidebar_position: 4
 
 # Chaos
 
-```ts title="examples/chaos.ts"
+Randomly fail or slow down a fetch request.
+
+```ts
 import reliableFetch from '@hachibu/reliable-fetch'
 
 async function main() {
