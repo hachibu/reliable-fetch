@@ -9,5 +9,5 @@
 
 ### Publish Documentation Website
 
-1. `cd web`
+1. `cd website`
 2. `yarn deploy`

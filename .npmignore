@@ -3,7 +3,7 @@ docs
 examples
 scripts
 src
-web
+website
 
 *.md
 *.svg

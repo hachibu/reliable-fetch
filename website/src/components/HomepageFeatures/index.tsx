@@ -34,8 +34,8 @@ const FeatureList: FeatureItem[] = [
         Svg: require('@site/static/img/undraw-security.svg').default,
         description: (
             <>
-                Automated security checks, account takeover mitigations,
-                and a security policy.
+                Automated security checks, account takeover mitigations, and a
+                security policy.
             </>
         ),
     },
