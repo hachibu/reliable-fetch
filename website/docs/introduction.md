@@ -9,8 +9,9 @@ the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) more
 
 ## Quick Start
 
-1. Install [Node.js](https://nodejs.org/en/download) v18+
-2. `git clone git@github.com:hachibu/reliable-fetch-examples.git`
-3. `cd reliable-fetch-examples`
-4. `npm i`
-5. `npm exec ts-node src/timeout.ts`
+```bash
+git clone git@github.com:hachibu/reliable-fetch-examples.git \
+    && cd reliable-fetch-examples \
+    && npm i \
+    && npm exec ts-node src/timeout.ts
+```
