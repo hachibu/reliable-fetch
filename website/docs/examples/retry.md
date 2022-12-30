@@ -4,8 +4,6 @@ sidebar_position: 2
 
 # Retry
 
-...
-
 ```ts title="examples/retry.ts"
 import reliableFetch from '@hachibu/reliable-fetch'
 
