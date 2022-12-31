@@ -58,7 +58,7 @@ const config = {
     themeConfig:
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
-            image: 'img/logo.svg',
+            image: 'img/logo.png',
             navbar: {
                 title: 'Reliable Fetch',
                 logo: {
