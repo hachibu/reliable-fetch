@@ -19,11 +19,11 @@ async function main() {
 
 **✨ Features**
 
--   Lifecycle hooks
 -   Timeouts
 -   Retries with caps, backoff and jitter
 -   Hedged requests
 -   Random chaos
+-   Lifecycle hooks
 
 **[📖 Documentation](https://hachibu.github.io/reliable-fetch)**
 
