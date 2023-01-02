@@ -4,6 +4,7 @@ import {
     delayWithJitter,
     randomNumber,
     randomNumberBetween,
+    setTimeoutWithCancel,
 } from './index'
 import { Backoff, Jitter } from '../types'
 
@@ -34,6 +35,32 @@ describe('utils', () => {
                     expect(v).toBeGreaterThanOrEqual(min)
                     expect(v).toBeLessThanOrEqual(max)
                 }
+            }
+        )
+    })
+
+    describe('setTimeoutWithCancel', () => {
+        it.concurrent('calls callback function', async () => {
+            const callback = jest.fn()
+
+            jest.useFakeTimers()
+            setTimeoutWithCancel(callback, 1000)
+            jest.runAllTimers()
+
+            expect(callback).toBeCalled()
+        })
+
+        it.concurrent(
+            'does not call callback function when cancelled',
+            async () => {
+                const callback = jest.fn()
+
+                jest.useFakeTimers()
+                const { cancel } = setTimeoutWithCancel(callback, 1000)
+                cancel()
+                jest.runAllTimers()
+
+                expect(callback).not.toBeCalled()
             }
         )
     })
