@@ -46,7 +46,8 @@
         "lint:package": "ts-node scripts/lintPackage.ts",
         "lint:src": "eslint --fix .",
         "prepare": "husky install",
-        "test": "jest --no-cache"
+        "test": "jest --no-cache",
+        "test:coverage": "yarn test && open coverage/lcov-report/index.html"
     },
     "engines": {
         "node": ">= 18"
