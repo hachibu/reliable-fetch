@@ -136,3 +136,9 @@ type Backoff = 'constant' | 'exponential';
 ```ts
 type Jitter = 'none' | 'full' | 'equal' | 'decorrelated';
 ```
+
+### EventName
+
+```ts
+type EventName = 'timeout' | 'retry' | 'hedge' | 'chaos:down' | 'chaos:slow'
+```
