@@ -1,5 +1,6 @@
 import { Application, TSConfigReader, TypeDocReader } from 'typedoc'
-import { copyFileSync, readFileSync, writeFileSync } from 'fs'
+import { readFile, writeFile } from 'node:fs/promises'
+import { EOL } from 'os'
 
 async function main() {
     const app = new Application()
@@ -31,19 +32,19 @@ async function main() {
     ]
 
     for (const [path, json] of categories) {
-        writeFileSync(`${path}/_category_.json`, JSON.stringify(json, null, 4))
+        await writeFile(
+            `${path}/_category_.json`,
+            JSON.stringify(json, null, 4)
+        )
     }
 
     const readmePath = `${out}/README.md`
-    const readmeLines = lines(readmePath).slice(1)
+    const readmeData = await readFile(readmePath, { encoding: 'utf-8' })
+    const readmeLines = readmeData.split(EOL).slice(1)
 
     readmeLines.unshift('# API')
 
-    writeFileSync(readmePath, readmeLines.join('\n'))
-}
-
-function lines(path) {
-    return readFileSync(path).toString().split('\n')
+    await writeFile(readmePath, readmeLines.join(EOL))
 }
 
 main().catch(console.error)
