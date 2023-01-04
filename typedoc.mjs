@@ -1,5 +1,5 @@
 import { Application, TSConfigReader, TypeDocReader } from 'typedoc'
-import { readFileSync, writeFileSync } from 'fs'
+import { copyFileSync, readFileSync, writeFileSync } from 'fs'
 
 async function main() {
     const app = new Application()
@@ -35,12 +35,15 @@ async function main() {
     }
 
     const readmePath = `${out}/README.md`
+    const readmeLines = lines(readmePath).slice(1)
 
-    writeFileSync(readmePath, rmLines(readmePath, 2))
+    readmeLines.unshift('# API')
+
+    writeFileSync(readmePath, readmeLines.join('\n'))
 }
 
-function rmLines(path, numLines) {
-    return readFileSync(path).toString().split('\n').slice(numLines).join('\n')
+function lines(path) {
+    return readFileSync(path).toString().split('\n')
 }
 
 main().catch(console.error)
