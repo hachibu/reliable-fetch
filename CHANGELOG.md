@@ -1,6 +1,6 @@
 # Reliable Fetch Changelog
 
-## TBD
+## 1.0.1 (2023-01-04)
 
 ### New Features
 
