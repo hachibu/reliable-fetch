@@ -1,43 +1,51 @@
+import path from 'path'
 import { Application, TSConfigReader, TypeDocReader } from 'typedoc'
+import { EOL } from 'node:os'
 import { readFile, writeFile } from 'node:fs/promises'
-import { EOL } from 'os'
+
+const TYPEDOC_OPTIONS = {
+    entryPoints: ['src/index.ts'],
+    plugin: ['typedoc-plugin-markdown'],
+    hideBreadcrumbs: true,
+    hideInPageTOC: true,
+    githubPages: false,
+    gitRevision: 'main',
+    readme: 'none',
+}
 
 async function main() {
     const app = new Application()
-    const out = 'website/docs/api'
 
     app.options.addReader(new TSConfigReader())
     app.options.addReader(new TypeDocReader())
 
-    app.bootstrap({
-        entryPoints: ['src/index.ts'],
-        plugin: ['typedoc-plugin-markdown'],
-        hideBreadcrumbs: true,
-        hideInPageTOC: true,
-        githubPages: false,
-        gitRevision: 'main',
-        readme: 'none',
-    })
+    app.bootstrap(TYPEDOC_OPTIONS)
 
     const project = app.convert()
+    const out = 'website/docs/api'
 
-    if (project) {
-        await app.generateDocs(project, out)
-    }
+    await app.generateDocs(project, out)
 
+    // generate category metadata file for each folder
     const categories = [
-        [`${out}`, { label: 'API' }],
-        [`${out}/classes`, { label: 'Classes' }],
-        [`${out}/interfaces`, { label: 'Interfaces' }],
+        { segment: '', label: 'API' },
+        { segment: 'classes', label: 'Classes' },
+        { segment: 'interfaces', label: 'Interfaces' },
     ]
 
-    for (const [path, json] of categories) {
-        await writeFile(
-            `${path}/_category_.json`,
-            JSON.stringify(json, null, 4)
+    for (const category of categories) {
+        const categoryPath = path.join(out, category.segment, '_category_.json')
+        const categoryData = JSON.stringify(
+            {
+                label: category.label,
+            },
+            null,
+            4
         )
+        await writeFile(categoryPath, categoryData)
     }
 
+    // overwrite website/docs/api/README.md header
     const readmePath = `${out}/README.md`
     const readmeData = await readFile(readmePath, { encoding: 'utf-8' })
     const readmeLines = readmeData.split(EOL).slice(1)
