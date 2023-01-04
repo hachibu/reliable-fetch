@@ -1,5 +1,3 @@
-# @hachibu/reliable-fetch
-
 ## Classes
 
 - [ReliableFetch](classes/ReliableFetch.md)

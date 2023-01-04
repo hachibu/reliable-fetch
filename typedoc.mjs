@@ -1,5 +1,5 @@
 import { Application, TSConfigReader, TypeDocReader } from 'typedoc'
-import { writeFileSync } from 'fs'
+import { readFileSync, writeFileSync } from 'fs'
 
 async function main() {
     const app = new Application()
@@ -33,6 +33,14 @@ async function main() {
     for (const [path, json] of categories) {
         writeFileSync(`${path}/_category_.json`, JSON.stringify(json, null, 4))
     }
+
+    const readmePath = `${out}/README.md`
+
+    writeFileSync(readmePath, rmLines(readmePath, 2))
+}
+
+function rmLines(path, numLines) {
+    return readFileSync(path).toString().split('\n').slice(numLines).join('\n')
 }
 
 main().catch(console.error)
