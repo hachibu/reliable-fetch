@@ -1,8 +1,3 @@
 {
-  "label": "API",
-  "position": 3,
-  "link": {
-    "type": "generated-index",
-    "description": "Reliable Fetch exposes both core API functions and a fluent object-oriented API."
-  }
+    "label": "API"
 }

@@ -9,5 +9,6 @@
 
 ### Publish Documentation Website
 
+1. `yarn build:typedoc`
 1. `cd website`
 2. `yarn deploy`
