@@ -4,7 +4,7 @@
 
 ### New Features
 
--   Auto-generated TypeScript documentation using [TypeDoc](https://typedoc.org).
+-   Auto-generated TypeScript documentation using [TypeDoc](https://typedoc.org) ([9354045](https://github.com/hachibu/reliable-fetch/commit/9354045b227281bfd887b1f347ce91a6ad3fb5ec)).
 
 ### Committers: 1
 
