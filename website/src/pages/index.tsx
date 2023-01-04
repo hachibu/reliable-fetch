@@ -21,10 +21,7 @@ function HomepageHeader() {
 export default function Home(): JSX.Element {
     const { siteConfig } = useDocusaurusContext()
     return (
-        <Layout
-            title={siteConfig.title}
-            description="An easy-to-use Node.js library to make the Fetch API more reliable."
-        >
+        <Layout title={siteConfig.title} description={siteConfig.tagline}>
             <HomepageHeader />
             <main>
                 <HomepageFeatures />

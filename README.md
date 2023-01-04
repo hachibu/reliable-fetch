@@ -2,7 +2,7 @@
 
 # Reliable Fetch
 
-An easy-to-use [Node.js](https://nodejs.org) library to make the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) more reliable.
+An easy-to-use [Node.js](https://nodejs.org) library to make the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) more reliable with timeouts, retries, and more.
 
 ```typescript
 import reliableFetch from '@hachibu/reliable-fetch'
