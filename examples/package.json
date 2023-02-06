@@ -1,0 +1,8 @@
+{
+    "name": "reliable-fetch-examples",
+    "private": true,
+    "dependencies": {
+        "@hachibu/reliable-fetch": "^0.0.60",
+        "ts-node": "^10.9.1"
+    }
+}
