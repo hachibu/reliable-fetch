@@ -43,7 +43,8 @@
         "typescript": "^4.9.5"
     },
     "scripts": {
-        "build": "rm -rf dist/* && yarn tsc && yarn node esbuild.mjs",
+        "build": "yarn run build:package && yarn run build:typedoc",
+        "build:package": "rm -rf dist/* && yarn tsc && yarn node esbuild.mjs",
         "build:typedoc": "yarn node typedoc.mjs",
         "lint": "yarn run lint:src && yarn run lint:package",
         "lint:package": "ts-node scripts/lintPackage.ts",
