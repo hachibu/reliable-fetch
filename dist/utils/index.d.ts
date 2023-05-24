@@ -2,6 +2,7 @@
 /// <reference types="node" />
 /// <reference types="node" />
 /// <reference types="node" />
+/// <reference types="node" />
 import { Backoff, Jitter } from '../types';
 export declare const randomNumber: () => number;
 export declare const randomNumberBetween: (min: number, max: number) => number;
